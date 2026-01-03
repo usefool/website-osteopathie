@@ -75,11 +75,34 @@ src/
 | Text | Dunkelbraun | #3d2e24 |
 | Text Muted | Mittelbraun | #6b5648 |
 
+## Susanne Hoppe – CV
+
+**Qualifikationen:**
+- Physiotherapeutin (staatlich anerkannt seit 2002)
+- Bobath-Therapeutin
+- Manualtherapeutin
+- Zertifizierte Kinderosteopathin
+
+**Schwerpunkte:**
+- Säuglingsbehandlung / Osteopathie
+- Behandlung der Kindsmutter (im Wochenbett und darüber hinaus)
+
+**Beruflicher Werdegang:**
+| Zeitraum | Tätigkeit |
+|----------|-----------|
+| Seit 2002 | Staatlich anerkannte Physiotherapeutin |
+| 2002–2016 | Anstellung in physiotherapeutischen Praxen |
+| Seit 2016 | Angestellte Physiotherapeutin am **UKL (Universitätsklinikum Leipzig)** / Kinderklinik |
+
+**Klinischer Schwerpunkt (UKL):**
+- Neonatologie
+- Kinderintensivstation
+- Neuropädiatrie
+
 ## TODOs für Content
 
-Alle Seiten haben `TODO-Badge` Platzhalter für:
+Alle Seiten haben Platzhalter für:
 - Kontaktdaten (Telefon, E-Mail, Adresse)
-- Berufliche Details (Abschlussjahre, Klinik-Name)
 - Portrait-Foto
 
 ## Nächste Schritte

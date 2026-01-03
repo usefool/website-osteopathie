@@ -7,16 +7,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-tag">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-          </svg>
-          <span>Mobile Kinderosteopathie Leipzig</span>
-        </div>
-        <h1>Sanfte Hände für <span class="accent">kleine Patienten</span></h1>
+        <span class="tag-handwritten">Osteopathie für Neugeborene & Mütter</span>
+        <h1><span class="accent">Geborgen Ankommen</span></h1>
         <p class="hero-text">
-          Ich komme zu Ihnen nach Hause – für eine entspannte osteopathische
-          Behandlung Ihres Kindes in vertrauter Umgebung.
+          Osteopathische Behandlung für Säuglinge und Mütter in Leipzig.<br />
+          Ich komme zu Ihnen nach Hause, damit Sie und Ihr Baby<br />
+          in Ruhe ankommen können.
         </p>
         <div class="hero-buttons">
           <a href="/kontakt" class="btn btn-primary">
@@ -192,29 +188,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .hero {
     padding: 48px 0 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/hero_abstract2.png');
+    background-size: cover;
+    background-position: center top;
+    opacity: 0.12;
+    filter: saturate(0.4);
+    z-index: -1;
   }
 
   .hero-content {
     max-width: 640px;
   }
 
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    color: var(--color-accent);
-    padding: 8px 16px;
-    border-radius: 30px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    margin-bottom: 24px;
-  }
-
-  .hero-tag svg {
-    width: 18px;
-    height: 18px;
+  .hero .tag-handwritten {
+    margin-bottom: 20px;
   }
 
   .hero h1 {

@@ -39,7 +39,7 @@ const currentPath = Astro.url.pathname;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
@@ -53,10 +53,7 @@ const currentPath = Astro.url.pathname;
 
     <header class="header">
       <div class="container header-inner">
-        <a href="/" class="logo">
-          <span class="logo-icon">SH</span>
-          <span class="logo-text">Susanne Hoppe</span>
-        </a>
+        <a href="/" class="logo">Susanne Hoppe</a>
 
         <nav class="nav-desktop">
           {navItems.map((item) => (
@@ -100,7 +97,7 @@ const currentPath = Astro.url.pathname;
         <div class="footer-grid">
           <div class="footer-brand">
             <h3>Susanne Hoppe</h3>
-            <p>Mobile Kinderosteopathie in Leipzig.<br />Behandlung bei Ihnen zuhause.</p>
+            <p>Kinderphysiotherapeutin und<br />zertifizierte Kinder-Osteopathin.</p>
           </div>
 
           <div class="footer-nav">
@@ -153,8 +150,10 @@ const currentPath = Astro.url.pathname;
       .header {
         position: sticky;
         top: 0;
-        background: var(--color-bg);
-        border-bottom: 1px solid var(--color-border);
+        background: rgba(250, 246, 241, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(198, 125, 90, 0.12);
         z-index: 100;
       }
 
@@ -166,31 +165,16 @@ const currentPath = Astro.url.pathname;
       }
 
       .logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        text-decoration: none;
-      }
-
-      .logo-icon {
-        width: 44px;
-        height: 44px;
-        background: var(--color-accent);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
         font-family: var(--font-serif);
-        font-weight: 600;
-        font-size: 1rem;
-      }
-
-      .logo-text {
-        font-family: var(--font-serif);
-        font-size: 1.125rem;
+        font-size: 1.25rem;
         font-weight: 500;
         color: var(--color-text);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .logo:hover {
+        color: var(--color-accent);
       }
 
       /* Desktop Navigation */
@@ -247,8 +231,10 @@ const currentPath = Astro.url.pathname;
         display: none;
         flex-direction: column;
         padding: 16px var(--container-padding) 24px;
-        border-top: 1px solid var(--color-border);
-        background: var(--color-bg);
+        border-top: 1px solid rgba(198, 125, 90, 0.15);
+        background: rgba(250, 246, 241, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
       }
 
       .nav-mobile.open {
