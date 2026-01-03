@@ -1,43 +1,73 @@
-# Astro Starter Kit: Minimal
+# Mobile Kinderosteopathie Leipzig
 
-```sh
-npm create astro@latest -- --template minimal
+Website für Susanne Hoppe – Mobile Kinderosteopathie in Leipzig.
+
+## Tech Stack
+
+- **Framework:** Astro 5.x
+- **Styling:** Tailwind CSS 4.x
+- **Deployment:** Cloudflare Pages
+- **Sprachen:** Deutsch / English
+
+## Entwicklung
+
+```bash
+# Dependencies installieren
+npm install
+
+# Dev-Server starten (localhost:4321)
+npm run dev
+
+# Produktions-Build
+npm run build
+
+# Build-Preview
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Projektstruktur
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```
+src/
+├── pages/
+│   ├── index.astro          # Startseite (DE)
+│   ├── ueber-mich.astro     # Über mich
+│   ├── leistungen.astro     # Leistungen
+│   ├── kontakt.astro        # Kontakt
+│   ├── en/                  # Englische Seiten
+│   └── project/             # Projekt-Dokumentation
+│       ├── designs/         # 6 Typo-Varianten (S1-S6)
+│       └── designs-archive/ # Archiv (T1-T18, V1-V24)
+├── layouts/
+│   └── BaseLayout.astro
+├── i18n/
+│   └── translations.ts
+└── styles/
+    └── global.css
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Design
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+**V24 Dark Luxury** – Gewähltes Design mit:
+- Navy (#0a1628)
+- Gold (#c9a962)
+- Cream (#f9f7f3)
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Typografie-Varianten
 
-## 🧞 Commands
+| Variante | Schrift | Stil |
+|----------|---------|------|
+| S1 | Playfair Display | Klassisch elegant |
+| S2 | Newsreader | Cool Silver |
+| S3 | Crimson Pro | High Contrast |
+| S4 | Inter | Modern minimalistisch |
+| S5 | Manrope | Kräftig modern |
+| S6 | Space Grotesk | Tech/Cool |
 
-All commands are run from the root of the project, from a terminal:
+## Deployment
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Automatisches Deployment via Cloudflare Pages bei Push auf `main`.
 
-## 👀 Want to learn more?
+## Lizenz
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Privates Projekt.
