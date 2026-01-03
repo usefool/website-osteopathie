@@ -1,151 +1,383 @@
 ---
 /**
- * Base Layout
- * Main layout wrapper for all pages
+ * Base Layout - S7 Erdtöne Theme
+ * Mobile Kinderosteopathie Leipzig - Susanne Hoppe
  */
 
 interface Props {
   title: string;
   description?: string;
-  lang?: 'de' | 'en';
 }
 
 const {
   title,
   description = 'Mobile Kinderosteopathie in Leipzig - Susanne Hoppe. Osteopathische Behandlung für Ihr Kind bei Ihnen zuhause.',
-  lang = 'de',
 } = Astro.props;
 
 const siteTitle = 'Susanne Hoppe - Mobile Kinderosteopathie Leipzig';
 const fullTitle = title === 'Home' ? siteTitle : `${title} | ${siteTitle}`;
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/ueber-mich', label: 'Über mich' },
+  { href: '/leistungen', label: 'Leistungen' },
+  { href: '/kontakt', label: 'Kontakt' },
+];
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-
-    <!-- Favicon (placeholder) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <!-- Title -->
     <title>{fullTitle}</title>
 
-    <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Fonts: Inter + Newsreader (V3 Spotlight Design) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Open Graph / Social Media -->
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content={lang === 'de' ? 'de_DE' : 'en_US'} />
-
-    <!-- Global CSS -->
-    <style>
-      @import '../styles/global.css';
-    </style>
+    <meta property="og:locale" content="de_DE" />
   </head>
-  <body class="min-h-screen flex flex-col">
-    <!-- Skip to content link for accessibility -->
-    <a
-      href="#main-content"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-md z-50"
-    >
-      {lang === 'de' ? 'Zum Inhalt springen' : 'Skip to content'}
-    </a>
+  <body>
+    <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
-    <!-- Header - V3 Spotlight Style -->
-    <header class="py-8">
-      <slot name="header">
-        <div class="container">
-          <div class="flex items-center justify-between">
-            <!-- Logo/Brand -->
-            <a href="/" class="font-semibold text-lg" style="color: var(--color-zinc-900);">
-              Susanne Hoppe
+    <header class="header">
+      <div class="container header-inner">
+        <a href="/" class="logo">
+          <span class="logo-icon">SH</span>
+          <span class="logo-text">Susanne Hoppe</span>
+        </a>
+
+        <nav class="nav-desktop">
+          {navItems.map((item) => (
+            <a
+              href={item.href}
+              class={`nav-link ${currentPath === item.href ? 'active' : ''}`}
+            >
+              {item.label}
             </a>
+          ))}
+        </nav>
 
-            <!-- Navigation - V3 Pill Style -->
-            <nav class="hidden md:flex items-center gap-2 bg-zinc-100 p-1 rounded-full shadow-sm">
-              <a href="/" class="px-4 py-2 text-sm font-medium rounded-full transition-all" style="color: var(--color-zinc-600);">
-                Home
-              </a>
-              <a href="/ueber-mich" class="px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white" style="color: var(--color-zinc-600);">
-                Über mich
-              </a>
-              <a href="/leistungen" class="px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white" style="color: var(--color-zinc-600);">
-                Leistungen
-              </a>
-              <a href="/kontakt" class="px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white" style="color: var(--color-zinc-600);">
-                Kontakt
-              </a>
-            </nav>
+        <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
 
-            <!-- Mobile menu button -->
-            <button class="md:hidden p-2" aria-label="Menü öffnen">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </slot>
+      <nav class="nav-mobile">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class={`nav-mobile-link ${currentPath === item.href ? 'active' : ''}`}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
     </header>
 
-    <!-- Main content -->
-    <main id="main-content" class="flex-1">
+    <main id="main-content">
       <slot />
     </main>
 
-    <!-- Footer - V3 Minimal Style -->
-    <footer class="border-t mt-auto" style="border-color: var(--color-zinc-200); background-color: var(--color-zinc-50);">
-      <slot name="footer">
-        <div class="container py-12">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Brand -->
-            <div>
-              <h3 class="font-semibold text-base mb-3" style="color: var(--color-zinc-900);">Susanne Hoppe</h3>
-              <p class="text-sm" style="color: var(--color-zinc-600);">
-                Mobile Kinderosteopathie in Leipzig.<br />
-                Behandlung bei Ihnen zuhause.
-              </p>
-            </div>
-
-            <!-- Quick Links -->
-            <div>
-              <h3 class="font-semibold text-base mb-3" style="color: var(--color-zinc-900);">Navigation</h3>
-              <ul class="space-y-2">
-                <li><a href="/" class="text-sm hover:text-primary" style="color: var(--color-zinc-600);">Home</a></li>
-                <li><a href="/ueber-mich" class="text-sm hover:text-primary" style="color: var(--color-zinc-600);">Über mich</a></li>
-                <li><a href="/leistungen" class="text-sm hover:text-primary" style="color: var(--color-zinc-600);">Leistungen</a></li>
-                <li><a href="/kontakt" class="text-sm hover:text-primary" style="color: var(--color-zinc-600);">Kontakt</a></li>
-              </ul>
-            </div>
-
-            <!-- Legal -->
-            <div>
-              <h3 class="font-semibold text-base mb-3" style="color: var(--color-zinc-900);">Rechtliches</h3>
-              <ul class="space-y-2">
-                <li><a href="/impressum" class="text-sm hover:text-primary" style="color: var(--color-zinc-600);">Impressum</a></li>
-                <li><a href="/datenschutz" class="text-sm hover:text-primary" style="color: var(--color-zinc-600);">Datenschutz</a></li>
-              </ul>
-            </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h3>Susanne Hoppe</h3>
+            <p>Mobile Kinderosteopathie in Leipzig.<br />Behandlung bei Ihnen zuhause.</p>
           </div>
 
-          <!-- Copyright -->
-          <div class="mt-8 pt-8 text-center text-sm" style="border-top: 1px solid var(--color-zinc-200); color: var(--color-zinc-500);">
-            <p>&copy; {new Date().getFullYear()} Susanne Hoppe. Alle Rechte vorbehalten.</p>
+          <div class="footer-nav">
+            <h3>Navigation</h3>
+            <ul>
+              {navItems.map((item) => (
+                <li><a href={item.href}>{item.label}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="footer-legal">
+            <h3>Rechtliches</h3>
+            <ul>
+              <li><a href="/impressum">Impressum</a></li>
+              <li><a href="/datenschutz">Datenschutz</a></li>
+            </ul>
           </div>
         </div>
-      </slot>
+
+        <div class="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} Susanne Hoppe. Alle Rechte vorbehalten.</p>
+        </div>
+      </div>
     </footer>
+
+    <style is:global>
+      @import '../styles/global.css';
+
+      /* ============================================
+         HEADER
+         ============================================ */
+
+      .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 16px;
+        background: var(--color-accent);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        z-index: 1000;
+        transition: top 0.2s;
+      }
+
+      .skip-link:focus {
+        top: 16px;
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        background: var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
+        z-index: 100;
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .logo-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--color-accent);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: var(--font-serif);
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .logo-text {
+        font-family: var(--font-serif);
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: var(--color-text);
+      }
+
+      /* Desktop Navigation */
+      .nav-desktop {
+        display: none;
+        gap: 32px;
+      }
+
+      .nav-link {
+        color: var(--color-text-muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--color-accent);
+      }
+
+      /* Mobile Menu Toggle */
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--color-text);
+      }
+
+      .menu-toggle svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .menu-toggle .close-icon {
+        display: none;
+      }
+
+      .menu-toggle[aria-expanded="true"] .menu-icon {
+        display: none;
+      }
+
+      .menu-toggle[aria-expanded="true"] .close-icon {
+        display: block;
+      }
+
+      /* Mobile Navigation */
+      .nav-mobile {
+        display: none;
+        flex-direction: column;
+        padding: 16px var(--container-padding) 24px;
+        border-top: 1px solid var(--color-border);
+        background: var(--color-bg);
+      }
+
+      .nav-mobile.open {
+        display: flex;
+      }
+
+      .nav-mobile-link {
+        display: block;
+        padding: 14px 0;
+        color: var(--color-text-muted);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        border-bottom: 1px solid var(--color-border-light);
+      }
+
+      .nav-mobile-link:last-child {
+        border-bottom: none;
+      }
+
+      .nav-mobile-link:hover,
+      .nav-mobile-link.active {
+        color: var(--color-accent);
+      }
+
+      /* ============================================
+         FOOTER
+         ============================================ */
+
+      .footer {
+        background: var(--color-bg-alt);
+        border-top: 1px solid var(--color-border);
+        padding: 48px 0 32px;
+        margin-top: auto;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer h3 {
+        font-family: var(--font-serif);
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: 12px;
+        color: var(--color-text);
+      }
+
+      .footer-brand p {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .footer-nav ul,
+      .footer-legal ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-nav li,
+      .footer-legal li {
+        margin-bottom: 8px;
+      }
+
+      .footer-nav a,
+      .footer-legal a {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .footer-nav a:hover,
+      .footer-legal a:hover {
+        color: var(--color-accent);
+      }
+
+      .footer-bottom {
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 1px solid var(--color-border);
+        text-align: center;
+      }
+
+      .footer-bottom p {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+        margin: 0;
+      }
+
+      /* ============================================
+         RESPONSIVE
+         ============================================ */
+
+      @media (min-width: 768px) {
+        .nav-desktop {
+          display: flex;
+        }
+
+        .menu-toggle {
+          display: none;
+        }
+
+        .nav-mobile {
+          display: none !important;
+        }
+
+        .footer-grid {
+          grid-template-columns: 2fr 1fr 1fr;
+        }
+      }
+    </style>
+
+    <script>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navMobile = document.querySelector('.nav-mobile');
+
+      if (menuToggle && navMobile) {
+        menuToggle.addEventListener('click', () => {
+          const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+          navMobile.classList.toggle('open');
+        });
+      }
+    </script>
   </body>
 </html>

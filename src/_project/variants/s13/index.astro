@@ -1,0 +1,494 @@
+---
+/**
+ * S13 - Manrope Frosted Rose
+ * Based on S5 (Manrope Bold) with Rose accent + Glassmorphism
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S13: Manrope Frosted Rose | Typografie-Variante</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-rose: #d4a5a5;
+      --color-rose-light: #e0b8b8;
+      --color-rose-muted: #c29999;
+      --color-navy: #050810;
+      --color-navy-light: #0a1018;
+      --color-navy-slate: #0f141c;
+      --color-white: #ffffff;
+      --color-ice: #f4f6f8;
+      --font-sans: 'Manrope', -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-white);
+      background: var(--color-navy);
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Gradient mesh background with rose glow */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 25% 25%, rgba(212, 165, 165, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(212, 165, 165, 0.12) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .variant-tag {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(212, 165, 165, 0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 165, 165, 0.3);
+      color: var(--color-ice);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header - Glass */
+    .header {
+      padding: 24px 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 20, 28, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(212, 165, 165, 0.1);
+      border-radius: 20px;
+      padding: 12px 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(212, 165, 165, 0.15);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(212, 165, 165, 0.25);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-ice);
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .logo-text {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-white);
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+    }
+
+    .nav a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+
+    .nav a:hover {
+      color: var(--color-white);
+      background: rgba(212, 165, 165, 0.1);
+    }
+
+    .nav a.active {
+      color: var(--color-rose);
+      background: rgba(212, 165, 165, 0.15);
+    }
+
+    .hero {
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 165, 165, 0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 165, 165, 0.25);
+      color: var(--color-rose);
+      padding: 12px 24px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 36px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.08;
+      color: var(--color-white);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      color: var(--color-rose);
+    }
+
+    .hero .lead {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 44px;
+      font-weight: 500;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 36px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border-radius: 40px;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: rgba(212, 165, 165, 0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 165, 165, 0.35);
+      color: var(--color-ice);
+    }
+
+    .btn-primary:hover {
+      background: rgba(212, 165, 165, 0.35);
+      border-color: rgba(212, 165, 165, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(212, 165, 165, 0.25);
+    }
+
+    /* Features - Glass Cards */
+    .features {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .features::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 20, 28, 0.3);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: -1;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: rgba(15, 20, 28, 0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(212, 165, 165, 0.08);
+      border-radius: 24px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      background: rgba(15, 20, 28, 0.6);
+      border-color: rgba(212, 165, 165, 0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(212, 165, 165, 0.12);
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(212, 165, 165, 0.1);
+      border: 1px solid rgba(212, 165, 165, 0.2);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+    }
+
+    .feature-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--color-rose);
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Typography Info - Glass */
+    .typo-info {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .typo-info h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-rose);
+      margin-bottom: 40px;
+    }
+
+    .font-sample {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+    }
+
+    .font-sample div { text-align: left; }
+
+    .font-sample h4 {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .sample-headline {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--color-white);
+    }
+
+    .sample-body {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--color-white);
+    }
+
+    .color-palette {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .palette-item {
+      text-align: center;
+      background: rgba(15, 20, 28, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 165, 165, 0.1);
+      border-radius: 16px;
+      padding: 20px 16px;
+      min-width: 100px;
+    }
+
+    .palette-swatch {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      margin: 0 auto 12px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .palette-name {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 2px;
+    }
+
+    .palette-hex {
+      font-size: 0.65rem;
+      color: var(--color-rose);
+      font-family: monospace;
+    }
+
+    .palette-item.accent .palette-swatch {
+      box-shadow: 0 0 24px rgba(212, 165, 165, 0.35);
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .header-inner { padding: 12px 16px; }
+      .hero h1 { font-size: 2.5rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .font-sample { flex-direction: column; gap: 32px; align-items: center; }
+      .color-palette { gap: 12px; }
+      .palette-item { min-width: 80px; padding: 16px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="variant-tag">S13: Frosted Rose</div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">SH</div>
+          <span class="logo-text">Susanne Hoppe</span>
+        </a>
+        <nav class="nav">
+          <a href="#" class="active">Home</a>
+          <a href="#">Über mich</a>
+          <a href="#">Leistungen</a>
+          <a href="#">Kontakt</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Mobile Kinderosteopathie Leipzig</div>
+      <h1>Sanfte <span>Osteopathie</span><br>für Ihr Kind</h1>
+      <p class="lead">
+        Begleitende osteopathische Behandlung für Säuglinge, Kinder und ihre Familien –
+        einfühlsam und bei Ihnen zuhause.
+      </p>
+      <a href="#" class="btn btn-primary">Termin anfragen</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+          </div>
+          <h3>Bei Ihnen zuhause</h3>
+          <p>Entspannte Behandlung in vertrauter Umgebung für Ihr Kind.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5z M2 17l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Klinische Erfahrung</h3>
+          <p>Tätig auf einer Neugeborenenstation mit medizinischer Expertise.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Für die Familie</h3>
+          <p>Ganzheitliche Begleitung für Kinder und ihre Familien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="typo-info">
+    <div class="container">
+      <h2>Glassmorphism & Farben</h2>
+      <div class="font-sample">
+        <div>
+          <h4>Headlines</h4>
+          <p class="sample-headline">Manrope 800</p>
+        </div>
+        <div>
+          <h4>Body</h4>
+          <p class="sample-body">Manrope 500</p>
+        </div>
+      </div>
+      <div class="color-palette">
+        <div class="palette-item">
+          <div class="palette-swatch" style="background: rgba(15, 20, 28, 0.6); backdrop-filter: blur(8px);"></div>
+          <div class="palette-name">Glass Dark</div>
+          <div class="palette-hex">rgba()</div>
+        </div>
+        <div class="palette-item">
+          <div class="palette-swatch" style="background: #050810;"></div>
+          <div class="palette-name">Deep Navy</div>
+          <div class="palette-hex">#050810</div>
+        </div>
+        <div class="palette-item accent">
+          <div class="palette-swatch" style="background: #d4a5a5;"></div>
+          <div class="palette-name">Soft Rose</div>
+          <div class="palette-hex">#d4a5a5</div>
+        </div>
+        <div class="palette-item">
+          <div class="palette-swatch" style="background: #ffffff;"></div>
+          <div class="palette-name">White</div>
+          <div class="palette-hex">#ffffff</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

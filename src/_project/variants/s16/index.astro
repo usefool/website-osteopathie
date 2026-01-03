@@ -1,0 +1,405 @@
+---
+/**
+ * S16 - Manrope Rose Blue
+ * Based on S12 (Manrope + Rose) with bluer background
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S16: Manrope Rose Blue | Typografie-Variante</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-rose: #d4a5a5;
+      --color-rose-light: #e0b8b8;
+      --color-blue: #0c1a2e;
+      --color-blue-light: #142640;
+      --color-white: #ffffff;
+      --font-sans: 'Manrope', -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-white);
+      background: var(--color-blue);
+      line-height: 1.6;
+    }
+
+    .variant-tag {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--color-rose);
+      color: var(--color-blue);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .header {
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(212, 165, 165, 0.1);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--color-rose);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-blue);
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .logo-text {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-white);
+    }
+
+    .nav {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover { color: var(--color-white); }
+    .nav a.active { color: var(--color-rose); }
+
+    .hero {
+      padding: 120px 0;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 165, 165, 0.12);
+      border: 1px solid rgba(212, 165, 165, 0.25);
+      color: var(--color-rose);
+      padding: 12px 24px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 36px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.08;
+      color: var(--color-white);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      color: var(--color-rose);
+    }
+
+    .hero .lead {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 44px;
+      font-weight: 500;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 36px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border-radius: 40px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--color-rose);
+      color: var(--color-blue);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-rose-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(212, 165, 165, 0.35);
+    }
+
+    .features {
+      padding: 100px 0;
+      background: var(--color-blue-light);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .feature-card {
+      background: var(--color-blue);
+      border: 1px solid rgba(212, 165, 165, 0.08);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--color-rose);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(212, 165, 165, 0.1);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+    }
+
+    .feature-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--color-rose);
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .typo-info {
+      padding: 80px 0;
+      text-align: center;
+      border-top: 1px solid rgba(212, 165, 165, 0.08);
+    }
+
+    .typo-info h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-rose);
+      margin-bottom: 40px;
+    }
+
+    .font-sample {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+    }
+
+    .font-sample div { text-align: left; }
+
+    .font-sample h4 {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .sample-headline {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--color-white);
+    }
+
+    .sample-body {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--color-white);
+    }
+
+    .color-palette {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .palette-item { text-align: center; }
+
+    .palette-swatch {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      margin-bottom: 8px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .palette-name {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 2px;
+    }
+
+    .palette-hex {
+      font-size: 0.65rem;
+      color: var(--color-rose);
+      font-family: monospace;
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero h1 { font-size: 2.5rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .font-sample { flex-direction: column; gap: 32px; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="variant-tag">S16: Rose Blue</div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">SH</div>
+          <span class="logo-text">Susanne Hoppe</span>
+        </a>
+        <nav class="nav">
+          <a href="#" class="active">Home</a>
+          <a href="#">Über mich</a>
+          <a href="#">Leistungen</a>
+          <a href="#">Kontakt</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Mobile Kinderosteopathie Leipzig</div>
+      <h1>Sanfte <span>Osteopathie</span><br>für Ihr Kind</h1>
+      <p class="lead">
+        Begleitende osteopathische Behandlung für Säuglinge, Kinder und ihre Familien –
+        einfühlsam und bei Ihnen zuhause.
+      </p>
+      <a href="#" class="btn btn-primary">Termin anfragen</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+          </div>
+          <h3>Bei Ihnen zuhause</h3>
+          <p>Entspannte Behandlung in vertrauter Umgebung für Ihr Kind.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5z M2 17l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Klinische Erfahrung</h3>
+          <p>Tätig auf einer Neugeborenenstation mit medizinischer Expertise.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Für die Familie</h3>
+          <p>Ganzheitliche Begleitung für Kinder und ihre Familien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="typo-info">
+    <div class="container">
+      <h2>Typografie & Farben dieser Variante</h2>
+      <div class="font-sample">
+        <div>
+          <h4>Headlines</h4>
+          <p class="sample-headline">Manrope 800</p>
+        </div>
+        <div>
+          <h4>Body</h4>
+          <p class="sample-body">Manrope 500</p>
+        </div>
+      </div>
+      <div class="color-palette">
+        <div class="palette-item">
+          <div class="palette-swatch" style="background: #0c1a2e;"></div>
+          <div class="palette-name">Deep Blue</div>
+          <div class="palette-hex">#0c1a2e</div>
+        </div>
+        <div class="palette-item">
+          <div class="palette-swatch" style="background: #d4a5a5;"></div>
+          <div class="palette-name">Soft Rose</div>
+          <div class="palette-hex">#d4a5a5</div>
+        </div>
+        <div class="palette-item">
+          <div class="palette-swatch" style="background: #ffffff;"></div>
+          <div class="palette-name">White</div>
+          <div class="palette-hex">#ffffff</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

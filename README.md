@@ -2,12 +2,17 @@
 
 Website für Susanne Hoppe – Mobile Kinderosteopathie in Leipzig.
 
+## Status
+
+**Design:** S7 Erdtöne (gewählt am 03.01.2025)
+**Phase:** Produktionsentwicklung (Deutsche Version)
+
 ## Tech Stack
 
 - **Framework:** Astro 5.x
-- **Styling:** Tailwind CSS 4.x
+- **Styling:** Tailwind CSS 4.x + CSS Custom Properties
+- **Fonts:** Lora (Serif) + Source Sans 3 (Sans)
 - **Deployment:** Cloudflare Pages
-- **Sprachen:** Deutsch / English
 
 ## Entwicklung
 
@@ -15,73 +20,75 @@ Website für Susanne Hoppe – Mobile Kinderosteopathie in Leipzig.
 # Dependencies installieren
 npm install
 
-# Dev-Server starten (localhost:4321)
+# Dev-Server starten (localhost:3000)
 npm run dev
 
 # Produktions-Build
 npm run build
 
-# Build-Preview
-npm run preview
+# Deploy zu Cloudflare
+npm run deploy
 ```
+
+## Seiten (6 aktiv)
+
+| Pfad | Seite | Status |
+|------|-------|--------|
+| `/` | Startseite | S7 Theme |
+| `/ueber-mich` | Über mich | S7 Theme |
+| `/leistungen` | Leistungen | S7 Theme |
+| `/kontakt` | Kontakt | S7 Theme |
+| `/impressum` | Impressum | S7 Theme |
+| `/datenschutz` | Datenschutz | S7 Theme |
 
 ## Projektstruktur
 
 ```
 src/
-├── pages/
-│   ├── index.astro          # Startseite (DE)
-│   ├── ueber-mich.astro     # Über mich
-│   ├── leistungen.astro     # Leistungen
-│   ├── kontakt.astro        # Kontakt
-│   ├── en/                  # Englische Seiten
-│   └── project/             # Projekt-Dokumentation
-│       ├── designs/         # 6 Typo-Varianten (S1-S6)
-│       └── designs-archive/ # Archiv (T1-T18, V1-V24)
+├── pages/              # Aktive Seiten (nur DE)
+│   ├── index.astro
+│   ├── ueber-mich.astro
+│   ├── leistungen.astro
+│   ├── kontakt.astro
+│   ├── impressum.astro
+│   └── datenschutz.astro
 ├── layouts/
-│   └── BaseLayout.astro
-├── i18n/
-│   └── translations.ts
-└── styles/
-    └── global.css
+│   └── BaseLayout.astro  # S7 Theme Layout
+├── styles/
+│   └── global.css        # S7 Farbpalette & Utilities
+├── _archive_en/          # EN-Seiten (deaktiviert)
+└── _project/             # Projektdokumentation (nicht im Build)
+    ├── variants/         # Design-Varianten S1-S17
+    ├── designs/          # Design-Übersicht
+    ├── work-log/         # Arbeitsprotokoll
+    └── designs-archive/  # Archiv V1-V24, T1-T18
 ```
 
-## Design
+## S7 Erdtöne Design
 
-**V24 Dark Luxury** – Gewähltes Design mit:
-- Navy (#0a1628)
-- Gold (#c9a962)
-- Cream (#f9f7f3)
+| Element | Farbe | Hex |
+|---------|-------|-----|
+| Hintergrund | Warm Sand | #faf6f1 |
+| Hintergrund Alt | Soft Beige | #f0ebe4 |
+| Akzent | Terrakotta | #c67d5a |
+| Akzent Hover | Terrakotta Hell | #d4916e |
+| Text | Dunkelbraun | #3d2e24 |
+| Text Muted | Mittelbraun | #6b5648 |
 
-### Typografie-Varianten
+## TODOs für Content
 
-**Dunkle Varianten (S1-S6):**
-| Variante | Schrift | Stil |
-|----------|---------|------|
-| S1 | Playfair Display | Klassisch elegant |
-| S2 | Newsreader | Cool Silver |
-| S3 | Crimson Pro | High Contrast |
-| S4 | Inter | Modern minimalistisch |
-| S5 | Manrope | Kräftig modern |
-| S6 | Space Grotesk | Tech/Cool |
+Alle Seiten haben `TODO-Badge` Platzhalter für:
+- Kontaktdaten (Telefon, E-Mail, Adresse)
+- Berufliche Details (Abschlussjahre, Klinik-Name)
+- Portrait-Foto
 
-**Helle Varianten (S7-S10):**
-| Variante | Schrift | Farbpalette |
-|----------|---------|-------------|
-| S7 | Lora + Source Sans | Erdtöne (Warm Sand + Terrakotta) |
-| S8 | Cormorant Garamond + DM Sans | Soft Blush (Cream + Dusty Rose) |
-| S9 | Libre Baskerville + Inter | Sage Grün (Off-White + Sage) |
-| S10 | Libre Baskerville + Inter | Ocean Blau (Ice White + Steel Blue) |
+## Nächste Schritte
 
-**Special Effects:**
-| Variante | Schrift | Stil |
-|----------|---------|------|
-| S11 | Newsreader + Inter | Frosted Glass (Glassmorphism + Rose Akzent) |
+1. Content von Susanne einholen
+2. TODO-Platzhalter ersetzen
+3. Kontaktformular-Backend (Cloudflare Functions)
+4. Englische Version (später)
 
-## Deployment
+## Live
 
-Automatisches Deployment via Cloudflare Pages bei Push auf `main`.
-
-## Lizenz
-
-Privates Projekt.
+https://susanne-osteopathie.pages.dev

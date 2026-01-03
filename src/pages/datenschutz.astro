@@ -1,7 +1,4 @@
 ---
-/**
- * Datenschutz / Privacy Policy (Required in Germany - DSGVO)
- */
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -9,9 +6,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Datenschutz"
   description="Datenschutzerklärung gemäß DSGVO"
 >
-  <section class="py-16 md:py-20">
+  <section class="legal-page">
     <div class="container">
-      <div class="max-w-3xl mx-auto prose">
+      <div class="legal-content">
         <h1>Datenschutzerklärung</h1>
 
         <h2>1. Datenschutz auf einen Blick</h2>
@@ -29,7 +26,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber:
         </p>
         <p>
-          <!-- TODO: Contact from Susanne -->
           Susanne Hoppe<br />
           [Adresse]<br />
           E-Mail: [E-Mail]
@@ -55,7 +51,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
         </p>
         <p>
-          <!-- TODO: Contact from Susanne -->
           Susanne Hoppe<br />
           [Vollständige Adresse]<br />
           Telefon: [Telefon]<br />
@@ -130,10 +125,86 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <li>Recht auf Widerspruch (Art. 21 DSGVO)</li>
         </ul>
 
-        <p class="text-sm text-text-muted mt-8">
+        <p class="legal-date">
           Stand: [Datum einfügen]
         </p>
       </div>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .legal-page {
+    padding: 48px 0 80px;
+  }
+
+  .legal-content {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .legal-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+
+  .legal-content h2 {
+    font-size: 1.375rem;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    color: var(--color-text);
+  }
+
+  .legal-content h3 {
+    font-size: 1.125rem;
+    margin-top: 28px;
+    margin-bottom: 12px;
+    color: var(--color-text);
+  }
+
+  .legal-content p {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .legal-content ul {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    padding-left: 24px;
+  }
+
+  .legal-content li {
+    margin-bottom: 8px;
+  }
+
+  .legal-content a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .legal-content a:hover {
+    text-decoration: underline;
+  }
+
+  .legal-content strong {
+    color: var(--color-text);
+  }
+
+  .legal-date {
+    margin-top: 48px;
+    font-size: 0.875rem;
+    font-style: italic;
+  }
+
+  @media (min-width: 768px) {
+    .legal-page {
+      padding: 80px 0 120px;
+    }
+
+    .legal-content h1 {
+      font-size: 3rem;
+    }
+  }
+</style>
