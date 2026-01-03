@@ -1,0 +1,151 @@
+---
+/**
+ * Base Layout
+ * Main layout wrapper for all pages
+ */
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: 'de' | 'en';
+}
+
+const {
+  title,
+  description = 'Mobile Kinderosteopathie in Leipzig - Susanne Hoppe. Osteopathische Behandlung für Ihr Kind bei Ihnen zuhause.',
+  lang = 'de',
+} = Astro.props;
+
+const siteTitle = 'Susanne Hoppe - Mobile Kinderosteopathie Leipzig';
+const fullTitle = title === 'Home' ? siteTitle : `${title} | ${siteTitle}`;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+
+    <!-- Favicon (placeholder) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Title -->
+    <title>{fullTitle}</title>
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts: Inter + Newsreader (V3 Spotlight Design) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === 'de' ? 'de_DE' : 'en_US'} />
+
+    <!-- Global CSS -->
+    <style>
+      @import '../styles/global.css';
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <!-- Skip to content link for accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-md z-50"
+    >
+      {lang === 'de' ? 'Zum Inhalt springen' : 'Skip to content'}
+    </a>
+
+    <!-- Header - V3 Spotlight Style -->
+    <header class="py-8">
+      <slot name="header">
+        <div class="container">
+          <div class="flex items-center justify-between">
+            <!-- Logo/Brand -->
+            <a href="/" class="font-semibold text-lg" style="color: var(--color-zinc-900);">
+              Susanne Hoppe
+            </a>
+
+            <!-- Navigation - V3 Pill Style -->
+            <nav class="hidden md:flex items-center gap-2 bg-zinc-100 p-1 rounded-full shadow-sm">
+              <a href="/" class="px-4 py-2 text-sm font-medium rounded-full transition-all" style="color: var(--color-zinc-600);">
+                Home
+              </a>
+              <a href="/ueber-mich" class="px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white" style="color: var(--color-zinc-600);">
+                Über mich
+              </a>
+              <a href="/leistungen" class="px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white" style="color: var(--color-zinc-600);">
+                Leistungen
+              </a>
+              <a href="/kontakt" class="px-4 py-2 text-sm font-medium rounded-full transition-all hover:bg-white" style="color: var(--color-zinc-600);">
+                Kontakt
+              </a>
+            </nav>
+
+            <!-- Mobile menu button -->
+            <button class="md:hidden p-2" aria-label="Menü öffnen">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </slot>
+    </header>
+
+    <!-- Main content -->
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer - V3 Minimal Style -->
+    <footer class="border-t mt-auto" style="border-color: var(--color-zinc-200); background-color: var(--color-zinc-50);">
+      <slot name="footer">
+        <div class="container py-12">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Brand -->
+            <div>
+              <h3 class="font-semibold text-base mb-3" style="color: var(--color-zinc-900);">Susanne Hoppe</h3>
+              <p class="text-sm" style="color: var(--color-zinc-600);">
+                Mobile Kinderosteopathie in Leipzig.<br />
+                Behandlung bei Ihnen zuhause.
+              </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+              <h3 class="font-semibold text-base mb-3" style="color: var(--color-zinc-900);">Navigation</h3>
+              <ul class="space-y-2">
+                <li><a href="/" class="text-sm hover:text-primary" style="color: var(--color-zinc-600);">Home</a></li>
+                <li><a href="/ueber-mich" class="text-sm hover:text-primary" style="color: var(--color-zinc-600);">Über mich</a></li>
+                <li><a href="/leistungen" class="text-sm hover:text-primary" style="color: var(--color-zinc-600);">Leistungen</a></li>
+                <li><a href="/kontakt" class="text-sm hover:text-primary" style="color: var(--color-zinc-600);">Kontakt</a></li>
+              </ul>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <h3 class="font-semibold text-base mb-3" style="color: var(--color-zinc-900);">Rechtliches</h3>
+              <ul class="space-y-2">
+                <li><a href="/impressum" class="text-sm hover:text-primary" style="color: var(--color-zinc-600);">Impressum</a></li>
+                <li><a href="/datenschutz" class="text-sm hover:text-primary" style="color: var(--color-zinc-600);">Datenschutz</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Copyright -->
+          <div class="mt-8 pt-8 text-center text-sm" style="border-top: 1px solid var(--color-zinc-200); color: var(--color-zinc-500);">
+            <p>&copy; {new Date().getFullYear()} Susanne Hoppe. Alle Rechte vorbehalten.</p>
+          </div>
+        </div>
+      </slot>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,403 @@
+---
+/**
+ * T4 - Warm Amber Palette
+ * Warmer Gold Tones with Soft Cream
+ * Base: V24 Dark Luxury
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T4: Warm Amber | Typografie-Variante</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Warmer palette */
+      --color-amber: #d4a24e;
+      --color-amber-light: #e6bc6a;
+      --color-navy: #12161f;
+      --color-navy-warm: #1a1e28;
+      --color-cream-warm: #faf5eb;
+      --color-cream-soft: #f5ece0;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-cream-warm);
+      background: var(--color-navy);
+      line-height: 1.6;
+    }
+
+    .variant-tag {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--color-amber);
+      color: var(--color-navy);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(212, 162, 78, 0.15);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--color-amber), var(--color-amber-light));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-navy);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .logo-text {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--color-cream-warm);
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      background: var(--color-navy-warm);
+      padding: 6px;
+      border-radius: 12px;
+    }
+
+    .nav a {
+      color: rgba(250, 245, 235, 0.5);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .nav a:hover {
+      color: var(--color-cream-warm);
+      background: rgba(212, 162, 78, 0.1);
+    }
+
+    .nav a.active {
+      background: var(--color-amber);
+      color: var(--color-navy);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0 120px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 162, 78, 0.12);
+      border: 1px solid rgba(212, 162, 78, 0.25);
+      color: var(--color-amber-light);
+      padding: 10px 20px;
+      border-radius: 24px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3.75rem;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--color-cream-warm);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 .highlight {
+      color: var(--color-amber-light);
+      position: relative;
+    }
+
+    .hero h1 .highlight::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--color-amber);
+      opacity: 0.4;
+      border-radius: 2px;
+    }
+
+    .hero .lead {
+      font-size: 1.2rem;
+      color: rgba(250, 245, 235, 0.65);
+      line-height: 1.75;
+      max-width: 580px;
+      margin: 0 auto 40px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-amber), var(--color-amber-light));
+      color: var(--color-navy);
+      box-shadow: 0 4px 16px rgba(212, 162, 78, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212, 162, 78, 0.35);
+    }
+
+    /* Features */
+    .features {
+      padding: 100px 0;
+      background: var(--color-navy-warm);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: var(--color-navy);
+      border: 1px solid rgba(212, 162, 78, 0.1);
+      border-radius: 16px;
+      padding: 36px 28px;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(212, 162, 78, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(212, 162, 78, 0.12);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .feature-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--color-amber);
+    }
+
+    .feature-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--color-cream-warm);
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: rgba(250, 245, 235, 0.55);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    /* Color Info */
+    .color-info {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .color-info h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--color-amber);
+      margin-bottom: 40px;
+    }
+
+    .color-swatches {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .swatch {
+      text-align: center;
+    }
+
+    .swatch-color {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      border: 2px solid rgba(250, 245, 235, 0.1);
+    }
+
+    .swatch-label {
+      font-size: 0.75rem;
+      color: rgba(250, 245, 235, 0.5);
+    }
+
+    .swatch-hex {
+      font-size: 0.8rem;
+      color: var(--color-cream-warm);
+      font-family: monospace;
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero h1 { font-size: 2.5rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .color-swatches { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <div class="variant-tag">T4: Warm Amber</div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">SH</div>
+          <span class="logo-text">Susanne Hoppe</span>
+        </a>
+        <nav class="nav">
+          <a href="#" class="active">Home</a>
+          <a href="#">Über mich</a>
+          <a href="#">Leistungen</a>
+          <a href="#">Kontakt</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Mobile Kinderosteopathie Leipzig</div>
+      <h1>Sanfte <span class="highlight">Osteopathie</span><br>für Ihr Kind</h1>
+      <p class="lead">
+        Begleitende osteopathische Behandlung für Säuglinge, Kinder und ihre Familien –
+        einfühlsam und bei Ihnen zuhause.
+      </p>
+      <a href="#" class="btn btn-primary">Termin anfragen</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+          </div>
+          <h3>Bei Ihnen zuhause</h3>
+          <p>Entspannte Behandlung in vertrauter Umgebung für Ihr Kind.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5z M2 17l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Klinische Erfahrung</h3>
+          <p>Tätig auf einer Neugeborenenstation mit medizinischer Expertise.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Für die Familie</h3>
+          <p>Ganzheitliche Begleitung für Kinder und ihre Familien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="color-info">
+    <div class="container">
+      <h2>Farbpalette dieser Variante</h2>
+      <div class="color-swatches">
+        <div class="swatch">
+          <div class="swatch-color" style="background: #d4a24e;"></div>
+          <div class="swatch-label">Amber</div>
+          <div class="swatch-hex">#d4a24e</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #e6bc6a;"></div>
+          <div class="swatch-label">Amber Light</div>
+          <div class="swatch-hex">#e6bc6a</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #faf5eb;"></div>
+          <div class="swatch-label">Cream Warm</div>
+          <div class="swatch-hex">#faf5eb</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #12161f;"></div>
+          <div class="swatch-label">Navy</div>
+          <div class="swatch-hex">#12161f</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

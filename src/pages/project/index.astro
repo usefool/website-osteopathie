@@ -1,0 +1,620 @@
+---
+/**
+ * Project Pitch Page - Compact Dashboard
+ * Redesigned for quick scanning and immediate navigation access
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projekt | Mobile Kinderosteopathie Leipzig</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0f0f0f;
+      color: #e5e5e5;
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Compact Header with Integrated Navigation Cards */
+    .header {
+      padding: 20px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: #666;
+    }
+
+    .nav-cards {
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-card:hover {
+      border-color: #444;
+      transform: translateY(-2px);
+    }
+
+    .nav-card-icon {
+      width: 20px;
+      height: 20px;
+      color: #fff;
+    }
+
+    .nav-card-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .nav-card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-card-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .nav-card-meta {
+      font-size: 0.7rem;
+      color: #666;
+    }
+
+    /* Compact Hero */
+    .hero {
+      padding: 32px 0;
+      border-bottom: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      color: #888;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #fff 0%, #888 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: #888;
+      max-width: 500px;
+    }
+
+    .hero-client {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #1a1a1a;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid #2a2a2a;
+      flex-shrink: 0;
+    }
+
+    .hero-client-avatar {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .hero-client-info {
+      text-align: left;
+    }
+
+    .hero-client-name {
+      font-weight: 600;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .hero-client-role {
+      font-size: 0.75rem;
+      color: #666;
+    }
+
+    /* Dashboard Layout */
+    .dashboard {
+      padding: 32px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .dashboard-section {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #666;
+    }
+
+    .section-count {
+      background: #2a2a2a;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      color: #888;
+    }
+
+    /* USPs Grid */
+    .usp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .usp-item {
+      background: #0f0f0f;
+      border: 1px solid #222;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .usp-icon {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 8px;
+      color: #f97316;
+    }
+
+    .usp-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .usp-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .usp-desc {
+      font-size: 0.75rem;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    /* Requirements List */
+    .requirements-list {
+      list-style: none;
+    }
+
+    .requirements-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 0;
+      border-bottom: 1px solid #222;
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .requirements-list li:last-child {
+      border-bottom: none;
+    }
+
+    .req-check {
+      width: 16px;
+      height: 16px;
+      background: #166534;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .req-check svg {
+      width: 10px;
+      height: 10px;
+      color: white;
+    }
+
+    /* Tech Stack */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tech-badge {
+      background: #0f0f0f;
+      border: 1px solid #222;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tech-badge-icon {
+      width: 16px;
+      height: 16px;
+      color: #f97316;
+    }
+
+    .tech-badge-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .tech-badge-version {
+      color: #666;
+      font-size: 0.7rem;
+    }
+
+    /* Full Width Sections */
+    .full-section {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 24px 0;
+      border-top: 1px solid #222;
+      text-align: center;
+    }
+
+    .footer p {
+      color: #444;
+      font-size: 0.75rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-cards {
+        flex-direction: column;
+      }
+
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-client {
+        width: 100%;
+      }
+
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .usp-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Compact Header with Navigation Cards -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="brand">
+          <div class="brand-title">Kinderosteopathie Leipzig</div>
+          <div class="brand-subtitle">Website-Projekt 2024/2025</div>
+        </div>
+        <nav class="nav-cards">
+          <a href="/project/designs" class="nav-card" style="border-color: #c9a962;">
+            <span class="nav-card-icon" style="color: #c9a962;">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+              </svg>
+            </span>
+            <div class="nav-card-content">
+              <span class="nav-card-label">Designs</span>
+              <span class="nav-card-meta">6 Typo-Varianten</span>
+            </div>
+          </a>
+          <a href="/project/work-log" class="nav-card">
+            <span class="nav-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+              </svg>
+            </span>
+            <div class="nav-card-content">
+              <span class="nav-card-label">Work-Log</span>
+              <span class="nav-card-meta">Timeline</span>
+            </div>
+          </a>
+          <a href="/project/todos" class="nav-card">
+            <span class="nav-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              </svg>
+            </span>
+            <div class="nav-card-content">
+              <span class="nav-card-label">Todos</span>
+              <span class="nav-card-meta">7 offen</span>
+            </div>
+          </a>
+          <a href="/" target="_blank" rel="noopener noreferrer" class="nav-card" style="border-color: #0891b2;">
+            <span class="nav-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </span>
+            <div class="nav-card-content">
+              <span class="nav-card-label">Live-Site</span>
+              <span class="nav-card-meta">V24 Dark Luxury</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Compact Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-badge">Projekt-Übersicht</span>
+        <h1>Mobile Kinderosteopathie Leipzig</h1>
+        <p class="hero-tagline">Moderne, professionelle Website – minimalistisch, wissenschaftlich und vertrauenswürdig</p>
+      </div>
+      <div class="hero-client">
+        <div class="hero-client-avatar">SH</div>
+        <div class="hero-client-info">
+          <div class="hero-client-name">Susanne Hoppe</div>
+          <div class="hero-client-role">Kinder-Physiotherapeutin & Osteopathin</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard">
+      <!-- Left: USPs -->
+      <div class="dashboard-section">
+        <div class="section-header">
+          <span class="section-title">Alleinstellungsmerkmale</span>
+          <span class="section-count">5 USPs</span>
+        </div>
+        <div class="usp-grid">
+          <div class="usp-item">
+            <div class="usp-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <div class="usp-title">Hausbesuche</div>
+            <div class="usp-desc">Mobile Osteopathie direkt zu den Familien nach Hause</div>
+          </div>
+          <div class="usp-item">
+            <div class="usp-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="usp-title">Kinder-Fokus</div>
+            <div class="usp-desc">Spezialisiert auf Säuglinge und Kinder</div>
+          </div>
+          <div class="usp-item">
+            <div class="usp-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+              </svg>
+            </div>
+            <div class="usp-title">Zweisprachig</div>
+            <div class="usp-desc">DE/EN für Expats und internationale Familien</div>
+          </div>
+          <div class="usp-item">
+            <div class="usp-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="usp-title">Preise online</div>
+            <div class="usp-desc">Transparente Preisübersicht auf der Website</div>
+          </div>
+          <div class="usp-item">
+            <div class="usp-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div class="usp-title">Online-Buchung</div>
+            <div class="usp-desc">Termine direkt online buchen</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Requirements & Tech Stack -->
+      <div class="dashboard-section">
+        <div class="section-header">
+          <span class="section-title">Design-Anforderungen</span>
+          <span class="section-count">5 Punkte</span>
+        </div>
+        <ul class="requirements-list">
+          <li>
+            <span class="req-check">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </span>
+            Minimalistisch & Modern
+          </li>
+          <li>
+            <span class="req-check">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </span>
+            Professionell & Seriös
+          </li>
+          <li>
+            <span class="req-check">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </span>
+            Warm & Einladend
+          </li>
+          <li>
+            <span class="req-check">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </span>
+            Bilingual (DE/EN)
+          </li>
+          <li>
+            <span class="req-check">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </span>
+            Mobile-First & Schnell
+          </li>
+        </ul>
+        <div class="section-header" style="margin-top: 20px; margin-bottom: 12px;">
+          <span class="section-title">Tech-Stack</span>
+        </div>
+        <div class="tech-stack">
+          <div class="tech-badge">
+            <div class="tech-badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <span>Astro <span class="tech-badge-version">5.x</span></span>
+          </div>
+          <div class="tech-badge">
+            <div class="tech-badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+              </svg>
+            </div>
+            <span>Tailwind <span class="tech-badge-version">4.x</span></span>
+          </div>
+          <div class="tech-badge">
+            <div class="tech-badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+              </svg>
+            </div>
+            <span>Cloudflare</span>
+          </div>
+          <div class="tech-badge">
+            <div class="tech-badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </div>
+            <span>TypeScript</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Internes Projektdokument – Nicht für die Öffentlichkeit bestimmt</p>
+    </footer>
+  </div>
+</body>
+</html>

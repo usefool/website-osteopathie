@@ -1,0 +1,578 @@
+---
+/**
+ * Work-Log Page
+ * Chronological documentation of project progress
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work-Log | Projekt: Mobile Kinderosteopathie Leipzig</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0f0f0f;
+      color: #e5e5e5;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    .nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      border-bottom: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: #666;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+    }
+
+    /* Header */
+    .header {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid #222;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #fff 0%, #888 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header p {
+      color: #888;
+      font-size: 1.1rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      padding: 48px 0;
+    }
+
+    .timeline-entry {
+      position: relative;
+      padding-left: 32px;
+      padding-bottom: 48px;
+      border-left: 2px solid #222;
+    }
+
+    .timeline-entry:last-child {
+      padding-bottom: 0;
+      border-left-color: transparent;
+    }
+
+    .timeline-entry::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      background: #0f0f0f;
+      border: 2px solid #444;
+      border-radius: 50%;
+    }
+
+    .timeline-entry.milestone::before {
+      background: #166534;
+      border-color: #22c55e;
+    }
+
+    .timeline-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .timeline-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .timeline-content {
+      color: #999;
+      font-size: 0.95rem;
+    }
+
+    .timeline-content ul {
+      margin-top: 12px;
+      padding-left: 20px;
+    }
+
+    .timeline-content li {
+      margin-bottom: 8px;
+    }
+
+    .timeline-content code {
+      font-family: 'JetBrains Mono', monospace;
+      background: #1a1a1a;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      color: #e5e5e5;
+    }
+
+    .timeline-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .timeline-tag {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #888;
+    }
+
+    .timeline-tag.feature {
+      border-color: #166534;
+      color: #22c55e;
+    }
+
+    .timeline-tag.design {
+      border-color: #7c3aed;
+      color: #a78bfa;
+    }
+
+    .timeline-tag.fix {
+      border-color: #b45309;
+      color: #fbbf24;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 48px 0;
+      border-top: 1px solid #222;
+      text-align: center;
+    }
+
+    .footer p {
+      color: #444;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .nav-links {
+        gap: 16px;
+      }
+
+      .timeline-entry {
+        padding-left: 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/project" class="nav-brand">Projekt: Kinderosteopathie Leipzig</a>
+    <div class="nav-links">
+      <a href="/project">Pitch</a>
+      <a href="/project/designs">Designs</a>
+      <a href="/project/work-log" class="active">Work-Log</a>
+      <a href="/project/todos">Todos</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="header">
+      <h1>Work-Log</h1>
+      <p>Chronologische Dokumentation der Projektarbeit</p>
+    </header>
+
+    <div class="timeline">
+
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">02. Januar 2025</div>
+        <div class="timeline-title">V24 – Spotlight Dark Luxury erstellt</div>
+        <div class="timeline-content">
+          <p>Echte Dark-Mode-Variante mit V3-Layout und V6-Farben:</p>
+          <ul>
+            <li><strong>Layout:</strong> V3 Spotlight-Design (Photo Pile, clean structure)</li>
+            <li><strong>Dark Mode:</strong> Navy-Hintergrund (#0a1628) wie in V6</li>
+            <li>Cream/weiße Textfarbe (#f9f7f3) für hohe Lesbarkeit</li>
+            <li>Gold-Akzente (#c9a962) für Highlights und CTAs</li>
+            <li>Dunkle Shadows und subtile Glow-Effekte</li>
+            <li>Professionelle Dark-Mode-Ästhetik mit Luxus-Touch</li>
+            <li>Behält Inter + Newsreader Fonts von V3</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag design">Design</span>
+          <span class="timeline-tag">Dark Mode</span>
+          <span class="timeline-tag">Hybrid</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">02. Januar 2025</div>
+        <div class="timeline-title">V23 – Hybrid-Variante erstellt</div>
+        <div class="timeline-content">
+          <p>Neue Hybrid-Variante kombiniert V3-Layout mit V6-Farben:</p>
+          <ul>
+            <li><strong>Layout:</strong> V3 Spotlight-Design (Photo Pile, clean structure)</li>
+            <li><strong>Farben:</strong> V6 Ultra Luxury Palette (Gold + Navy + Cream)</li>
+            <li>Cream-Hintergrund (#f9f7f3) statt Zinc-Grau</li>
+            <li>Gold-Akzent (#c9a962) statt Teal</li>
+            <li>Navy-Text (#0a1628) für hohen Kontrast</li>
+            <li>Kombination von cleaner Struktur mit luxuriöser Farbgebung</li>
+            <li>Behält Inter + Newsreader Fonts von V3</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag design">Design</span>
+          <span class="timeline-tag">Hybrid</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">30. Dezember 2024</div>
+        <div class="timeline-title">Englische Version mit V3 + SVG-Flaggen</div>
+        <div class="timeline-content">
+          <p>Komplette englische Sprachversion mit V3-Struktur und professionellen SVG-Flaggen:</p>
+          <ul>
+            <li><strong>Englische Seiten:</strong> /en/index, /en/about, /en/services, /en/contact</li>
+            <li>Vollständige V3 Spotlight-Struktur für alle EN-Seiten</li>
+            <li>SVG-Flaggen statt Emojis: Deutsche Flagge (Schwarz-Rot-Gold) und UK-Flagge (Union Jack)</li>
+            <li>Deutsche Seiten: UK-Flagge für Sprachwechsel zu EN</li>
+            <li>Englische Seiten: Deutsche Flagge für Sprachwechsel zu DE</li>
+            <li>Professionelle Darstellung mit sauberen Vektor-Grafiken</li>
+            <li>Konsistente Zweisprachigkeit über die gesamte Website</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag feature">Feature</span>
+          <span class="timeline-tag design">Design</span>
+          <span class="timeline-tag">i18n</span>
+          <span class="timeline-tag">Meilenstein</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">30. Dezember 2024</div>
+        <div class="timeline-title">V3-Struktur auf alle Hauptseiten ausgerollt</div>
+        <div class="timeline-content">
+          <p>Vollständige V3 Spotlight-Struktur auf alle Hauptseiten angewendet:</p>
+          <ul>
+            <li><strong>index.astro:</strong> Photo Pile Hero, Features, About, CTA</li>
+            <li><strong>ueber-mich.astro:</strong> Rotiertes Hero-Bild, Qualifikations-Grid, Arbeitsweise</li>
+            <li><strong>leistungen.astro:</strong> Altersgruppen-Cards, Behandlungsablauf, Kosten</li>
+            <li><strong>kontakt.astro:</strong> Contact Grid mit Info-Cards und Formular</li>
+            <li>Alle Seiten: Self-contained HTML mit inline CSS</li>
+            <li>Konsistente Navigation, Fonts (Inter + Newsreader), Zinc + Teal Farben</li>
+            <li>Ermöglicht strukturierte Content-Arbeit während finaler Design-Entscheidung</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag design">Design</span>
+          <span class="timeline-tag feature">Feature</span>
+          <span class="timeline-tag">Meilenstein</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">30. Dezember 2024</div>
+        <div class="timeline-title">V3 Design auf Hauptseite angewendet</div>
+        <div class="timeline-content">
+          <p>Spotlight-Design (V3) als Working-Design für Content-Arbeit implementiert:</p>
+          <ul>
+            <li>Zinc-Farbpalette (Grautöne) + Teal-Akzent (#14b8a6)</li>
+            <li>Inter + Newsreader Schriften</li>
+            <li>Pill-Navigation im Header</li>
+            <li>Minimalistisches, cleanes Design</li>
+            <li>Ermöglicht Content-Arbeit während finaler Design-Entscheidung</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag design">Design</span>
+          <span class="timeline-tag feature">Feature</span>
+          <span class="timeline-tag">Meilenstein</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="timeline-date">30. Dezember 2024</div>
+        <div class="timeline-title">USP-Bereinigung</div>
+        <div class="timeline-content">
+          <p>Alleinstellungsmerkmale geschärft und präzisiert:</p>
+          <ul>
+            <li>"Wissenschaftlich" entfernt - ist Darstellungsart, kein USP</li>
+            <li>"Leipzig" entfernt - ist selbstverständlich, kein USP</li>
+            <li>5 echte USPs: Hausbesuche, Kinder-Fokus, Zweisprachig, Preise online, Online-Buchung</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag">Content</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="timeline-date">29. Dezember 2024</div>
+        <div class="timeline-title">Glass Morphism Varianten harmonisiert</div>
+        <div class="timeline-content">
+          <p>Farbverläufe in V17-V22 durch einfarbige Styles ersetzt:</p>
+          <ul>
+            <li>Buttons, Badges und Pills: Feste Farben statt Verläufe</li>
+            <li>Floating Bubbles: Einfarbige Hintergründe</li>
+            <li>Alle dekorativen Elemente harmonisiert</li>
+            <li>Nur subtiler Mesh-Gradient-Hintergrund beibehalten</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag design">Design</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="timeline-date">29. Dezember 2024</div>
+        <div class="timeline-title">Icon-System & zusätzliche USPs</div>
+        <div class="timeline-content">
+          <p>Projekt-Index-Seite mit professionellem Icon-System überarbeitet:</p>
+          <ul>
+            <li>Alle Emojis durch SVG-Icons (Heroicons) ersetzt</li>
+            <li>3 neue USPs hinzugefügt: Zweisprachig (DE/EN), Preise online, Online-Buchung</li>
+            <li>Konsistentes Icon-Design mit Orange-Akzent (#f97316)</li>
+            <li>7 USPs gesamt statt ursprünglich 4</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag design">Design</span>
+          <span class="timeline-tag feature">Feature</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">29. Dezember 2024</div>
+        <div class="timeline-title">16 Farbvarianten erstellt (V7-V22)</div>
+        <div class="timeline-content">
+          <p>Umfangreiche Erweiterung der Design-Optionen basierend auf V4/V5 und V2:</p>
+          <ul>
+            <li><strong>V7-V11:</strong> Light Mode mit Cyan, Gold/Amber, Pink, Silber, Magenta</li>
+            <li><strong>V12-V16:</strong> Dark Mode mit gleichen Akzentfarben auf Chocolate-Hintergrund (#0c0a09)</li>
+            <li><strong>V17-V22:</strong> Glass Morphism Varianten (basierend auf V2) mit Orange, Cyan, Silber, Gold, Pink, Magenta</li>
+            <li>Insgesamt 22 Design-Varianten verfügbar</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag design">Design</span>
+          <span class="timeline-tag">Varianten</span>
+          <span class="timeline-tag">Meilenstein</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="timeline-date">29. Dezember 2024</div>
+        <div class="timeline-title">Dark Mode Korrektur (V12-V16)</div>
+        <div class="timeline-content">
+          <p>Dark Varianten korrigiert - alle verwenden nun den einheitlichen Chocolate-Hintergrund:</p>
+          <ul>
+            <li>Hintergrundfarbe auf <code>#0c0a09</code> (stone-950) vereinheitlicht</li>
+            <li>Nur Akzentfarben unterscheiden sich zwischen den Varianten</li>
+            <li>Konsistentes Erscheinungsbild wie V5 Template</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag fix">Fix</span>
+          <span class="timeline-tag design">Design</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="timeline-date">29. Dezember 2024</div>
+        <div class="timeline-title">Projekt-Index Redesign</div>
+        <div class="timeline-content">
+          <p>Komplett überarbeitete Projekt-Pitch-Seite für bessere Übersichtlichkeit:</p>
+          <ul>
+            <li>Kompaktes Dashboard-Layout statt vertikaler Struktur</li>
+            <li>Navigation von Footer in Header verschoben</li>
+            <li>2-Spalten-Grid für USPs und Anforderungen</li>
+            <li>60% Höhenreduktion durch optimierte Abstände</li>
+            <li>Punchier und kognitiv leichter erfassbar</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag design">Design</span>
+          <span class="timeline-tag">UX</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">29. Dezember 2024</div>
+        <div class="timeline-title">Projekt-Dokumentation erstellt</div>
+        <div class="timeline-content">
+          <p>Strukturierte Projektseiten für bessere Übersicht und Dokumentation:</p>
+          <ul>
+            <li>Projekt-Pitch Seite mit USPs und Anforderungen</li>
+            <li>Design-Varianten Übersicht separiert</li>
+            <li>Work-Log für chronologische Dokumentation</li>
+            <li>Todo-Liste für offene Aufgaben</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag feature">Feature</span>
+          <span class="timeline-tag">Dokumentation</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">29. Dezember 2024</div>
+        <div class="timeline-title">6 Design-Varianten erstellt</div>
+        <div class="timeline-content">
+          <p>Vollständige Homepage-Entwürfe für 6 unterschiedliche Designrichtungen:</p>
+          <ul>
+            <li><strong>V1 – Klassisch:</strong> Traditionelles medizinisches Design, Blau, Merriweather Serif</li>
+            <li><strong>V2 – Modern Glass:</strong> Glass Morphism, Teal/Lila Gradient, futuristisch aber menschlich</li>
+            <li><strong>V3 – Spotlight:</strong> Photo Pile Effekt, Grau/Zinc, inspiriert vom Tailwind Spotlight Template</li>
+            <li><strong>V4 – Warm Light:</strong> Orange + Cream, warme Farben, heller Modus</li>
+            <li><strong>V5 – Warm Dark:</strong> Orange auf Charcoal, gleiche Palette wie V4, dunkler Modus</li>
+            <li><strong>V6 – Ultra Luxury:</strong> Gold + Navy, Cormorant Garamond, extrem exklusiv</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag design">Design</span>
+          <span class="timeline-tag">Varianten</span>
+          <span class="timeline-tag">Meilenstein</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="timeline-date">28. Dezember 2024</div>
+        <div class="timeline-title">Varianten-Struktur angelegt</div>
+        <div class="timeline-content">
+          <p>Grundstruktur für Design-Varianten erstellt mit Platzhalter-Seiten unter <code>/project/v1</code> bis <code>/project/v6</code>.</p>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag feature">Feature</span>
+          <span class="timeline-tag">Setup</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">28. Dezember 2024</div>
+        <div class="timeline-title">Englische Übersetzung (i18n)</div>
+        <div class="timeline-content">
+          <p>Vollständige englische Version der Website implementiert:</p>
+          <ul>
+            <li>i18n-System mit <code>src/i18n/</code> Struktur</li>
+            <li>Englische Seiten unter <code>/en/</code> Pfad</li>
+            <li>Sprachwechsel-Funktionalität</li>
+            <li>Übersetzungen für: Home, Über mich, Leistungen, Kontakt</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag feature">Feature</span>
+          <span class="timeline-tag">i18n</span>
+          <span class="timeline-tag">Meilenstein</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="timeline-date">27. Dezember 2024</div>
+        <div class="timeline-title">Wettbewerbs-Analyse</div>
+        <div class="timeline-content">
+          <p>Recherche zu bestehenden Osteopathie-Websites in Leipzig und international:</p>
+          <ul>
+            <li>Leipziger Osteopathie-Praxen analysiert</li>
+            <li>Deutsche Kinderosteopathie-Websites untersucht</li>
+            <li>Englischsprachige Best Practices gesammelt</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag">Research</span>
+          <span class="timeline-tag">Analyse</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry milestone">
+        <div class="timeline-date">Dezember 2024</div>
+        <div class="timeline-title">Projekt-Setup</div>
+        <div class="timeline-content">
+          <p>Initiales Projekt-Setup mit modernem Tech-Stack:</p>
+          <ul>
+            <li>Astro 5.x Framework</li>
+            <li>Tailwind CSS 4.x</li>
+            <li>TypeScript Konfiguration</li>
+            <li>Cloudflare Pages Deployment vorbereitet</li>
+            <li>Grundlegende Seitenstruktur (Home, Über mich, Leistungen, Kontakt, Impressum, Datenschutz)</li>
+          </ul>
+        </div>
+        <div class="timeline-tags">
+          <span class="timeline-tag feature">Feature</span>
+          <span class="timeline-tag">Setup</span>
+          <span class="timeline-tag">Meilenstein</span>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <p>Internes Projektdokument – Automatisch aktualisiert</p>
+    </footer>
+  </div>
+</body>
+</html>

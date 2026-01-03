@@ -1,0 +1,432 @@
+---
+/**
+ * T6 - Cool Silver Palette
+ * Platinum/Silver instead of Gold
+ * Base: V24 Dark Luxury
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T6: Cool Silver | Typografie-Variante</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Cool silver palette */
+      --color-silver: #a8b4c4;
+      --color-silver-light: #c8d4e4;
+      --color-platinum: #e8ecf0;
+      --color-navy-cool: #0a0e14;
+      --color-navy-slate: #141a24;
+      --color-ice: #f4f6f8;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-ice);
+      background: var(--color-navy-cool);
+      line-height: 1.6;
+    }
+
+    .variant-tag {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--color-silver);
+      color: var(--color-navy-cool);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(168, 180, 196, 0.1);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--color-silver), var(--color-platinum));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-navy-cool);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .logo-text {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: var(--color-ice);
+    }
+
+    .nav {
+      display: flex;
+      gap: 36px;
+    }
+
+    .nav a {
+      color: rgba(244, 246, 248, 0.45);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover {
+      color: var(--color-silver-light);
+    }
+
+    .nav a.active {
+      color: var(--color-ice);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 120px 0 100px;
+      position: relative;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--color-ice);
+      margin-bottom: 24px;
+    }
+
+    .hero-text h1 .silver {
+      color: var(--color-silver-light);
+    }
+
+    .hero-text .lead {
+      font-size: 1.125rem;
+      color: rgba(244, 246, 248, 0.6);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--color-silver);
+      color: var(--color-navy-cool);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-platinum);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(168, 180, 196, 0.2);
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .visual-circle {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-navy-slate), var(--color-navy-cool));
+      border: 1px solid rgba(168, 180, 196, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .visual-circle::before {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      border-radius: 50%;
+      border: 1px solid rgba(168, 180, 196, 0.1);
+    }
+
+    .visual-text {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: rgba(168, 180, 196, 0.6);
+      text-align: center;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* Features */
+    .features {
+      padding: 100px 0;
+      background: var(--color-navy-slate);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(168, 180, 196, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .feature-card {
+      background: var(--color-navy-cool);
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(168, 180, 196, 0.08);
+      border: 1px solid rgba(168, 180, 196, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .feature-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--color-silver);
+    }
+
+    .feature-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--color-ice);
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: rgba(244, 246, 248, 0.5);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    /* Color Info */
+    .color-info {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .color-info h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--color-silver);
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+
+    .color-palette {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .palette-item {
+      text-align: center;
+    }
+
+    .palette-swatch {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin-bottom: 12px;
+      border: 2px solid rgba(244, 246, 248, 0.1);
+    }
+
+    .palette-name {
+      font-size: 0.75rem;
+      color: rgba(244, 246, 248, 0.5);
+      margin-bottom: 4px;
+    }
+
+    .palette-hex {
+      font-size: 0.7rem;
+      color: var(--color-silver);
+      font-family: monospace;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-visual { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero-text h1 { font-size: 2.5rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .color-palette { flex-wrap: wrap; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="variant-tag">T6: Cool Silver</div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">SH</div>
+          <span class="logo-text">Susanne Hoppe</span>
+        </a>
+        <nav class="nav">
+          <a href="#" class="active">Home</a>
+          <a href="#">Über mich</a>
+          <a href="#">Leistungen</a>
+          <a href="#">Kontakt</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Sanfte <span class="silver">Osteopathie</span> für Ihr Kind</h1>
+          <p class="lead">
+            Begleitende osteopathische Behandlung für Säuglinge, Kinder und ihre Familien –
+            einfühlsam und bei Ihnen zuhause in Leipzig.
+          </p>
+          <a href="#" class="btn btn-primary">Termin anfragen</a>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-circle">
+            <div class="visual-text">
+              Mobile<br>Kinderosteopathie<br>Leipzig
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+          </div>
+          <h3>Bei Ihnen zuhause</h3>
+          <p>Entspannte Behandlung in vertrauter Umgebung für Ihr Kind.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5z M2 17l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Klinische Erfahrung</h3>
+          <p>Tätig auf einer Neugeborenenstation mit medizinischer Expertise.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Für die Familie</h3>
+          <p>Ganzheitliche Begleitung für Kinder und ihre Familien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="color-info">
+    <div class="container">
+      <h2>Silber-Palette dieser Variante</h2>
+      <div class="color-palette">
+        <div class="palette-item">
+          <div class="palette-swatch" style="background: #a8b4c4;"></div>
+          <div class="palette-name">Silver</div>
+          <div class="palette-hex">#a8b4c4</div>
+        </div>
+        <div class="palette-item">
+          <div class="palette-swatch" style="background: #c8d4e4;"></div>
+          <div class="palette-name">Silver Light</div>
+          <div class="palette-hex">#c8d4e4</div>
+        </div>
+        <div class="palette-item">
+          <div class="palette-swatch" style="background: #e8ecf0;"></div>
+          <div class="palette-name">Platinum</div>
+          <div class="palette-hex">#e8ecf0</div>
+        </div>
+        <div class="palette-item">
+          <div class="palette-swatch" style="background: #0a0e14;"></div>
+          <div class="palette-name">Navy Cool</div>
+          <div class="palette-hex">#0a0e14</div>
+        </div>
+        <div class="palette-item">
+          <div class="palette-swatch" style="background: #f4f6f8;"></div>
+          <div class="palette-name">Ice</div>
+          <div class="palette-hex">#f4f6f8</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

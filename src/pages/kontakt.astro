@@ -1,0 +1,839 @@
+---
+/**
+ * Kontakt - V24 Dark Luxury Design
+ * Mobile Kinderosteopathie Leipzig - Susanne Hoppe
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt | Susanne Hoppe - Mobile Kinderosteopathie Leipzig</title>
+  <meta name="description" content="Kontaktieren Sie Susanne Hoppe für einen Termin zur begleitenden osteopathischen Behandlung für Kinder und Familien in Leipzig." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-gold: #c9a962;
+      --color-navy: #0a1628;
+      --color-navy-light: #132238;
+      --color-cream: #f9f7f3;
+      --color-bg: var(--color-navy);
+      --color-text-primary: var(--color-cream);
+      --color-text-secondary: rgba(249, 247, 243, 0.75);
+      --color-accent: var(--color-gold);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text-primary);
+      background: var(--color-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container-sm {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* TODO Badge System */
+    .todo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-sans);
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .todo-badge::before {
+      content: "⚠";
+      font-size: 0.875rem;
+    }
+
+    /* Header */
+    .header {
+      padding: 32px 0;
+      position: relative;
+      z-index: 50;
+      border-bottom: 1px solid rgba(249, 247, 243, 0.1);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--color-text-primary);
+      font-weight: 600;
+      font-size: 1.125rem;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--color-gold);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-navy);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      background: rgba(249, 247, 243, 0.05);
+      padding: 6px;
+      border-radius: 12px;
+      border: 1px solid rgba(249, 247, 243, 0.1);
+    }
+
+    .nav a {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .nav a:hover {
+      color: var(--color-text-primary);
+      background: rgba(249, 247, 243, 0.08);
+    }
+
+    .nav a.active {
+      background: var(--color-gold);
+      color: var(--color-navy);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(249, 247, 243, 0.1);
+      transition: all 0.2s;
+    }
+
+    .lang-switch:hover {
+      background: rgba(249, 247, 243, 0.05);
+      color: var(--color-text-primary);
+      border-color: rgba(249, 247, 243, 0.2);
+    }
+
+    .lang-switch svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 100px;
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201, 169, 98, 0.1);
+      border: 1px solid rgba(201, 169, 98, 0.2);
+      color: var(--color-gold);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--color-text-primary);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero .lead {
+      font-size: 1.25rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Section */
+    .section {
+      padding: 80px 0;
+      border-top: 1px solid rgba(249, 247, 243, 0.1);
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 64px;
+    }
+
+    /* Contact Info Cards */
+    .contact-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: var(--color-navy-light);
+      border: 1px solid rgba(249, 247, 243, 0.1);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(201, 169, 98, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(201, 169, 98, 0.15);
+      border: 2px solid rgba(201, 169, 98, 0.3);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-gold);
+    }
+
+    .contact-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+
+    .contact-card p {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .contact-card a {
+      color: var(--color-gold);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .contact-card a:hover {
+      color: #d4b56e;
+    }
+
+    .info-note {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      font-style: italic;
+      margin-top: 12px;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: var(--color-navy-light);
+      border: 1px solid rgba(249, 247, 243, 0.1);
+      border-radius: 20px;
+      padding: 48px;
+    }
+
+    .contact-form h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 10px;
+      letter-spacing: 0.01em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--color-text-primary);
+      background: rgba(249, 247, 243, 0.05);
+      border: 1px solid rgba(249, 247, 243, 0.15);
+      border-radius: 10px;
+      transition: all 0.2s;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--color-text-secondary);
+      opacity: 0.6;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      background: rgba(249, 247, 243, 0.08);
+      border-color: var(--color-gold);
+      box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.6;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-checkbox {
+      display: flex;
+      align-items: start;
+      gap: 12px;
+      margin-bottom: 32px;
+      padding: 16px;
+      background: rgba(201, 169, 98, 0.05);
+      border: 1px solid rgba(201, 169, 98, 0.15);
+      border-radius: 10px;
+    }
+
+    .form-checkbox input[type="checkbox"] {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: var(--color-gold);
+    }
+
+    .form-checkbox label {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      cursor: pointer;
+    }
+
+    .form-checkbox a {
+      color: var(--color-gold);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .form-checkbox a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 32px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: var(--color-gold);
+      color: var(--color-navy);
+    }
+
+    .btn-primary:hover {
+      background: #d4b56e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201, 169, 98, 0.35);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .form-note {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      text-align: center;
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(249, 247, 243, 0.1);
+      padding: 64px 0 40px;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--color-text-primary);
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-contact a {
+      color: var(--color-gold);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .footer-contact a:hover {
+      color: #d4b56e;
+    }
+
+    .footer-links h4 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-text-primary);
+    }
+
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid rgba(249, 247, 243, 0.1);
+      text-align: center;
+      color: var(--color-text-secondary);
+      font-size: 0.875rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .lead {
+        font-size: 1.125rem;
+      }
+
+      .contact-form {
+        padding: 32px 24px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .contact-card {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">SH</div>
+          <span>Susanne Hoppe</span>
+        </a>
+
+        <nav class="nav">
+          <a href="/">Home</a>
+          <a href="/ueber-mich">Über mich</a>
+          <a href="/leistungen">Leistungen</a>
+          <a href="/kontakt" class="active">Kontakt</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="/en/contact" class="lang-switch">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+              <clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+              <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/>
+              <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+              <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+            </svg>
+            EN
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container-sm">
+      <div class="hero-tag">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Ich freue mich auf Ihre Nachricht
+      </div>
+      <h1>Kontakt aufnehmen</h1>
+      <p class="lead">
+        Sie haben Fragen zur osteopathischen Behandlung oder möchten einen Termin vereinbaren?
+        Ich bin gerne für Sie und Ihre Familie da.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section">
+    <div class="container-sm">
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-cards">
+          <!-- Phone -->
+          <div class="contact-card">
+            <div class="contact-card-header">
+              <div class="contact-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <h3>Telefon</h3>
+            </div>
+            <p>
+              <a href="tel:+49"><span class="todo-badge">Telefonnummer</span></a>
+            </p>
+            <p class="info-note">
+              Am besten telefonisch erreichbar
+            </p>
+          </div>
+
+          <!-- Email -->
+          <div class="contact-card">
+            <div class="contact-card-header">
+              <div class="contact-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <h3>E-Mail</h3>
+            </div>
+            <p>
+              <a href="mailto:"><span class="todo-badge">E-Mail-Adresse</span></a>
+            </p>
+            <p class="info-note">
+              Oder nutzen Sie das Kontaktformular
+            </p>
+          </div>
+
+          <!-- Service Area -->
+          <div class="contact-card">
+            <div class="contact-card-header">
+              <div class="contact-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <h3>Einsatzgebiet</h3>
+            </div>
+            <p>
+              Leipzig und Umgebung
+            </p>
+            <p class="info-note">
+              Gerne bespreche ich mit Ihnen, ob Ihr Wohnort im Einsatzgebiet liegt.
+            </p>
+          </div>
+
+          <!-- Home Visits -->
+          <div class="contact-card">
+            <div class="contact-card-header">
+              <div class="contact-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+              </div>
+              <h3>Hausbesuche</h3>
+            </div>
+            <p>
+              Alle Behandlungen finden bei Ihnen zuhause statt. Ich bringe alles
+              Notwendige mit – Sie benötigen lediglich einen ruhigen Raum.
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <h2>Nachricht senden</h2>
+
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Ihr Name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">E-Mail *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="ihre.email@beispiel.de"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Optional"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="child-age">Alter des Kindes</label>
+                <input
+                  type="text"
+                  id="child-age"
+                  name="child-age"
+                  placeholder="z.B. 3 Monate, 2 Jahre"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Ihre Nachricht *</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                placeholder="Beschreiben Sie kurz Ihr Anliegen. Was sind die Beschwerden? Wann treten sie auf?"
+              ></textarea>
+            </div>
+
+            <div class="form-checkbox">
+              <input type="checkbox" id="privacy" required />
+              <label for="privacy">
+                Ich habe die <a href="/datenschutz">Datenschutzerklärung</a> gelesen
+                und bin mit der Verarbeitung meiner Daten einverstanden. *
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Nachricht senden
+            </button>
+
+            <p class="form-note">
+              * Pflichtfelder – Ich melde mich in der Regel innerhalb von 24 Stunden bei Ihnen zurück.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Susanne Hoppe</h3>
+          <p>
+            Kinder-Physiotherapeutin & zertifizierte Kinder-Osteopathin<br>
+            Mobile Kinderosteopathie in Leipzig
+          </p>
+          <div class="footer-contact">
+            <a href="tel:+49"><span class="todo-badge">Telefon</span></a>
+            <a href="mailto:"><span class="todo-badge">E-Mail</span></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/ueber-mich">Über mich</a></li>
+            <li><a href="/leistungen">Leistungen</a></li>
+            <li><a href="/kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="/impressum">Impressum</a></li>
+            <li><a href="/datenschutz">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 Susanne Hoppe - Mobile Kinderosteopathie Leipzig
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

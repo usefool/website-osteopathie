@@ -1,0 +1,648 @@
+---
+/**
+ * Design-Varianten Archiv
+ * T1-T18: Typografie-Varianten
+ * V1-V24: Original Design-Varianten
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design-Archiv | Susanne Hoppe Projekt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-gold: #c9a962;
+      --color-navy: #0a1628;
+      --color-navy-light: #132238;
+      --color-cream: #f9f7f3;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-cream);
+      background: var(--color-navy);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(201, 169, 98, 0.15);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--color-gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: gap 0.2s;
+    }
+
+    .back-link:hover { gap: 12px; }
+
+    .back-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .current-link {
+      color: rgba(249, 247, 243, 0.5);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .current-link:hover {
+      color: var(--color-cream);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(249, 247, 243, 0.05);
+      border: 1px solid rgba(249, 247, 243, 0.1);
+      color: rgba(249, 247, 243, 0.6);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: var(--color-cream);
+      margin-bottom: 12px;
+    }
+
+    .hero .lead {
+      font-size: 1rem;
+      color: rgba(249, 247, 243, 0.6);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Grid */
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      padding: 60px 0;
+    }
+
+    .archive-card {
+      background: var(--color-navy-light);
+      border: 1px solid rgba(201, 169, 98, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .archive-card:hover {
+      border-color: var(--color-gold);
+      transform: translateY(-4px);
+    }
+
+    .archive-card.selected {
+      border-color: var(--color-gold);
+      border-width: 2px;
+    }
+
+    .card-preview {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .card-info {
+      padding: 12px;
+      border-top: 1px solid rgba(201, 169, 98, 0.1);
+      text-align: center;
+    }
+
+    .card-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-cream);
+    }
+
+    .card-badge {
+      display: inline-block;
+      background: var(--color-gold);
+      color: var(--color-navy);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-top: 40px;
+    }
+
+    .section-header h2 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(249, 247, 243, 0.6);
+    }
+
+    .section-count {
+      background: rgba(201, 169, 98, 0.2);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      color: var(--color-gold);
+    }
+
+    /* T-Variant Cards with Palette */
+    .t-card-fonts {
+      font-size: 0.65rem;
+      color: var(--color-gold);
+      margin-top: 4px;
+    }
+
+    .t-card-palette {
+      display: flex;
+      gap: 4px;
+      margin-top: 8px;
+    }
+
+    .palette-swatch {
+      flex: 1;
+      height: 16px;
+      border-radius: 3px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Footer */
+    .footer {
+      padding: 48px 0;
+      border-top: 1px solid rgba(201, 169, 98, 0.1);
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      color: rgba(249, 247, 243, 0.5);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-gold);
+    }
+
+    @media (max-width: 1024px) {
+      .archive-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .archive-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .archive-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/project/designs" class="back-link">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Aktuelle Varianten
+        </a>
+        <a href="/project" class="current-link">Projekt &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Archiv</div>
+      <h1>Design-Archiv</h1>
+      <p class="lead">
+        Archivierte Varianten: 18 Typografie-Varianten (T1-T18) und 24 Design-Varianten (V1-V24).
+      </p>
+    </div>
+  </section>
+
+  <section class="archive">
+    <div class="container">
+      <!-- T-VARIANTEN -->
+      <div class="section-header">
+        <h2>Typografie-Varianten (T1-T18)</h2>
+        <span class="section-count">18 Varianten</span>
+      </div>
+      <div class="archive-grid">
+        <!-- T1: Playfair -->
+        <a href="/project/designs-archive/t-variants/t1" class="archive-card">
+          <div class="card-preview" style="background: #0a1628; color: #f9f7f3; font-family: 'Playfair Display', serif;">T1</div>
+          <div class="card-info">
+            <span class="card-name">Playfair Display</span>
+            <div class="t-card-fonts">Playfair + DM Sans</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #0a1628;"></div>
+              <div class="palette-swatch" style="background: #c9a962;"></div>
+              <div class="palette-swatch" style="background: #f9f7f3;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T2 -->
+        <a href="/project/designs-archive/t-variants/t2" class="archive-card">
+          <div class="card-preview" style="background: #0a1628; color: #f9f7f3; font-family: 'Cormorant', serif; text-transform: uppercase; font-size: 1rem;">T2</div>
+          <div class="card-info">
+            <span class="card-name">Editorial Caps</span>
+            <div class="t-card-fonts">Cormorant + Inter</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #0a1628;"></div>
+              <div class="palette-swatch" style="background: #c9a962;"></div>
+              <div class="palette-swatch" style="background: #f9f7f3;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T3 -->
+        <a href="/project/designs-archive/t-variants/t3" class="archive-card">
+          <div class="card-preview" style="background: #0a1628; color: #f9f7f3; font-family: 'Libre Baskerville', serif;">T3</div>
+          <div class="card-info">
+            <span class="card-name">Light & Airy</span>
+            <div class="t-card-fonts">Libre Baskerville</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #0a1628;"></div>
+              <div class="palette-swatch" style="background: #dbc88a;"></div>
+              <div class="palette-swatch" style="background: #f9f7f3;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T4 -->
+        <a href="/project/designs-archive/t-variants/t4" class="archive-card">
+          <div class="card-preview" style="background: #12161f; color: #faf5eb; font-family: 'Newsreader', serif;">T4</div>
+          <div class="card-info">
+            <span class="card-name">Warm Amber</span>
+            <div class="t-card-fonts">Newsreader + Inter</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #12161f;"></div>
+              <div class="palette-swatch" style="background: #e6bc6a;"></div>
+              <div class="palette-swatch" style="background: #faf5eb;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T5 -->
+        <a href="/project/designs-archive/t-variants/t5" class="archive-card">
+          <div class="card-preview" style="background: #060a12; color: #ffffff; font-family: 'Newsreader', serif;">T5</div>
+          <div class="card-info">
+            <span class="card-name">High Contrast</span>
+            <div class="t-card-fonts">Newsreader 600</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #060a12;"></div>
+              <div class="palette-swatch" style="background: #f0d070;"></div>
+              <div class="palette-swatch" style="background: #ffffff;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T6 -->
+        <a href="/project/designs-archive/t-variants/t6" class="archive-card">
+          <div class="card-preview" style="background: #0a0e14; color: #f4f6f8; font-family: 'Newsreader', serif;">T6</div>
+          <div class="card-info">
+            <span class="card-name">Cool Silver</span>
+            <div class="t-card-fonts">Newsreader + Inter</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #0a0e14;"></div>
+              <div class="palette-swatch" style="background: #c8d4e4;"></div>
+              <div class="palette-swatch" style="background: #f4f6f8;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T7 -->
+        <a href="/project/designs-archive/t-variants/t7" class="archive-card">
+          <div class="card-preview" style="background: #050810; color: #ffffff; font-family: 'Playfair Display', serif; font-weight: 700;">T7</div>
+          <div class="card-info">
+            <span class="card-name">Playfair Bold</span>
+            <div class="t-card-fonts">Playfair 700</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #050810;"></div>
+              <div class="palette-swatch" style="background: #e8c55a;"></div>
+              <div class="palette-swatch" style="background: #ffffff;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T8 -->
+        <a href="/project/designs-archive/t-variants/t8" class="archive-card">
+          <div class="card-preview" style="background: #0f1318; color: #faf6ed; font-family: 'Playfair Display', serif;">T8</div>
+          <div class="card-info">
+            <span class="card-name">Playfair Warm</span>
+            <div class="t-card-fonts">Playfair + DM Sans</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #0f1318;"></div>
+              <div class="palette-swatch" style="background: #d4a24e;"></div>
+              <div class="palette-swatch" style="background: #faf6ed;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T9 -->
+        <a href="/project/designs-archive/t-variants/t9" class="archive-card">
+          <div class="card-preview" style="background: #0a1628; color: #f9f7f3; font-family: 'Lora', serif;">T9</div>
+          <div class="card-info">
+            <span class="card-name">Lora Elegant</span>
+            <div class="t-card-fonts">Lora + Source Sans</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #0a1628;"></div>
+              <div class="palette-swatch" style="background: #c9a962;"></div>
+              <div class="palette-swatch" style="background: #f9f7f3;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T10 -->
+        <a href="/project/designs-archive/t-variants/t10" class="archive-card">
+          <div class="card-preview" style="background: #060a12; color: #ffffff; font-family: 'Crimson Pro', serif; font-weight: 600;">T10</div>
+          <div class="card-info">
+            <span class="card-name">Crimson Pro</span>
+            <div class="t-card-fonts">Crimson Pro 600</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #060a12;"></div>
+              <div class="palette-swatch" style="background: #f5d060;"></div>
+              <div class="palette-swatch" style="background: #ffffff;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T11 -->
+        <a href="/project/designs-archive/t-variants/t11" class="archive-card">
+          <div class="card-preview" style="background: #0a1628; color: #f9f7f3; font-family: 'EB Garamond', serif;">T11</div>
+          <div class="card-info">
+            <span class="card-name">EB Garamond</span>
+            <div class="t-card-fonts">EB Garamond + Inter</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #0a1628;"></div>
+              <div class="palette-swatch" style="background: #c9a962;"></div>
+              <div class="palette-swatch" style="background: #f9f7f3;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T12 -->
+        <a href="/project/designs-archive/t-variants/t12" class="archive-card">
+          <div class="card-preview" style="background: #050810; color: #ffffff; font-family: 'Spectral', serif;">T12</div>
+          <div class="card-info">
+            <span class="card-name">Spectral</span>
+            <div class="t-card-fonts">Spectral + Outfit</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #050810;"></div>
+              <div class="palette-swatch" style="background: #e5c860;"></div>
+              <div class="palette-swatch" style="background: #ffffff;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T13 -->
+        <a href="/project/designs-archive/t-variants/t13" class="archive-card">
+          <div class="card-preview" style="background: #0a1628; color: #f9f7f3; font-family: 'Inter', sans-serif; font-weight: 600;">T13</div>
+          <div class="card-info">
+            <span class="card-name">Inter Clean</span>
+            <div class="t-card-fonts">Inter 600</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #0a1628;"></div>
+              <div class="palette-swatch" style="background: #c9a962;"></div>
+              <div class="palette-swatch" style="background: #f9f7f3;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T14 -->
+        <a href="/project/designs-archive/t-variants/t14" class="archive-card">
+          <div class="card-preview" style="background: #060a12; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700;">T14</div>
+          <div class="card-info">
+            <span class="card-name">Plus Jakarta</span>
+            <div class="t-card-fonts">Plus Jakarta 700</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #060a12;"></div>
+              <div class="palette-swatch" style="background: #f0d070;"></div>
+              <div class="palette-swatch" style="background: #ffffff;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T15 -->
+        <a href="/project/designs-archive/t-variants/t15" class="archive-card">
+          <div class="card-preview" style="background: #0a1628; color: #f9f7f3; font-family: 'Outfit', sans-serif;">T15</div>
+          <div class="card-info">
+            <span class="card-name">Outfit</span>
+            <div class="t-card-fonts">Outfit 500</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #0a1628;"></div>
+              <div class="palette-swatch" style="background: #c9a962;"></div>
+              <div class="palette-swatch" style="background: #f9f7f3;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T16 -->
+        <a href="/project/designs-archive/t-variants/t16" class="archive-card">
+          <div class="card-preview" style="background: #050810; color: #ffffff; font-family: 'Manrope', sans-serif; font-weight: 800;">T16</div>
+          <div class="card-info">
+            <span class="card-name">Manrope Bold</span>
+            <div class="t-card-fonts">Manrope 800</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #050810;"></div>
+              <div class="palette-swatch" style="background: #e8c55a;"></div>
+              <div class="palette-swatch" style="background: #ffffff;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T17 -->
+        <a href="/project/designs-archive/t-variants/t17" class="archive-card">
+          <div class="card-preview" style="background: #0f1318; color: #faf6ed; font-family: 'DM Sans', sans-serif;">T17</div>
+          <div class="card-info">
+            <span class="card-name">DM Sans Warm</span>
+            <div class="t-card-fonts">DM Sans 500</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #0f1318;"></div>
+              <div class="palette-swatch" style="background: #d4a24e;"></div>
+              <div class="palette-swatch" style="background: #faf6ed;"></div>
+            </div>
+          </div>
+        </a>
+        <!-- T18 -->
+        <a href="/project/designs-archive/t-variants/t18" class="archive-card">
+          <div class="card-preview" style="background: #0a0e14; color: #f4f6f8; font-family: 'Space Grotesk', sans-serif;">T18</div>
+          <div class="card-info">
+            <span class="card-name">Space Grotesk</span>
+            <div class="t-card-fonts">Space Grotesk 500</div>
+            <div class="t-card-palette">
+              <div class="palette-swatch" style="background: #0a0e14;"></div>
+              <div class="palette-swatch" style="background: #c8d4e4;"></div>
+              <div class="palette-swatch" style="background: #f4f6f8;"></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- V-VARIANTEN -->
+      <div class="section-header">
+        <h2>Design-Varianten (V1-V24)</h2>
+        <span class="section-count">24 Varianten</span>
+      </div>
+      <div class="archive-grid">
+        <a href="/project/designs-archive/v1" class="archive-card">
+          <div class="card-preview" style="background: #f8fafc; color: #1e293b;">V1</div>
+          <div class="card-info"><span class="card-name">Minimal Light</span></div>
+        </a>
+        <a href="/project/designs-archive/v2" class="archive-card">
+          <div class="card-preview" style="background: #f5f5f4; color: #1c1917;">V2</div>
+          <div class="card-info"><span class="card-name">Warm Stone</span></div>
+        </a>
+        <a href="/project/designs-archive/v3" class="archive-card">
+          <div class="card-preview" style="background: #fafafa; color: #18181b;">V3</div>
+          <div class="card-info"><span class="card-name">Spotlight</span></div>
+        </a>
+        <a href="/project/designs-archive/v4" class="archive-card">
+          <div class="card-preview" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); color: #166534;">V4</div>
+          <div class="card-info"><span class="card-name">Nature Green</span></div>
+        </a>
+        <a href="/project/designs-archive/v5" class="archive-card">
+          <div class="card-preview" style="background: linear-gradient(135deg, #fef3c7, #fcd34d); color: #92400e;">V5</div>
+          <div class="card-info"><span class="card-name">Sunny</span></div>
+        </a>
+        <a href="/project/designs-archive/v6" class="archive-card">
+          <div class="card-preview" style="background: #0a1628; color: #c9a962;">V6</div>
+          <div class="card-info"><span class="card-name">Dark Luxury</span></div>
+        </a>
+        <a href="/project/designs-archive/v7" class="archive-card">
+          <div class="card-preview" style="background: #fefbf6; color: #8b5a3c;">V7</div>
+          <div class="card-info"><span class="card-name">Peach</span></div>
+        </a>
+        <a href="/project/designs-archive/v8" class="archive-card">
+          <div class="card-preview" style="background: #f0f4f8; color: #4a5568;">V8</div>
+          <div class="card-info"><span class="card-name">Cool Gray</span></div>
+        </a>
+        <a href="/project/designs-archive/v9" class="archive-card">
+          <div class="card-preview" style="background: #fdf4ff; color: #86198f;">V9</div>
+          <div class="card-info"><span class="card-name">Lavender</span></div>
+        </a>
+        <a href="/project/designs-archive/v10" class="archive-card">
+          <div class="card-preview" style="background: #f0fdfa; color: #0d9488;">V10</div>
+          <div class="card-info"><span class="card-name">Teal Fresh</span></div>
+        </a>
+        <a href="/project/designs-archive/v11" class="archive-card">
+          <div class="card-preview" style="background: #1a1a2e; color: #eab308;">V11</div>
+          <div class="card-info"><span class="card-name">Midnight Gold</span></div>
+        </a>
+        <a href="/project/designs-archive/v12" class="archive-card">
+          <div class="card-preview" style="background: #fffbeb; color: #b45309;">V12</div>
+          <div class="card-info"><span class="card-name">Cream Amber</span></div>
+        </a>
+        <a href="/project/designs-archive/v13" class="archive-card">
+          <div class="card-preview" style="background: #ecfeff; color: #0891b2;">V13</div>
+          <div class="card-info"><span class="card-name">Sky Cyan</span></div>
+        </a>
+        <a href="/project/designs-archive/v14" class="archive-card">
+          <div class="card-preview" style="background: #fef2f2; color: #dc2626;">V14</div>
+          <div class="card-info"><span class="card-name">Rose Red</span></div>
+        </a>
+        <a href="/project/designs-archive/v15" class="archive-card">
+          <div class="card-preview" style="background: #f5f3ff; color: #7c3aed;">V15</div>
+          <div class="card-info"><span class="card-name">Violet</span></div>
+        </a>
+        <a href="/project/designs-archive/v16" class="archive-card">
+          <div class="card-preview" style="background: #1e3a5f; color: #60a5fa;">V16</div>
+          <div class="card-info"><span class="card-name">Ocean Deep</span></div>
+        </a>
+        <a href="/project/designs-archive/v17" class="archive-card">
+          <div class="card-preview" style="background: #f8f5f0; color: #78716c;">V17</div>
+          <div class="card-info"><span class="card-name">Natural</span></div>
+        </a>
+        <a href="/project/designs-archive/v18" class="archive-card">
+          <div class="card-preview" style="background: #0f172a; color: #38bdf8;">V18</div>
+          <div class="card-info"><span class="card-name">Neon Night</span></div>
+        </a>
+        <a href="/project/designs-archive/v19" class="archive-card">
+          <div class="card-preview" style="background: #fff7ed; color: #ea580c;">V19</div>
+          <div class="card-info"><span class="card-name">Peach Soft</span></div>
+        </a>
+        <a href="/project/designs-archive/v20" class="archive-card">
+          <div class="card-preview" style="background: #f0fdf9; color: #059669;">V20</div>
+          <div class="card-info"><span class="card-name">Mint</span></div>
+        </a>
+        <a href="/project/designs-archive/v21" class="archive-card">
+          <div class="card-preview" style="background: #fffaf0; color: #d97706;">V21</div>
+          <div class="card-info"><span class="card-name">Warm Cream</span></div>
+        </a>
+        <a href="/project/designs-archive/v22" class="archive-card">
+          <div class="card-preview" style="background: #171717; color: #fafafa;">V22</div>
+          <div class="card-info"><span class="card-name">Pure Dark</span></div>
+        </a>
+        <a href="/project/designs-archive/v23" class="archive-card">
+          <div class="card-preview" style="background: #f9f7f3; color: #0a1628;">V23</div>
+          <div class="card-info"><span class="card-name">Light Luxury</span></div>
+        </a>
+        <a href="/project/designs-archive/v24" class="archive-card selected">
+          <div class="card-preview" style="background: #0a1628; color: #f9f7f3;">V24</div>
+          <div class="card-info">
+            <span class="card-name">Dark Luxury</span>
+            <span class="card-badge">GEWÄHLT</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="/project">Projekt-Übersicht</a>
+        <a href="/project/designs">Aktuelle Varianten</a>
+        <a href="/project/content-brief">Content Brief</a>
+        <a href="/">Live Website</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

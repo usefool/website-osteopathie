@@ -1,0 +1,312 @@
+---
+/**
+ * T3 - Light & Airy
+ * Minimal Luxury with Light Typography Weights
+ * Base: V24 Dark Luxury
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T3: Light & Airy | Typografie-Variante</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-gold: #c9a962;
+      --color-gold-light: #dbc88a;
+      --color-navy: #0a1628;
+      --color-navy-light: #132238;
+      --color-cream: #f9f7f3;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-serif: 'Libre Baskerville', Georgia, serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      color: var(--color-cream);
+      background: var(--color-navy);
+      line-height: 1.7;
+    }
+
+    .variant-tag {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--color-gold);
+      color: var(--color-navy);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      padding: 40px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      text-decoration: none;
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      color: var(--color-cream);
+      font-style: italic;
+    }
+
+    .nav {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav a {
+      color: rgba(249, 247, 243, 0.4);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 300;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover, .nav a.active {
+      color: var(--color-cream);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0 120px;
+      text-align: center;
+    }
+
+    .hero-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, var(--color-gold-light));
+      margin: 0 auto 40px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--color-cream);
+      margin-bottom: 32px;
+    }
+
+    .hero h1 em {
+      color: var(--color-gold-light);
+      font-style: italic;
+    }
+
+    .hero .lead {
+      font-size: 1.125rem;
+      color: rgba(249, 247, 243, 0.55);
+      line-height: 1.9;
+      max-width: 520px;
+      margin: 0 auto 48px;
+      font-weight: 200;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      font-weight: 400;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border-radius: 40px;
+      transition: all 0.3s;
+      border: 1px solid rgba(201, 169, 98, 0.3);
+      color: var(--color-cream);
+      background: transparent;
+    }
+
+    .btn:hover {
+      background: rgba(201, 169, 98, 0.1);
+      border-color: var(--color-gold);
+    }
+
+    /* Features */
+    .features {
+      padding: 80px 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+    }
+
+    .feature-card {
+      text-align: center;
+    }
+
+    .feature-line {
+      width: 40px;
+      height: 1px;
+      background: var(--color-gold-light);
+      margin: 0 auto 28px;
+      opacity: 0.5;
+    }
+
+    .feature-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: var(--color-cream);
+      margin-bottom: 16px;
+    }
+
+    .feature-card p {
+      color: rgba(249, 247, 243, 0.45);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      font-weight: 200;
+    }
+
+    /* Typography Info */
+    .typo-info {
+      padding: 80px 0;
+      text-align: center;
+      border-top: 1px solid rgba(249, 247, 243, 0.05);
+    }
+
+    .typo-info h2 {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: var(--color-gold-light);
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+
+    .font-sample {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+    }
+
+    .font-sample div {
+      text-align: center;
+    }
+
+    .font-sample h4 {
+      font-size: 0.7rem;
+      color: rgba(249, 247, 243, 0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    .sample-serif {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      color: var(--color-cream);
+      font-style: italic;
+    }
+
+    .sample-sans {
+      font-family: var(--font-sans);
+      font-size: 1.25rem;
+      color: var(--color-cream);
+      font-weight: 200;
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero h1 { font-size: 2.25rem; }
+      .features-grid { grid-template-columns: 1fr; gap: 48px; }
+      .font-sample { flex-direction: column; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="variant-tag">T3: Light & Airy</div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">Susanne Hoppe</a>
+        <nav class="nav">
+          <a href="#" class="active">Home</a>
+          <a href="#">Über mich</a>
+          <a href="#">Leistungen</a>
+          <a href="#">Kontakt</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-line"></div>
+      <h1>Sanfte <em>Osteopathie</em><br>für Ihr Kind</h1>
+      <p class="lead">
+        Begleitende osteopathische Behandlung für Säuglinge, Kinder und ihre Familien –
+        einfühlsam und bei Ihnen zuhause in Leipzig.
+      </p>
+      <a href="#" class="btn">Termin anfragen</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-line"></div>
+          <h3>Bei Ihnen zuhause</h3>
+          <p>Entspannte Behandlung in vertrauter Umgebung für Ihr Kind.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-line"></div>
+          <h3>Klinische Erfahrung</h3>
+          <p>Tätig auf einer Neugeborenenstation mit medizinischer Expertise.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-line"></div>
+          <h3>Für die Familie</h3>
+          <p>Ganzheitliche Begleitung für Kinder und ihre Familien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="typo-info">
+    <div class="container">
+      <h2>Typografie dieser Variante</h2>
+      <div class="font-sample">
+        <div>
+          <h4>Serif (Headlines)</h4>
+          <p class="sample-serif">Libre Baskerville</p>
+        </div>
+        <div>
+          <h4>Sans-Serif (Body)</h4>
+          <p class="sample-sans">Inter Extra-Light</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

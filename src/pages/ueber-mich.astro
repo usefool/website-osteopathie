@@ -1,0 +1,848 @@
+---
+/**
+ * Über mich - V24 Spotlight Dark Luxury
+ * Susanne Hoppe - Kinder-Physiotherapeutin & zertifizierte Kinder-Osteopathin
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Über mich - Susanne Hoppe | Kinder-Physiotherapeutin & Osteopathin</title>
+  <meta name="description" content="Susanne Hoppe - Kinder-Physiotherapeutin mit langjähriger Erfahrung auf der Neugeborenenstation und zertifizierte Kinder-Osteopathin in Leipzig." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-gold: #c9a962;
+      --color-gold-light: #d4ba7a;
+      --color-gold-dark: #a8893d;
+      --color-navy: #0a1628;
+      --color-navy-light: #132238;
+      --color-navy-dark: #060d18;
+      --color-cream: #f9f7f3;
+      --color-cream-dark: #ebe7df;
+      --color-bg: var(--color-navy);
+      --color-bg-secondary: var(--color-navy-light);
+      --color-border: rgba(201, 169, 98, 0.15);
+      --color-text-primary: var(--color-cream);
+      --color-text-secondary: rgba(249, 247, 243, 0.75);
+      --color-text-muted: rgba(249, 247, 243, 0.5);
+      --color-accent: var(--color-gold);
+      --color-accent-hover: var(--color-gold-light);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text-primary);
+      background: var(--color-bg);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* TODO Badge */
+    .todo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .todo-badge::before {
+      content: "⚠";
+      font-size: 0.9rem;
+    }
+
+    /* Header */
+    .header {
+      padding: 32px 0;
+      position: relative;
+      z-index: 50;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--color-gold);
+      box-shadow: 0 2px 8px rgba(201, 169, 98, 0.4);
+      background: var(--color-navy-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: var(--color-gold);
+      font-size: 1.1rem;
+      position: relative;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .logo-name {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--color-cream);
+      line-height: 1;
+    }
+
+    .logo-subtitle {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      line-height: 1;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      background: var(--color-bg-secondary);
+      padding: 4px;
+      border-radius: 9999px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3), inset 0 1px 0 rgba(201, 169, 98, 0.1);
+    }
+
+    .nav a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      transition: all 0.15s;
+    }
+
+    .nav a:hover {
+      color: var(--color-text-primary);
+      background: rgba(201, 169, 98, 0.1);
+    }
+
+    .nav a.active {
+      background: rgba(201, 169, 98, 0.15);
+      color: var(--color-text-primary);
+      box-shadow: 0 1px 3px rgba(201, 169, 98, 0.25);
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.15s;
+      border: 1px solid var(--color-border);
+    }
+
+    .lang-switch:hover {
+      color: var(--color-text-primary);
+      border-color: var(--color-gold);
+      background: rgba(201, 169, 98, 0.05);
+    }
+
+    .lang-switch svg {
+      width: 20px;
+      height: auto;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 96px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+    }
+
+    .hero-image {
+      aspect-ratio: 3/4;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      transform: rotate(-3deg);
+      border: 3px solid var(--color-gold);
+      position: relative;
+      background: var(--color-navy-light);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--color-cream);
+      margin-bottom: 32px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-content .lead {
+      font-size: 1.35rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    /* Credentials Section */
+    .credentials-section {
+      padding: 96px 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: rgba(201, 169, 98, 0.1);
+      border: 1px solid var(--color-border);
+      color: var(--color-gold);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: var(--color-cream);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-header p {
+      color: var(--color-text-secondary);
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .credential-card {
+      background: var(--color-navy-light);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s ease;
+    }
+
+    .credential-card:hover {
+      border-color: var(--color-gold);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(201, 169, 98, 0.15);
+    }
+
+    .credential-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(201, 169, 98, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gold);
+      margin-bottom: 20px;
+    }
+
+    .credential-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .credential-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--color-cream);
+      margin-bottom: 8px;
+    }
+
+    .credential-card p {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Philosophy Section */
+    .philosophy-section {
+      padding: 96px 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .philosophy-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .philosophy-content h3 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    .philosophy-content p {
+      font-size: 1.15rem;
+      color: var(--color-text-secondary);
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+
+    .philosophy-list {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .philosophy-item {
+      display: flex;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .philosophy-item-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(201, 169, 98, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gold);
+      flex-shrink: 0;
+    }
+
+    .philosophy-item-content p {
+      font-size: 1.05rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 96px 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .cta-card {
+      background: var(--color-navy-light);
+      border-radius: 32px;
+      padding: 80px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+    }
+
+    .cta-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 30% 0%, rgba(201, 169, 98, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 100%, rgba(201, 169, 98, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .cta-card h2 {
+      font-family: var(--font-serif);
+      font-size: 2.75rem;
+      font-weight: 500;
+      color: var(--color-cream);
+      margin-bottom: 20px;
+      position: relative;
+      letter-spacing: -0.01em;
+    }
+
+    .cta-card p {
+      color: var(--color-text-secondary);
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 9999px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      position: relative;
+    }
+
+    .btn-primary {
+      background: var(--color-gold);
+      color: var(--color-navy);
+      box-shadow: 0 4px 12px rgba(201, 169, 98, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(201, 169, 98, 0.4);
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--color-border);
+      padding: 64px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-cream);
+      margin-bottom: 16px;
+    }
+
+    .footer-col p {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-gold);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .footer-copy {
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .hero-image {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .credentials-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero-content h1 { font-size: 2.5rem; }
+      .cta-card { padding: 60px 32px; }
+      .cta-card h2 { font-size: 2rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="avatar">
+            <span class="todo-badge" style="position: absolute; top: -8px; right: -8px; font-size: 0.6rem;">FOTO</span>
+            SH
+          </div>
+          <div class="logo-text">
+            <div class="logo-name">Susanne Hoppe</div>
+            <div class="logo-subtitle">Kinderosteopathie Leipzig</div>
+          </div>
+        </a>
+        <nav class="nav">
+          <a href="/">Home</a>
+          <a href="/ueber-mich" class="active">Über mich</a>
+          <a href="/leistungen">Leistungen</a>
+          <a href="/kontakt">Kontakt</a>
+        </nav>
+        <a href="/en/about" class="lang-switch">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+            <clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+            <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+            <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/>
+            <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+            <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+          </svg>
+          EN
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-image-wrapper">
+          <div class="hero-image">
+            <span class="todo-badge" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">PORTRAIT</span>
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=650&fit=crop&crop=face" alt="Susanne Hoppe" />
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <h1>Über mich</h1>
+
+          <p class="lead">
+            Ich bin Susanne Hoppe – Kinder-Physiotherapeutin mit Leidenschaft und zertifizierte Kinder-Osteopathin.
+          </p>
+
+          <p>
+            Seit <span class="todo-badge">XX Jahren</span> arbeite ich mit Säuglingen und Kindern – zunächst
+            als Physiotherapeutin, heute zusätzlich als zertifizierte Kinder-Osteopathin. Meine tägliche
+            Arbeit auf der Neugeborenenstation <span class="todo-badge">Klinik-Name</span> gibt mir tiefe
+            Einblicke in die Bedürfnisse der kleinsten Patienten und ihrer Familien.
+          </p>
+
+          <p>
+            Was mich antreibt? Die Überzeugung, dass jedes Kind die bestmögliche Begleitung verdient –
+            und die Erfahrung, dass eine Behandlung in der vertrauten Umgebung des eigenen Zuhauses oft
+            die besten Voraussetzungen schafft.
+          </p>
+
+          <p>
+            Deshalb komme ich zu Ihnen nach Hause. Damit Ihr Kind entspannt bleiben kann, damit Sie als
+            Eltern sich sicher fühlen, und damit wir gemeinsam in Ruhe arbeiten können.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials Section -->
+  <section class="credentials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Qualifikationen</span>
+        <h2>Ausbildung & Erfahrung</h2>
+        <p>Fundierte Qualifikationen und kontinuierliche Weiterbildung für beste Behandlungsqualität.</p>
+      </div>
+
+      <div class="credentials-grid">
+        <div class="credential-card">
+          <div class="credential-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3>Staatl. gepr. Kinder-Physiotherapeutin</h3>
+          <p>
+            <span class="todo-badge">Abschlussjahr</span><br>
+            Spezialisierung auf Kinder und Säuglinge mit umfassender Ausbildung in
+            entwicklungsfördernden Behandlungsmethoden.
+          </p>
+        </div>
+
+        <div class="credential-card">
+          <div class="credential-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3>Zertifizierte Kinder-Osteopathin</h3>
+          <p>
+            <span class="todo-badge">Abschluss & Institut</span><br>
+            Mehrjährige berufsbegleitende Ausbildung in pädiatrischer Osteopathie mit
+            Fokus auf Säuglinge und Kleinkinder.
+          </p>
+        </div>
+
+        <div class="credential-card">
+          <div class="credential-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <h3>Klinik-Erfahrung</h3>
+          <p>
+            Seit <span class="todo-badge">Jahr</span><br>
+            Tägliche Arbeit als Kinder-Physiotherapeutin auf der Neugeborenenstation
+            <span class="todo-badge">Klinik-Name</span>.
+          </p>
+        </div>
+
+        <div class="credential-card">
+          <div class="credential-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <h3>Kontinuierliche Fortbildung</h3>
+          <p>
+            Regelmäßige Weiterbildungen in pädiatrischer Osteopathie und Kinderphysiotherapie,
+            um stets auf dem neuesten Stand zu bleiben.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="philosophy-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Philosophie</span>
+        <h2>Meine Arbeitsweise</h2>
+      </div>
+
+      <div class="philosophy-content">
+        <h3>Jedes Kind ist einzigartig – und verdient eine individuelle Begleitung.</h3>
+
+        <p>
+          In meiner Arbeit verbinde ich die Präzision der Kinderphysiotherapie mit dem ganzheitlichen
+          Ansatz der Osteopathie. Meine tägliche Erfahrung auf der Neugeborenenstation hat mir gezeigt,
+          wie wichtig es ist, nicht nur das Kind, sondern die ganze Familie zu sehen.
+        </p>
+
+        <p>
+          Osteopathie ist für mich eine begleitende Behandlungsform – sanft, respektvoll und immer
+          im Dialog mit Ihnen als Eltern. Es geht nicht um schnelle Lösungen, sondern um nachhaltige
+          Unterstützung in der Entwicklung Ihres Kindes.
+        </p>
+
+        <div class="philosophy-list">
+          <div class="philosophy-item">
+            <div class="philosophy-item-icon">✓</div>
+            <div class="philosophy-item-content">
+              <p><strong>Zeit & Ruhe:</strong> Eine Behandlung dauert in der Regel 45-60 Minuten. Ich nehme mir die Zeit, die Ihr Kind braucht.</p>
+            </div>
+          </div>
+
+          <div class="philosophy-item">
+            <div class="philosophy-item-icon">✓</div>
+            <div class="philosophy-item-content">
+              <p><strong>Transparent & verständlich:</strong> Ich erkläre Ihnen, was ich tue und warum – damit Sie jederzeit verstehen, was gerade passiert.</p>
+            </div>
+          </div>
+
+          <div class="philosophy-item">
+            <div class="philosophy-item-icon">✓</div>
+            <div class="philosophy-item-content">
+              <p><strong>Sanft & kindgerecht:</strong> Keine hektischen Bewegungen, keine Schmerzen. Osteopathie bei Kindern ist behutsam und achtsam.</p>
+            </div>
+          </div>
+
+          <div class="philosophy-item">
+            <div class="philosophy-item-icon">✓</div>
+            <div class="philosophy-item-content">
+              <p><strong>Im Tempo Ihres Kindes:</strong> Wenn Ihr Kind nicht möchte, zwinge ich nichts. Wir arbeiten nur, wenn Ihr Kind sich wohl fühlt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Lernen wir uns kennen</h2>
+        <p>
+          Sie möchten mehr über meine Arbeit erfahren oder haben Fragen zur osteopathischen
+          Behandlung Ihres Kindes? Ich freue mich auf Ihre Nachricht.
+        </p>
+        <a href="/kontakt" class="btn btn-primary">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+          </svg>
+          Kontakt aufnehmen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Susanne Hoppe</h3>
+          <p>
+            Kinder-Physiotherapeutin & zertifizierte Kinder-Osteopathin<br>
+            Mobile Kinderosteopathie in Leipzig
+          </p>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+            Osteopathie ist keine Heilmethode im gesetzlichen Sinne.
+            Die Behandlungen dienen der begleitenden Unterstützung.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Navigation</h3>
+          <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/ueber-mich">Über mich</a>
+            <a href="/leistungen">Leistungen</a>
+            <a href="/kontakt">Kontakt</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Rechtliches</h3>
+          <div class="footer-links">
+            <a href="/impressum">Impressum</a>
+            <a href="/datenschutz">Datenschutz</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Kontakt</h3>
+          <div class="footer-links">
+            <span style="color: var(--color-text-secondary); font-size: 0.95rem;">
+              <span class="todo-badge">Telefon</span><br>
+              <span class="todo-badge">E-Mail</span><br>
+              Leipzig
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2025 Susanne Hoppe. Alle Rechte vorbehalten.
+        </div>
+        <div class="footer-links" style="flex-direction: row; gap: 16px;">
+          <a href="/en/about">English</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

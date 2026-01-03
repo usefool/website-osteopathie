@@ -1,0 +1,398 @@
+---
+/**
+ * Design-Varianten - Finale Auswahl
+ * 6 Varianten: S1-S3 Serif, S4-S6 Sans-Serif
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typografie-Varianten | Susanne Hoppe Projekt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0f0f0f;
+      color: #e5e5e5;
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      padding: 20px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: #666;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: #c9a962; }
+
+    /* Hero */
+    .hero {
+      padding: 40px 0;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      color: #4ade80;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .hero-tagline {
+      font-size: 0.95rem;
+      color: #888;
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-top: 32px;
+    }
+
+    .section-header h2 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+    }
+
+    .section-count {
+      background: #2a2a2a;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      color: #888;
+    }
+
+    /* Variants Grid - 3 columns for 6 items */
+    .variants-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding-bottom: 40px;
+    }
+
+    .variant-card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: block;
+    }
+
+    .variant-card:hover {
+      border-color: #c9a962;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .variant-preview {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .variant-preview-text {
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 12px;
+    }
+
+    .variant-info {
+      padding: 16px;
+      border-top: 1px solid #2a2a2a;
+    }
+
+    .variant-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .variant-desc {
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    /* Font Info */
+    .variant-fonts {
+      font-size: 0.7rem;
+      color: #c9a962;
+      margin-bottom: 12px;
+    }
+
+    /* Color Palette */
+    .variant-palette {
+      display: flex;
+      gap: 6px;
+      padding-top: 12px;
+      border-top: 1px solid #2a2a2a;
+    }
+
+    .palette-swatch {
+      flex: 1;
+      height: 28px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Footer */
+    .footer {
+      padding: 24px 0;
+      border-top: 1px solid #222;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: #444;
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: #c9a962; }
+
+    @media (max-width: 900px) {
+      .variants-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .variants-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-inner">
+        <span class="brand-title">Design-Varianten</span>
+        <nav class="nav-links">
+          <a href="/project">Projekt</a>
+          <a href="/project/designs" class="active">Designs</a>
+          <a href="/project/designs-archive">Archiv</a>
+          <a href="/" target="_blank">Live-Site</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <span class="hero-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        V24 Dark Luxury gewählt
+      </span>
+      <h1>Typografie-Varianten</h1>
+      <p class="hero-tagline">6 finale Varianten: 3 Serif + 3 Sans-Serif</p>
+    </section>
+
+    <!-- SERIF VARIANTS -->
+    <div class="section-header">
+      <h2>Serif-Varianten</h2>
+      <span class="section-count">3 Varianten</span>
+    </div>
+
+    <div class="variants-grid">
+      <!-- S1: Playfair Display -->
+      <a href="/project/variants/s1" class="variant-card">
+        <div class="variant-preview" style="background: #0a1628;">
+          <div class="variant-preview-text" style="font-family: 'Playfair Display', serif; color: #f9f7f3;">
+            Sanfte <em style="color: #c9a962;">Osteopathie</em>
+          </div>
+        </div>
+        <div class="variant-info">
+          <div class="variant-name">S1: Playfair Display</div>
+          <div class="variant-desc">Klassisch elegant</div>
+          <div class="variant-fonts">Playfair Display + DM Sans</div>
+          <div class="variant-palette">
+            <div class="palette-swatch" style="background: #0a1628;"></div>
+            <div class="palette-swatch" style="background: #c9a962;"></div>
+            <div class="palette-swatch" style="background: #f9f7f3;"></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- S2: Cool Silver -->
+      <a href="/project/variants/s2" class="variant-card">
+        <div class="variant-preview" style="background: #0a0e14;">
+          <div class="variant-preview-text" style="font-family: 'Newsreader', serif; color: #f4f6f8;">
+            Sanfte <span style="color: #c8d4e4;">Osteopathie</span>
+          </div>
+        </div>
+        <div class="variant-info">
+          <div class="variant-name">S2: Cool Silver</div>
+          <div class="variant-desc">Silber/Platin Palette</div>
+          <div class="variant-fonts">Newsreader + Inter</div>
+          <div class="variant-palette">
+            <div class="palette-swatch" style="background: #0a0e14;"></div>
+            <div class="palette-swatch" style="background: #c8d4e4;"></div>
+            <div class="palette-swatch" style="background: #f4f6f8;"></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- S3: Crimson Pro -->
+      <a href="/project/variants/s3" class="variant-card">
+        <div class="variant-preview" style="background: #060a12;">
+          <div class="variant-preview-text" style="font-family: 'Crimson Pro', serif; color: #ffffff; font-weight: 600;">
+            Sanfte <span style="color: #f5d060;">Osteopathie</span>
+          </div>
+        </div>
+        <div class="variant-info">
+          <div class="variant-name">S3: Crimson Pro</div>
+          <div class="variant-desc">High Contrast</div>
+          <div class="variant-fonts">Crimson Pro 600 + Inter</div>
+          <div class="variant-palette">
+            <div class="palette-swatch" style="background: #060a12;"></div>
+            <div class="palette-swatch" style="background: #f5d060;"></div>
+            <div class="palette-swatch" style="background: #ffffff;"></div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- SANS-SERIF VARIANTS -->
+    <div class="section-header">
+      <h2>Sans-Serif-Varianten</h2>
+      <span class="section-count">3 Varianten</span>
+    </div>
+
+    <div class="variants-grid">
+      <!-- S4: Inter Clean -->
+      <a href="/project/variants/s4" class="variant-card">
+        <div class="variant-preview" style="background: #0a1628;">
+          <div class="variant-preview-text" style="font-family: 'Inter', sans-serif; color: #f9f7f3; font-weight: 600;">
+            Sanfte <span style="color: #c9a962;">Osteopathie</span>
+          </div>
+        </div>
+        <div class="variant-info">
+          <div class="variant-name">S4: Inter Clean</div>
+          <div class="variant-desc">Modern minimalistisch</div>
+          <div class="variant-fonts">Inter 600 + Inter 400</div>
+          <div class="variant-palette">
+            <div class="palette-swatch" style="background: #0a1628;"></div>
+            <div class="palette-swatch" style="background: #c9a962;"></div>
+            <div class="palette-swatch" style="background: #f9f7f3;"></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- S5: Manrope Bold -->
+      <a href="/project/variants/s5" class="variant-card">
+        <div class="variant-preview" style="background: #050810;">
+          <div class="variant-preview-text" style="font-family: 'Manrope', sans-serif; color: #ffffff; font-weight: 800;">
+            Sanfte <span style="color: #e8c55a;">Osteopathie</span>
+          </div>
+        </div>
+        <div class="variant-info">
+          <div class="variant-name">S5: Manrope Bold</div>
+          <div class="variant-desc">Kräftig modern</div>
+          <div class="variant-fonts">Manrope 800 + 400</div>
+          <div class="variant-palette">
+            <div class="palette-swatch" style="background: #050810;"></div>
+            <div class="palette-swatch" style="background: #e8c55a;"></div>
+            <div class="palette-swatch" style="background: #ffffff;"></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- S6: Space Grotesk -->
+      <a href="/project/variants/s6" class="variant-card">
+        <div class="variant-preview" style="background: #0a0e14;">
+          <div class="variant-preview-text" style="font-family: 'Space Grotesk', sans-serif; color: #f4f6f8; font-weight: 500;">
+            Sanfte <span style="color: #c8d4e4;">Osteopathie</span>
+          </div>
+        </div>
+        <div class="variant-info">
+          <div class="variant-name">S6: Space Grotesk</div>
+          <div class="variant-desc">Tech/Cool</div>
+          <div class="variant-fonts">Space Grotesk 500</div>
+          <div class="variant-palette">
+            <div class="palette-swatch" style="background: #0a0e14;"></div>
+            <div class="palette-swatch" style="background: #c8d4e4;"></div>
+            <div class="palette-swatch" style="background: #f4f6f8;"></div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="/project">Projekt-Übersicht</a>
+        <a href="/project/designs-archive">Archiv (T1-T18, V1-V24)</a>
+        <a href="/">Live Website</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

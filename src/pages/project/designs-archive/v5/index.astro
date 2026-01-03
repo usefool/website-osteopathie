@@ -1,0 +1,731 @@
+---
+/**
+ * Variant 5: Warm Orange - Dark Mode
+ * Dark charcoal background with orange accents and warm gray tones
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Variante 5 - Warm Dark | Mobile Kinderosteopathie Leipzig</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-orange-400: #fb923c;
+      --color-orange-500: #f97316;
+      --color-orange-600: #ea580c;
+
+      --color-stone-300: #d6d3d1;
+      --color-stone-400: #a8a29e;
+      --color-stone-500: #78716c;
+      --color-stone-600: #57534e;
+      --color-stone-700: #44403c;
+      --color-stone-800: #292524;
+      --color-stone-850: #1f1d1c;
+      --color-stone-900: #1c1917;
+      --color-stone-950: #0c0a09;
+
+      --font-sans: 'DM Sans', -apple-system, sans-serif;
+      --font-serif: 'DM Serif Display', Georgia, serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-stone-300);
+      background: var(--color-stone-950);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      padding: 24px 0;
+      background: var(--color-stone-950);
+      border-bottom: 1px solid var(--color-stone-800);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--color-orange-500);
+    }
+
+    .nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav a {
+      color: var(--color-stone-400);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover {
+      color: var(--color-orange-400);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--color-orange-500);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-orange-600);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--color-stone-600);
+      color: var(--color-stone-300);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--color-orange-500);
+      color: var(--color-orange-400);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0;
+      background: linear-gradient(180deg, var(--color-stone-950) 0%, var(--color-stone-900) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 60%;
+      height: 150%;
+      background: radial-gradient(ellipse, rgba(249, 115, 22, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 400;
+      line-height: 1.1;
+      color: white;
+      margin-bottom: 24px;
+    }
+
+    .hero-content h1 span {
+      color: var(--color-orange-400);
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      color: var(--color-stone-400);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-image-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+      border: 1px solid var(--color-stone-800);
+    }
+
+    .hero-image-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.95);
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: linear-gradient(135deg, var(--color-orange-500) 0%, var(--color-orange-600) 100%);
+      color: white;
+      padding: 20px 28px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+    }
+
+    .hero-badge-number {
+      font-size: 2rem;
+      font-weight: 700;
+      display: block;
+    }
+
+    .hero-badge-text {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    /* Features */
+    .features-section {
+      padding: 100px 0;
+      background: var(--color-stone-900);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--color-orange-400);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--color-stone-400);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: var(--color-stone-850);
+      padding: 32px;
+      border-radius: 16px;
+      border: 1px solid var(--color-stone-800);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-orange-500);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(249, 115, 22, 0.1);
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(249, 115, 22, 0.1) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--color-orange-400);
+    }
+
+    .feature-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: var(--color-stone-400);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* About */
+    .about-section {
+      padding: 100px 0;
+      background: var(--color-stone-950);
+      position: relative;
+    }
+
+    .about-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -20%;
+      width: 50%;
+      height: 100%;
+      background: radial-gradient(ellipse, rgba(249, 115, 22, 0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+    }
+
+    .about-images {
+      position: relative;
+    }
+
+    .about-image-1 {
+      width: 80%;
+      aspect-ratio: 3/4;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      border: 1px solid var(--color-stone-800);
+    }
+
+    .about-image-1 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.9);
+    }
+
+    .about-image-2 {
+      position: absolute;
+      bottom: -30px;
+      right: 0;
+      width: 55%;
+      aspect-ratio: 4/3;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      border: 3px solid var(--color-stone-900);
+    }
+
+    .about-image-2 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.9);
+    }
+
+    .about-content h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 24px;
+    }
+
+    .about-content p {
+      color: var(--color-stone-400);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .credentials-list {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .credential {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--color-stone-300);
+      font-weight: 500;
+    }
+
+    .credential::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--color-orange-500);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 100px 0;
+      background: var(--color-stone-900);
+    }
+
+    .cta-card {
+      background: linear-gradient(135deg, var(--color-orange-600) 0%, var(--color-orange-500) 100%);
+      border-radius: 24px;
+      padding: 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 80%;
+      height: 150%;
+      background: radial-gradient(ellipse, rgba(255,255,255,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-card h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .cta-card p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.15rem;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+
+    .btn-dark {
+      background: var(--color-stone-900);
+      color: white;
+    }
+
+    .btn-dark:hover {
+      background: var(--color-stone-800);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--color-stone-950);
+      color: var(--color-stone-500);
+      padding: 64px 0 32px;
+      border-top: 1px solid var(--color-stone-800);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 64px;
+      margin-bottom: 48px;
+    }
+
+    .footer h4 {
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .footer p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--color-stone-500);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-orange-400);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--color-stone-800);
+      padding-top: 32px;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    /* Back link */
+    .back-link {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--color-orange-500);
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.875rem;
+      z-index: 100;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+      transition: all 0.2s;
+    }
+
+    .back-link:hover {
+      background: var(--color-orange-600);
+      transform: translateY(-1px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { order: -1; max-width: 500px; margin: 0 auto; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-images { max-width: 400px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero-content h1 { font-size: 2.5rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .cta-card { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="/project/designs" class="back-link">← Alle Varianten</a>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">Susanne<span>.</span>Hoppe</a>
+      <nav class="nav">
+        <a href="#">Home</a>
+        <a href="#">Über mich</a>
+        <a href="#">Leistungen</a>
+        <a href="#">Kontakt</a>
+      </nav>
+      <a href="#" class="btn btn-primary">Termin anfragen</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1>Mobile Kinderosteopathie <span>bei Ihnen zuhause</span></h1>
+          <p>
+            Sanfte osteopathische Behandlung für Ihr Kind – in der vertrauten
+            Atmosphäre Ihres Zuhauses. Entspannt, individuell und mit über
+            20 Jahren Erfahrung.
+          </p>
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-primary">Termin vereinbaren</a>
+            <a href="#" class="btn btn-outline">Mehr erfahren</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-image-main">
+            <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&h=750&fit=crop" alt="Kinderosteopathie" />
+          </div>
+          <div class="hero-badge">
+            <span class="hero-badge-number">20+</span>
+            <span class="hero-badge-text">Jahre Erfahrung</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Vorteile</span>
+        <h2>Warum mobile Behandlung?</h2>
+        <p>Ihr Kind profitiert von einer entspannten Behandlung in vertrauter Umgebung.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+          </div>
+          <h3>Behandlung zuhause</h3>
+          <p>Kein Stress mit Anfahrt und Wartezeiten. Ihr Kind kann in seiner gewohnten Umgebung bleiben.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <h3>Sanfte Methoden</h3>
+          <p>Osteopathische Techniken speziell für Kinder – behutsam und im Tempo Ihres Kindes.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3>20+ Jahre Erfahrung</h3>
+          <p>Langjährige Praxiserfahrung als Physiotherapeutin und Osteopathin mit Kindern.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-images">
+          <div class="about-image-1">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=650&fit=crop&crop=face" alt="Susanne Hoppe" />
+          </div>
+          <div class="about-image-2">
+            <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=300&fit=crop" alt="Behandlung" />
+          </div>
+        </div>
+        <div class="about-content">
+          <span class="section-label">Über mich</span>
+          <h2>Susanne Hoppe</h2>
+          <p>
+            Ich bin Physiotherapeutin und zertifizierte Kinder-Osteopathin
+            mit über 20 Jahren Erfahrung in der Arbeit mit Kindern.
+          </p>
+          <p>
+            Als mobile Osteopathin komme ich zu Ihnen nach Hause – damit Ihr Kind
+            in seiner vertrauten Umgebung behandelt werden kann. Entspannt,
+            ohne Wartezeiten und ohne stressige Anfahrt.
+          </p>
+
+          <div class="credentials-list">
+            <div class="credential">Staatlich geprüfte Physiotherapeutin</div>
+            <div class="credential">Zertifizierte Kinder-Osteopathin</div>
+            <div class="credential">20+ Jahre Berufserfahrung</div>
+          </div>
+
+          <a href="#" class="btn btn-primary" style="margin-top: 32px;">Mehr über mich</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Bereit für einen Termin?</h2>
+        <p>
+          Ich freue mich darauf, Sie und Ihr Kind kennenzulernen.
+          Kontaktieren Sie mich für ein unverbindliches Gespräch.
+        </p>
+        <a href="#" class="btn btn-dark">Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Susanne Hoppe</h4>
+          <p>
+            Mobile Kinderosteopathie in Leipzig.<br>
+            Behandlung bei Ihnen zuhause.
+          </p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Über mich</a></li>
+            <li><a href="#">Leistungen</a></li>
+            <li><a href="#">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Rechtliches</h4>
+          <ul class="footer-links">
+            <li><a href="#">Impressum</a></li>
+            <li><a href="#">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Susanne Hoppe. Alle Rechte vorbehalten.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

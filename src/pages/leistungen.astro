@@ -1,0 +1,1005 @@
+---
+/**
+ * Leistungen - V24 Dark Luxury Design
+ * Mobile Kinderosteopathie Leipzig - Susanne Hoppe
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leistungen | Susanne Hoppe - Mobile Kinderosteopathie Leipzig</title>
+  <meta name="description" content="Begleitende osteopathische Behandlung für Säuglinge, Kinder und ihre Familien - sanft, kindgerecht und bei Ihnen zuhause in Leipzig." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-gold: #c9a962;
+      --color-navy: #0a1628;
+      --color-navy-light: #132238;
+      --color-cream: #f9f7f3;
+      --color-bg: var(--color-navy);
+      --color-text-primary: var(--color-cream);
+      --color-text-secondary: rgba(249, 247, 243, 0.75);
+      --color-accent: var(--color-gold);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text-primary);
+      background: var(--color-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container-sm {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* TODO Badge System */
+    .todo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-sans);
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .todo-badge::before {
+      content: "⚠";
+      font-size: 0.875rem;
+    }
+
+    /* Header */
+    .header {
+      padding: 32px 0;
+      position: relative;
+      z-index: 50;
+      border-bottom: 1px solid rgba(249, 247, 243, 0.1);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--color-text-primary);
+      font-weight: 600;
+      font-size: 1.125rem;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--color-gold);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-navy);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      background: rgba(249, 247, 243, 0.05);
+      padding: 6px;
+      border-radius: 12px;
+      border: 1px solid rgba(249, 247, 243, 0.1);
+    }
+
+    .nav a {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .nav a:hover {
+      color: var(--color-text-primary);
+      background: rgba(249, 247, 243, 0.08);
+    }
+
+    .nav a.active {
+      background: var(--color-gold);
+      color: var(--color-navy);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(249, 247, 243, 0.1);
+      transition: all 0.2s;
+    }
+
+    .lang-switch:hover {
+      background: rgba(249, 247, 243, 0.05);
+      color: var(--color-text-primary);
+      border-color: rgba(249, 247, 243, 0.2);
+    }
+
+    .lang-switch svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--color-gold);
+      color: var(--color-navy);
+    }
+
+    .btn-primary:hover {
+      background: #d4b56e;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(201, 169, 98, 0.25);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 100px;
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201, 169, 98, 0.1);
+      border: 1px solid rgba(201, 169, 98, 0.2);
+      color: var(--color-gold);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--color-text-primary);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero .lead {
+      font-size: 1.25rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Age Groups Section */
+    .section {
+      padding: 80px 0;
+      border-top: 1px solid rgba(249, 247, 243, 0.1);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-header p {
+      font-size: 1.125rem;
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .age-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .age-card {
+      background: var(--color-navy-light);
+      border: 1px solid rgba(249, 247, 243, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .age-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .age-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      border-color: rgba(201, 169, 98, 0.3);
+    }
+
+    .age-card:hover::before {
+      opacity: 1;
+    }
+
+    .age-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .age-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(201, 169, 98, 0.15);
+      border: 2px solid rgba(201, 169, 98, 0.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .age-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--color-gold);
+    }
+
+    .age-title h3 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-bottom: 6px;
+    }
+
+    .age-subtitle {
+      color: var(--color-gold);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .age-description {
+      color: var(--color-text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .age-topics {
+      margin-top: 28px;
+    }
+
+    .age-topics h4 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .age-topics ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .age-topics li {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      padding-left: 24px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .age-topics li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      background: var(--color-gold);
+      border-radius: 50%;
+    }
+
+    /* Process Section */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    .process-step {
+      position: relative;
+      padding: 32px;
+      background: var(--color-navy-light);
+      border: 1px solid rgba(249, 247, 243, 0.1);
+      border-radius: 16px;
+      transition: all 0.3s;
+    }
+
+    .process-step:hover {
+      transform: translateY(-2px);
+      border-color: rgba(201, 169, 98, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .process-number {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--color-gold), #d4b56e);
+      color: var(--color-navy);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(201, 169, 98, 0.3);
+    }
+
+    .process-step h3 {
+      font-family: var(--font-serif);
+      font-size: 1.375rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-bottom: 12px;
+    }
+
+    .process-step p {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Info Card */
+    .info-card {
+      background: linear-gradient(135deg, rgba(201, 169, 98, 0.1), rgba(201, 169, 98, 0.05));
+      border: 2px solid rgba(201, 169, 98, 0.2);
+      border-radius: 20px;
+      padding: 48px;
+      margin-top: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(201, 169, 98, 0.1), transparent);
+      border-radius: 50%;
+    }
+
+    .info-card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-card h3 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .info-card h3::before {
+      content: "";
+      width: 48px;
+      height: 4px;
+      background: var(--color-gold);
+      border-radius: 2px;
+    }
+
+    .info-card p {
+      color: var(--color-text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .info-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-card .highlight {
+      color: var(--color-gold);
+      font-weight: 600;
+    }
+
+    .info-card .note {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(249, 247, 243, 0.15);
+      font-size: 0.95rem;
+      color: var(--color-text-secondary);
+      font-style: italic;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(201, 169, 98, 0.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section h2 {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .cta-section p {
+      font-size: 1.25rem;
+      color: var(--color-text-secondary);
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(249, 247, 243, 0.1);
+      padding: 64px 0 40px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--color-text-primary);
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-contact a {
+      color: var(--color-gold);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .footer-contact a:hover {
+      color: #d4b56e;
+    }
+
+    .footer-links h4 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-text-primary);
+    }
+
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid rgba(249, 247, 243, 0.1);
+      text-align: center;
+      color: var(--color-text-secondary);
+      font-size: 0.875rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+      }
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .btn-primary { display: none; }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .lead {
+        font-size: 1.125rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+
+      .age-header {
+        flex-direction: column;
+      }
+
+      .age-topics ul {
+        grid-template-columns: 1fr;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .info-card {
+        padding: 32px 24px;
+      }
+
+      .cta-section {
+        padding: 80px 0;
+      }
+
+      .cta-section h2 {
+        font-size: 2.25rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .age-card {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">SH</div>
+          <span>Susanne Hoppe</span>
+        </a>
+
+        <nav class="nav">
+          <a href="/">Home</a>
+          <a href="/ueber-mich">Über mich</a>
+          <a href="/leistungen" class="active">Leistungen</a>
+          <a href="/kontakt">Kontakt</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="/en/services" class="lang-switch">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+              <clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+              <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/>
+              <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+              <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+            </svg>
+            EN
+          </a>
+          <a href="/kontakt" class="btn btn-primary">Termin anfragen</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container-sm">
+      <div class="hero-tag">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        Begleitende Behandlung
+      </div>
+      <h1>Leistungen für Kinder & Familien</h1>
+      <p class="lead">
+        Sanfte, kindgerechte osteopathische Behandlung für Säuglinge, Kinder und ihre Familien –
+        individuell, einfühlsam und bei Ihnen zuhause in Leipzig.
+      </p>
+    </div>
+  </section>
+
+  <!-- Age Groups Section -->
+  <section class="section">
+    <div class="container-sm">
+      <div class="section-header">
+        <h2>Für jedes Alter die richtige Begleitung</h2>
+        <p>
+          Vom Säugling bis zum Schulkind – jede Entwicklungsphase bringt eigene
+          Herausforderungen mit sich. Ich begleite Ihr Kind mit sanften osteopathischen Techniken.
+        </p>
+      </div>
+
+      <div class="age-groups">
+        <!-- Säuglinge -->
+        <div class="age-card">
+          <div class="age-header">
+            <div class="age-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
+            <div class="age-title">
+              <h3>Säuglinge (0-12 Monate)</h3>
+              <div class="age-subtitle">Sanfte Impulse für die Kleinsten</div>
+            </div>
+          </div>
+
+          <p class="age-description">
+            In den ersten Lebensmonaten kann Osteopathie besonders wirksam sein. Der kleine Körper
+            reagiert oft sehr schnell auf sanfte Impulse, weil die Strukturen noch flexibel und
+            formbar sind. Als Physiotherapeutin auf einer Neugeborenenstation <span class="todo-badge">Klinik-Name</span>
+            kenne ich die besonderen Bedürfnisse der Allerkleinsten.
+          </p>
+
+          <div class="age-topics">
+            <h4>Häufige Behandlungsanlässe</h4>
+            <ul>
+              <li>Koliken, Blähungen, Verdauungsprobleme</li>
+              <li>Schiefhals, Kopfasymmetrie</li>
+              <li>Stillprobleme, Saugprobleme</li>
+              <li>Unruhe, Schlafprobleme</li>
+              <li>Begleitung nach schwieriger Geburt</li>
+              <li>Kiss-Syndrom</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Kleinkinder -->
+        <div class="age-card">
+          <div class="age-header">
+            <div class="age-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div class="age-title">
+              <h3>Kleinkinder (1-6 Jahre)</h3>
+              <div class="age-subtitle">Unterstützung in der Entwicklung</div>
+            </div>
+          </div>
+
+          <p class="age-description">
+            Die ersten Lebensjahre sind geprägt von rasanter Entwicklung. Osteopathische
+            Behandlung kann helfen, wenn sich Blockaden oder Asymmetrien zeigen, die die
+            natürliche Entwicklung beeinträchtigen. Ich begleite Ihr Kind und Ihre Familie
+            einfühlsam durch diese wichtige Phase.
+          </p>
+
+          <div class="age-topics">
+            <h4>Häufige Behandlungsanlässe</h4>
+            <ul>
+              <li>Entwicklungsverzögerungen</li>
+              <li>Wiederkehrende Infekte</li>
+              <li>Haltungsauffälligkeiten</li>
+              <li>Verdauungsprobleme</li>
+              <li>Motorische Unsicherheiten</li>
+              <li>Gleichgewichtsprobleme</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Schulkinder -->
+        <div class="age-card">
+          <div class="age-header">
+            <div class="age-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c0 1 2 3 6 3s6-2 6-3v-5"/>
+              </svg>
+            </div>
+            <div class="age-title">
+              <h3>Schulkinder (6-14 Jahre)</h3>
+              <div class="age-subtitle">Begleitung durch Schulzeit & Wachstum</div>
+            </div>
+          </div>
+
+          <p class="age-description">
+            Schulalltag und Wachstum stellen neue Anforderungen. Osteopathie kann bei
+            Beschwerden helfen, die durch langes Sitzen, Schulstress oder Wachstumsschübe
+            entstehen. Die Behandlung ist immer kindgerecht und auf das Alter angepasst.
+          </p>
+
+          <div class="age-topics">
+            <h4>Häufige Behandlungsanlässe</h4>
+            <ul>
+              <li>Kopfschmerzen, Migräne</li>
+              <li>Rückenschmerzen, Haltungsprobleme</li>
+              <li>Konzentrationsschwierigkeiten</li>
+              <li>Wachstumsschmerzen</li>
+              <li>Sportverletzungen</li>
+              <li>Kieferprobleme, Zahnspange</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="section">
+    <div class="container-sm">
+      <div class="section-header">
+        <h2>Ablauf einer Behandlung</h2>
+        <p>
+          Jede Behandlung ist individuell und richtet sich nach Ihrem Kind und Ihrer Familie.
+          Der typische Ablauf sieht folgendermaßen aus:
+        </p>
+      </div>
+
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-number">1</div>
+          <h3>Anamnese</h3>
+          <p>
+            Ausführliches Gespräch über die Beschwerden, Vorgeschichte und Entwicklung Ihres Kindes.
+            Diese Phase ist wichtig für eine ganzheitliche Betrachtung der Familie.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-number">2</div>
+          <h3>Untersuchung</h3>
+          <p>
+            Sanfte manuelle Untersuchung, um Blockaden und Spannungen zu erspüren.
+            Immer angepasst an das Alter und die Bedürfnisse Ihres Kindes.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-number">3</div>
+          <h3>Behandlung</h3>
+          <p>
+            Sanfte osteopathische Techniken. Ihr Kind kann dabei spielen, auf Ihrem Schoß
+            sitzen oder liegen – je nachdem, was am angenehmsten ist.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-number">4</div>
+          <h3>Beratung</h3>
+          <p>
+            Empfehlungen für zuhause, Übungen wenn sinnvoll, und Planung weiterer Termine
+            bei Bedarf. Ihre Fragen sind jederzeit willkommen.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pricing Info Card -->
+      <div class="info-card">
+        <div class="info-card-content">
+          <h3>Kosten & Erstattung</h3>
+          <p>
+            Osteopathische Behandlungen sind <span class="highlight">prinzipiell erstattungsfähig</span>.
+            Viele gesetzliche und private Krankenkassen übernehmen die Kosten anteilig oder vollständig.
+          </p>
+          <p>
+            Ich erstelle Ihnen nach jeder Behandlung eine detaillierte Rechnung, die Sie bei Ihrer
+            Krankenkasse einreichen können. Die Höhe der Erstattung variiert je nach Versicherung
+            und Tarif.
+          </p>
+          <p class="note">
+            Bitte informieren Sie sich vor der ersten Behandlung bei Ihrer Krankenkasse über die
+            Erstattungsmöglichkeiten. Gerne berate ich Sie zu den üblichen Erstattungssätzen und
+            unterstütze Sie bei Fragen zur Abrechnung.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container-sm">
+      <div class="cta-content">
+        <h2>Termin anfragen</h2>
+        <p>
+          Ich freue mich darauf, Ihr Kind und Ihre Familie kennenzulernen.
+          Kontaktieren Sie mich gerne für ein unverbindliches Erstgespräch.
+        </p>
+        <a href="/kontakt" class="btn btn-primary">Jetzt Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Susanne Hoppe</h3>
+          <p>
+            Kinder-Physiotherapeutin & zertifizierte Kinder-Osteopathin<br>
+            Mobile Kinderosteopathie in Leipzig
+          </p>
+          <div class="footer-contact">
+            <a href="tel:+49"><span class="todo-badge">Telefon</span></a>
+            <a href="mailto:"><span class="todo-badge">E-Mail</span></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/ueber-mich">Über mich</a></li>
+            <li><a href="/leistungen">Leistungen</a></li>
+            <li><a href="/kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="/impressum">Impressum</a></li>
+            <li><a href="/datenschutz">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 Susanne Hoppe - Mobile Kinderosteopathie Leipzig
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

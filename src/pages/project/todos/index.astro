@@ -1,0 +1,555 @@
+---
+/**
+ * Todos Page
+ * Project task list with priorities
+ *
+ * DESIGN DECISION (29.12.2024):
+ * - Wichtige/offene Todos stehen oben
+ * - Abgehakte/erledigte Todos stehen unten
+ * - Sortierung: Priorität (hoch → niedrig), dann Status (offen → erledigt)
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todos | Projekt: Mobile Kinderosteopathie Leipzig</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0f0f0f;
+      color: #e5e5e5;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    .nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      border-bottom: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: #666;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+    }
+
+    /* Header */
+    .header {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid #222;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #fff 0%, #888 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header p {
+      color: #888;
+      font-size: 1.1rem;
+    }
+
+    /* Stats */
+    .stats {
+      display: flex;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .stat.open .stat-value {
+      color: #f97316;
+    }
+
+    .stat.done .stat-value {
+      color: #22c55e;
+    }
+
+    /* Section */
+    .section {
+      padding: 48px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .section-badge {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      color: #888;
+    }
+
+    /* Todo List */
+    .todo-list {
+      list-style: none;
+    }
+
+    .todo-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      transition: all 0.2s;
+    }
+
+    .todo-item:hover {
+      border-color: #3a3a3a;
+    }
+
+    .todo-item.completed {
+      opacity: 0.5;
+    }
+
+    .todo-item.completed .todo-title {
+      text-decoration: line-through;
+      color: #666;
+    }
+
+    .todo-checkbox {
+      width: 24px;
+      height: 24px;
+      border: 2px solid #444;
+      border-radius: 6px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .todo-item.completed .todo-checkbox {
+      background: #166534;
+      border-color: #22c55e;
+    }
+
+    .todo-checkbox svg {
+      width: 14px;
+      height: 14px;
+      color: white;
+    }
+
+    .todo-content {
+      flex: 1;
+    }
+
+    .todo-title {
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .todo-description {
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .todo-meta {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .todo-priority {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .todo-priority.high {
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .todo-priority.medium {
+      background: rgba(249, 115, 22, 0.15);
+      color: #f97316;
+      border: 1px solid rgba(249, 115, 22, 0.3);
+    }
+
+    .todo-priority.low {
+      background: rgba(34, 197, 94, 0.15);
+      color: #22c55e;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+
+    .todo-category {
+      font-size: 0.7rem;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: #222;
+      color: #888;
+    }
+
+    /* Design Decision Note */
+    .decision-note {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-left: 3px solid #7c3aed;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 32px;
+    }
+
+    .decision-note-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #a78bfa;
+      margin-bottom: 8px;
+    }
+
+    .decision-note p {
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    /* Completed Section */
+    .completed-section {
+      border-top: 1px solid #222;
+      padding-top: 48px;
+      margin-top: 24px;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 48px 0;
+      border-top: 1px solid #222;
+      text-align: center;
+    }
+
+    .footer p {
+      color: #444;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .nav-links {
+        gap: 16px;
+      }
+
+      .stats {
+        flex-wrap: wrap;
+      }
+
+      .todo-item {
+        padding: 16px;
+      }
+
+      .todo-meta {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/project" class="nav-brand">Projekt: Kinderosteopathie Leipzig</a>
+    <div class="nav-links">
+      <a href="/project">Pitch</a>
+      <a href="/project/designs">Designs</a>
+      <a href="/project/work-log">Work-Log</a>
+      <a href="/project/todos" class="active">Todos</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="header">
+      <h1>Todos</h1>
+      <p>Offene Aufgaben und nächste Schritte</p>
+    </header>
+
+    <div class="stats">
+      <div class="stat open">
+        <span class="stat-value">7</span>
+        <span class="stat-label">Offen</span>
+      </div>
+      <div class="stat done">
+        <span class="stat-value">5</span>
+        <span class="stat-label">Erledigt</span>
+      </div>
+    </div>
+
+    <div class="decision-note">
+      <div class="decision-note-title">Design-Entscheidung</div>
+      <p>Wichtige/offene Todos stehen oben, abgehakte Todos unten. Sortierung nach Priorität (hoch → niedrig), dann Status.</p>
+    </div>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Offene Aufgaben</h2>
+        <span class="section-badge">7 offen</span>
+      </div>
+
+      <ul class="todo-list">
+        <li class="todo-item">
+          <div class="todo-checkbox"></div>
+          <div class="todo-content">
+            <div class="todo-title">Domain auswählen</div>
+            <div class="todo-description">Domain-Namen für die Website festlegen und registrieren</div>
+            <div class="todo-meta">
+              <span class="todo-priority high">Hoch</span>
+              <span class="todo-category">Entscheidung</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="todo-item">
+          <div class="todo-checkbox"></div>
+          <div class="todo-content">
+            <div class="todo-title">Design-Variante auswählen</div>
+            <div class="todo-description">Entscheidung für eine der 22 Design-Varianten treffen (oder Kombination)</div>
+            <div class="todo-meta">
+              <span class="todo-priority high">Hoch</span>
+              <span class="todo-category">Entscheidung</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="todo-item">
+          <div class="todo-checkbox"></div>
+          <div class="todo-content">
+            <div class="todo-title">Professionelle Fotos</div>
+            <div class="todo-description">Fotoshooting planen: Portrait von Susanne, Behandlungsfotos, ggf. Testimonial-Fotos</div>
+            <div class="todo-meta">
+              <span class="todo-priority high">Hoch</span>
+              <span class="todo-category">Content</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="todo-item">
+          <div class="todo-checkbox"></div>
+          <div class="todo-content">
+            <div class="todo-title">Finale Texte</div>
+            <div class="todo-description">Überarbeitete Texte für alle Seiten (DE + EN) – aktuell Platzhalter</div>
+            <div class="todo-meta">
+              <span class="todo-priority high">Hoch</span>
+              <span class="todo-category">Content</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="todo-item">
+          <div class="todo-checkbox"></div>
+          <div class="todo-content">
+            <div class="todo-title">Kontaktformular Backend</div>
+            <div class="todo-description">Formular-Handling implementieren (Cloudflare Functions oder externer Service)</div>
+            <div class="todo-meta">
+              <span class="todo-priority medium">Mittel</span>
+              <span class="todo-category">Feature</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="todo-item">
+          <div class="todo-checkbox"></div>
+          <div class="todo-content">
+            <div class="todo-title">SEO Optimierung</div>
+            <div class="todo-description">Meta-Tags, strukturierte Daten, lokales SEO für Leipzig</div>
+            <div class="todo-meta">
+              <span class="todo-priority medium">Mittel</span>
+              <span class="todo-category">Technik</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="todo-item">
+          <div class="todo-checkbox"></div>
+          <div class="todo-content">
+            <div class="todo-title">Performance-Optimierung</div>
+            <div class="todo-description">Bilder optimieren, Lighthouse-Score maximieren</div>
+            <div class="todo-meta">
+              <span class="todo-priority low">Niedrig</span>
+              <span class="todo-category">Technik</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section completed-section">
+      <div class="section-header">
+        <h2 class="section-title">Erledigt</h2>
+        <span class="section-badge">5 erledigt</span>
+      </div>
+
+      <ul class="todo-list">
+        <li class="todo-item completed">
+          <div class="todo-checkbox">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div class="todo-content">
+            <div class="todo-title">6 Design-Varianten erstellen</div>
+            <div class="todo-description">Klassisch, Modern Glass, Spotlight, Warm Light, Warm Dark, Ultra Luxury</div>
+            <div class="todo-meta">
+              <span class="todo-category">Design</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="todo-item completed">
+          <div class="todo-checkbox">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div class="todo-content">
+            <div class="todo-title">Englische Übersetzung (i18n)</div>
+            <div class="todo-description">Vollständige englische Version mit Sprachwechsel</div>
+            <div class="todo-meta">
+              <span class="todo-category">Feature</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="todo-item completed">
+          <div class="todo-checkbox">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div class="todo-content">
+            <div class="todo-title">Projekt-Setup</div>
+            <div class="todo-description">Astro 5.x, Tailwind 4.x, TypeScript, Cloudflare Pages</div>
+            <div class="todo-meta">
+              <span class="todo-category">Setup</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="todo-item completed">
+          <div class="todo-checkbox">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div class="todo-content">
+            <div class="todo-title">Basis-Seitenstruktur</div>
+            <div class="todo-description">Home, Über mich, Leistungen, Kontakt, Impressum, Datenschutz</div>
+            <div class="todo-meta">
+              <span class="todo-category">Feature</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="todo-item completed">
+          <div class="todo-checkbox">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div class="todo-content">
+            <div class="todo-title">Wettbewerbs-Analyse</div>
+            <div class="todo-description">Recherche zu Osteopathie-Websites in Leipzig und international</div>
+            <div class="todo-meta">
+              <span class="todo-category">Research</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <p>Internes Projektdokument – Aufgabenliste wird laufend aktualisiert</p>
+    </footer>
+  </div>
+</body>
+</html>

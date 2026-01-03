@@ -1,0 +1,600 @@
+---
+/**
+ * Variant 1: Classic & Trustworthy
+ * Traditional, professional medical design with classic blue tones
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Variante 1 - Klassisch | Mobile Kinderosteopathie Leipzig</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #1e4a7c;
+      --color-primary-light: #2d6cb5;
+      --color-primary-dark: #153657;
+      --color-secondary: #f8f5f0;
+      --color-accent: #c9a227;
+      --color-text: #2c3e50;
+      --color-text-muted: #5a6c7d;
+      --color-background: #ffffff;
+      --color-border: #d4dce4;
+      --font-heading: 'Merriweather', Georgia, serif;
+      --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background: var(--color-background);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      line-height: 1.3;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      background: var(--color-background);
+      border-bottom: 1px solid var(--color-border);
+      padding: 20px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    .nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav a {
+      color: var(--color-text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover {
+      color: var(--color-primary);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-dark);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--color-secondary) 0%, #e8e4dc 100%);
+      padding: 80px 0 100px;
+      border-bottom: 4px solid var(--color-primary);
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--color-primary);
+      color: white;
+      padding: 6px 16px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: var(--color-primary-dark);
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--color-text-muted);
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    /* Trust Bar */
+    .trust-bar {
+      background: var(--color-primary);
+      color: white;
+      padding: 24px 0;
+    }
+
+    .trust-items {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+    }
+
+    .trust-icon {
+      width: 24px;
+      height: 24px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* USP Section */
+    .usp-section {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-size: 2.25rem;
+      color: var(--color-primary-dark);
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 1.125rem;
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .usp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .usp-card {
+      text-align: center;
+      padding: 40px 32px;
+      border: 1px solid var(--color-border);
+      background: white;
+    }
+
+    .usp-icon {
+      width: 72px;
+      height: 72px;
+      background: var(--color-secondary);
+      border: 2px solid var(--color-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .usp-icon svg {
+      width: 32px;
+      height: 32px;
+      color: var(--color-primary);
+    }
+
+    .usp-card h3 {
+      font-size: 1.25rem;
+      color: var(--color-primary-dark);
+      margin-bottom: 12px;
+    }
+
+    .usp-card p {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 80px 0;
+      background: var(--color-secondary);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, #d4dce4 0%, #c8d0d8 100%);
+      border: 4px solid white;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+    }
+
+    .about-content h2 {
+      font-size: 2rem;
+      color: var(--color-primary-dark);
+      margin-bottom: 24px;
+    }
+
+    .about-content p {
+      color: var(--color-text-muted);
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+    }
+
+    .credentials {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .credential-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .credential-item::before {
+      content: "✓";
+      color: var(--color-primary);
+      font-weight: bold;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 0;
+      background: var(--color-primary);
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.125rem;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--color-primary);
+      padding: 14px 36px;
+      font-size: 1.05rem;
+    }
+
+    .btn-white:hover {
+      background: var(--color-secondary);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--color-primary-dark);
+      color: rgba(255,255,255,0.8);
+      padding: 48px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+
+    .footer h4 {
+      color: white;
+      font-family: var(--font-heading);
+      margin-bottom: 16px;
+    }
+
+    .footer p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    /* Back link */
+    .back-link {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--color-accent);
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.875rem;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .back-link:hover {
+      background: #b8911f;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero h1 { font-size: 2.25rem; }
+      .hero { padding: 60px 0 80px; }
+      .usp-grid { grid-template-columns: 1fr; gap: 24px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .trust-items { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="/project/designs" class="back-link">← Alle Varianten</a>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">Susanne Hoppe</a>
+      <nav class="nav">
+        <a href="#">Home</a>
+        <a href="#">Über mich</a>
+        <a href="#">Leistungen</a>
+        <a href="#">Kontakt</a>
+      </nav>
+      <a href="#" class="btn btn-primary">Termin anfragen</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-badge">MOBILE KINDEROSTEOPATHIE</span>
+        <h1>Sanfte Behandlung für Ihr Kind – bei Ihnen zuhause</h1>
+        <p>
+          Als erfahrene Physiotherapeutin und zertifizierte Kinder-Osteopathin
+          behandle ich Säuglinge und Kinder in ihrer vertrauten Umgebung in Leipzig.
+        </p>
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-primary">Termin vereinbaren</a>
+          <a href="#" class="btn btn-outline">Mehr erfahren</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-items">
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>20+ Jahre Erfahrung</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>Zertifizierte Kinder-Osteopathin</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>Hausbesuche in Leipzig</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- USP Section -->
+  <section class="usp-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Warum mobile Kinderosteopathie?</h2>
+        <p>Professionelle osteopathische Behandlung in der entspannten Atmosphäre Ihres Zuhauses.</p>
+      </div>
+
+      <div class="usp-grid">
+        <div class="usp-card">
+          <div class="usp-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+          </div>
+          <h3>Behandlung zuhause</h3>
+          <p>Ihr Kind wird in seiner vertrauten Umgebung behandelt – entspannter und ohne stressige Anfahrt.</p>
+        </div>
+
+        <div class="usp-card">
+          <div class="usp-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3>Langjährige Erfahrung</h3>
+          <p>Über 20 Jahre Erfahrung in der Arbeit mit Kindern als Physiotherapeutin und Osteopathin.</p>
+        </div>
+
+        <div class="usp-card">
+          <div class="usp-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <h3>Sanfte Methoden</h3>
+          <p>Ausschließlich Behandlung von Kindern mit kindgerechten, sanften osteopathischen Techniken.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          Foto Susanne Hoppe
+        </div>
+        <div class="about-content">
+          <h2>Über mich</h2>
+          <p>
+            Ich bin Susanne Hoppe, Physiotherapeutin und zertifizierte Kinder-Osteopathin
+            mit über 20 Jahren Erfahrung in der Arbeit mit Kindern.
+          </p>
+          <p>
+            Als mobile Osteopathin komme ich zu Ihnen nach Hause – damit Ihr Kind in seiner
+            vertrauten Umgebung behandelt werden kann, entspannt und ohne Stress.
+          </p>
+          <div class="credentials">
+            <div class="credential-item">Staatlich geprüfte Physiotherapeutin</div>
+            <div class="credential-item">Zertifizierte Kinder-Osteopathin</div>
+            <div class="credential-item">20+ Jahre Berufserfahrung</div>
+          </div>
+          <a href="#" class="btn btn-primary" style="margin-top: 24px;">Mehr über mich</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Haben Sie Fragen oder möchten einen Termin?</h2>
+      <p>
+        Ich freue mich auf Ihre Nachricht und beantworte gerne alle Fragen
+        rund um die osteopathische Behandlung Ihres Kindes.
+      </p>
+      <a href="#" class="btn btn-white">Kontakt aufnehmen</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Susanne Hoppe</h4>
+          <p>
+            Mobile Kinderosteopathie in Leipzig.<br>
+            Behandlung bei Ihnen zuhause.
+          </p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Über mich</a></li>
+            <li><a href="#">Leistungen</a></li>
+            <li><a href="#">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Rechtliches</h4>
+          <ul class="footer-links">
+            <li><a href="#">Impressum</a></li>
+            <li><a href="#">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 Susanne Hoppe. Alle Rechte vorbehalten.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
