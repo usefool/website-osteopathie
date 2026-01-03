@@ -73,6 +73,11 @@ src/
 | S9 | Libre Baskerville + Inter | Sage Grün (Off-White + Sage) |
 | S10 | Libre Baskerville + Inter | Ocean Blau (Ice White + Steel Blue) |
 
+**Special Effects:**
+| Variante | Schrift | Stil |
+|----------|---------|------|
+| S11 | Newsreader + Inter | Frosted Glass (Glassmorphism + Rose Akzent) |
+
 ## Deployment
 
 Automatisches Deployment via Cloudflare Pages bei Push auf `main`.
