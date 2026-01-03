@@ -65,12 +65,13 @@ src/
 | S5 | Manrope | Kräftig modern |
 | S6 | Space Grotesk | Tech/Cool |
 
-**Helle Varianten (L1-L3):**
+**Helle Varianten (S7-S10):**
 | Variante | Schrift | Farbpalette |
 |----------|---------|-------------|
-| L1 | Lora + Source Sans | Erdtöne (Warm Sand + Terrakotta) |
-| L2 | Cormorant Garamond + DM Sans | Soft Blush (Cream + Dusty Rose) |
-| L3 | Libre Baskerville + Inter | Sage Grün (Off-White + Sage) |
+| S7 | Lora + Source Sans | Erdtöne (Warm Sand + Terrakotta) |
+| S8 | Cormorant Garamond + DM Sans | Soft Blush (Cream + Dusty Rose) |
+| S9 | Libre Baskerville + Inter | Sage Grün (Off-White + Sage) |
+| S10 | Libre Baskerville + Inter | Ocean Blau (Ice White + Steel Blue) |
 
 ## Deployment
 
