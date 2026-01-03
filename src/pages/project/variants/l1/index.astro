@@ -1,0 +1,415 @@
+---
+/**
+ * L1 - Erdtöne
+ * Warm Sand + Terrakotta
+ * Lora + Source Sans Pro
+ */
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L1: Erdtöne | Typografie-Variante</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #faf6f1;
+      --color-bg-alt: #f0ebe4;
+      --color-accent: #c67d5a;
+      --color-accent-hover: #d4916e;
+      --color-text: #3d2e24;
+      --color-text-muted: #6b5648;
+      --font-serif: 'Lora', Georgia, serif;
+      --font-sans: 'Source Sans 3', -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.6;
+    }
+
+    .variant-tag {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--color-accent);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .header {
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(198, 125, 90, 0.2);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--color-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .logo-text {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+
+    .nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover, .nav a.active {
+      color: var(--color-accent);
+    }
+
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-bg-alt);
+      border: 1px solid rgba(198, 125, 90, 0.3);
+      color: var(--color-accent);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--color-text);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--color-accent);
+      font-style: italic;
+    }
+
+    .hero .lead {
+      font-size: 1.125rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 36px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(198, 125, 90, 0.3);
+    }
+
+    .features {
+      padding: 80px 0;
+      background: var(--color-bg-alt);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .feature-card {
+      background: var(--color-bg);
+      border: 1px solid rgba(198, 125, 90, 0.15);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(61, 46, 36, 0.08);
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(198, 125, 90, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .feature-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--color-accent);
+    }
+
+    .feature-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .typo-info {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .typo-info h2 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      margin-bottom: 40px;
+    }
+
+    .font-sample {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+    }
+
+    .font-sample div { text-align: left; }
+
+    .font-sample h4 {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .sample-headline {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+
+    .sample-body {
+      font-family: var(--font-sans);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--color-text);
+    }
+
+    .color-palette {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .palette-item { text-align: center; }
+
+    .palette-swatch {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      margin-bottom: 8px;
+      border: 2px solid rgba(61, 46, 36, 0.1);
+    }
+
+    .palette-name {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      margin-bottom: 2px;
+    }
+
+    .palette-hex {
+      font-size: 0.65rem;
+      color: var(--color-accent);
+      font-family: monospace;
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero h1 { font-size: 2.5rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .font-sample { flex-direction: column; gap: 32px; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="variant-tag">L1: Erdtöne</div>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">SH</div>
+          <span class="logo-text">Susanne Hoppe</span>
+        </a>
+        <nav class="nav">
+          <a href="#" class="active">Home</a>
+          <a href="#">Über mich</a>
+          <a href="#">Leistungen</a>
+          <a href="#">Kontakt</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tag">Mobile Kinderosteopathie Leipzig</div>
+      <h1>Sanfte <span>Osteopathie</span><br>für Ihr Kind</h1>
+      <p class="lead">
+        Begleitende osteopathische Behandlung für Säuglinge, Kinder und ihre Familien –
+        einfühlsam und bei Ihnen zuhause.
+      </p>
+      <a href="#" class="btn btn-primary">Termin anfragen</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+          </div>
+          <h3>Bei Ihnen zuhause</h3>
+          <p>Entspannte Behandlung in vertrauter Umgebung für Ihr Kind.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5z M2 17l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Klinische Erfahrung</h3>
+          <p>Tätig auf einer Neugeborenenstation mit medizinischer Expertise.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Für die Familie</h3>
+          <p>Ganzheitliche Begleitung für Kinder und ihre Familien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="typo-info">
+    <div class="container">
+      <h2>Typografie & Farben dieser Variante</h2>
+      <div class="font-sample">
+        <div>
+          <h4>Headlines</h4>
+          <p class="sample-headline">Lora 500</p>
+        </div>
+        <div>
+          <h4>Body</h4>
+          <p class="sample-body">Source Sans 400</p>
+        </div>
+      </div>
+      <div class="color-palette">
+        <div class="palette-item">
+          <div class="palette-swatch" style="background: #faf6f1;"></div>
+          <div class="palette-name">Warm Sand</div>
+          <div class="palette-hex">#faf6f1</div>
+        </div>
+        <div class="palette-item">
+          <div class="palette-swatch" style="background: #c67d5a;"></div>
+          <div class="palette-name">Terrakotta</div>
+          <div class="palette-hex">#c67d5a</div>
+        </div>
+        <div class="palette-item">
+          <div class="palette-swatch" style="background: #3d2e24;"></div>
+          <div class="palette-name">Dunkelbraun</div>
+          <div class="palette-hex">#3d2e24</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
