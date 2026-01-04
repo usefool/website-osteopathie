@@ -10,12 +10,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-tag">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-          </svg>
-          <span>Begleitende Behandlung</span>
-        </div>
+        <span class="tag-handwritten brush-3">Begleitende Behandlung</span>
         <h1>Leistungen für Kinder & <span class="accent">Familien</span></h1>
         <p>
           Sanfte, kindgerechte osteopathische Behandlung für Säuglinge, Kinder und ihre Familien –
@@ -29,8 +24,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="section section-alt">
     <div class="container">
       <div class="section-header">
+        <span class="tag-handwritten brush-2">Individuell betreut</span>
         <h2>Für jedes Alter die richtige <span class="accent">Begleitung</span></h2>
-        <p>Vom Säugling bis zum Schulkind – jede Entwicklungsphase bringt eigene Herausforderungen mit sich.</p>
       </div>
 
       <div class="age-groups">
@@ -132,7 +127,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <div class="section-header">
         <h2>Ablauf einer <span class="accent">Behandlung</span></h2>
-        <p>Jede Behandlung ist individuell und richtet sich nach Ihrem Kind und Ihrer Familie.</p>
       </div>
 
       <div class="process-grid">
@@ -212,23 +206,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin: 0 auto;
   }
 
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    color: var(--color-accent);
-    padding: 8px 16px;
-    border-radius: 30px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    margin-bottom: 24px;
-  }
-
-  .hero-tag svg {
-    width: 18px;
-    height: 18px;
+  .hero-content .tag-handwritten {
+    margin-bottom: 16px;
   }
 
   .hero h1 {
@@ -252,16 +231,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-bottom: 48px;
   }
 
-  .section-header h2 {
-    margin-bottom: 12px;
+  .section-header .tag-handwritten {
+    margin-bottom: 16px;
   }
 
-  .section-header p {
-    color: var(--color-text-muted);
-    font-size: 1.1rem;
-    margin: 0;
-    max-width: 600px;
-    margin: 0 auto;
+  .section-header h2 {
+    margin-bottom: 12px;
   }
 
   /* ============================================
@@ -461,6 +436,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-align: center;
     max-width: 560px;
     margin: 0 auto;
+  }
+
+  .cta-content .tag-handwritten {
+    margin-bottom: 12px;
   }
 
   .cta-content h2 {

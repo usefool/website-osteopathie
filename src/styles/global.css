@@ -249,6 +249,17 @@ a:hover {
   transform: rotate(-1deg);
 }
 
+/* Brush variations */
+.brush-2::before {
+  background-image: url('/brush2.svg') !important;
+  transform: rotate(1deg);
+}
+
+.brush-3::before {
+  background-image: url('/brush3.svg') !important;
+  transform: rotate(-2deg);
+}
+
 /* ============================================
    FEATURE ICONS
    ============================================ */
