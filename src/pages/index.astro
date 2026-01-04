@@ -27,12 +27,47 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <!-- About Teaser -->
+  <section class="section about-teaser">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <div class="image-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" />
+            </svg>
+            <span>Foto folgt</span>
+          </div>
+        </div>
+        <div class="about-content">
+          <h2><span class="heading-brush">Über mich</span></h2>
+          <p>
+            Ich bin Susanne Hoppe – Physiotherapeutin seit über 20 Jahren und
+            zertifizierte Kinderosteopathin. Seit 2016 arbeite ich in der Kinderklinik
+            des Universitätsklinikums Leipzig, mit Schwerpunkt auf Neonatologie und
+            Neuropädiatrie.
+          </p>
+          <p>
+            Diese Erfahrung bringe ich zu Ihnen nach Hause: Sanfte, fundierte
+            Behandlung für Ihr Baby – in Ihrer vertrauten Umgebung.
+          </p>
+          <a href="/ueber-mich" class="btn btn-secondary">
+            Mehr erfahren
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Services Preview -->
   <section class="section section-alt">
     <div class="container">
       <div class="section-header">
+        <span class="tag-handwritten">Ganzheitliche osteopathische Behandlung für Kinder und Mütter</span>
         <h2>Meine <span class="accent">Leistungen</span></h2>
-        <p>Ganzheitliche osteopathische Behandlung für Kinder jeden Alters</p>
       </div>
       <div class="services-grid">
         <div class="card">
@@ -237,12 +272,69 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   /* ============================================
+     ABOUT TEASER
+     ============================================ */
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .about-image .image-placeholder {
+    aspect-ratio: 1;
+    max-width: 280px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+
+  .about-content h2 {
+    margin-bottom: 20px;
+  }
+
+  .about-content p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .about-content .btn {
+    margin-top: 8px;
+  }
+
+  .about-content .btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  @media (min-width: 768px) {
+    .about-grid {
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+    }
+
+    .about-image .image-placeholder {
+      margin: 0;
+    }
+  }
+
+  /* ============================================
      SECTIONS
      ============================================ */
 
   .section-header {
     text-align: center;
     margin-bottom: 48px;
+  }
+
+  .section-header .tag-handwritten {
+    margin-bottom: 16px;
+  }
+
+  .section-header .tag-handwritten::before {
+    inset: -6px -220px;
   }
 
   .section-header h2 {

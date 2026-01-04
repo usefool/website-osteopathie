@@ -228,6 +228,27 @@ a:hover {
   transform: rotate(2deg);
 }
 
+/* Heading with brush stroke background */
+.heading-brush {
+  display: inline-block;
+  position: relative;
+  padding: 4px 16px 6px 12px;
+  font-family: var(--font-handwritten);
+  font-weight: 500;
+}
+
+.heading-brush::before {
+  content: '';
+  position: absolute;
+  inset: -28px -24px;
+  z-index: -1;
+  background-image: url('/brush1.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(-1deg);
+}
+
 /* ============================================
    FEATURE ICONS
    ============================================ */
