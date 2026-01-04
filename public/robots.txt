@@ -1,0 +1,8 @@
+# robots.txt - Mobile Kinderosteopathie Leipzig
+# https://kinderosteopathie-leipzig.de
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://kinderosteopathie-leipzig.de/sitemap-index.xml

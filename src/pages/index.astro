@@ -27,13 +27,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         <div class="photo-pile">
           <div class="photo-pile-item">
-            <img src="/baby1_new.png" alt="Säugling" />
+            <picture>
+              <source srcset="/baby1_new.webp" type="image/webp" />
+              <img src="/baby1_new.png" alt="Säugling bei osteopathischer Behandlung" width="400" height="300" />
+            </picture>
           </div>
           <div class="photo-pile-item">
-            <img src="/mother_baby.png" alt="Mutter und Baby" />
+            <picture>
+              <source srcset="/mother_baby.webp" type="image/webp" />
+              <img src="/mother_baby.png" alt="Mutter mit Baby bei Kinderosteopathie" width="400" height="300" />
+            </picture>
           </div>
           <div class="photo-pile-item">
-            <img src="/baby_feet.png" alt="Baby Füße" />
+            <picture>
+              <source srcset="/baby_feet.webp" type="image/webp" />
+              <img src="/baby_feet.png" alt="Sanfte Berührung von Baby Füßen" width="400" height="300" />
+            </picture>
           </div>
         </div>
       </div>
@@ -328,7 +337,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('/hero_abstract2.png');
+    background-image: url('/hero_abstract2.webp');
     background-size: cover;
     background-position: center top;
     opacity: 0.12;
@@ -588,7 +597,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('/hero_abstract2.png');
+    background-image: url('/hero_abstract2.webp');
     background-size: cover;
     background-position: center;
     opacity: 0.12;

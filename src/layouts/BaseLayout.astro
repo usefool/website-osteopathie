@@ -16,6 +16,9 @@ const {
 
 const siteTitle = 'Susanne Hoppe - Mobile Kinderosteopathie Leipzig';
 const fullTitle = title === 'Home' ? siteTitle : `${title} | ${siteTitle}`;
+const siteUrl = 'https://kinderosteopathie-leipzig.de';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = `${siteUrl}/og-image.jpg`;
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -43,10 +46,83 @@ const currentPath = Astro.url.pathname;
       rel="stylesheet"
     />
 
+    <!-- SEO -->
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={siteTitle} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Susanne Hoppe - Mobile Kinderosteopathie Leipzig" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": siteUrl,
+      "name": "Susanne Hoppe - Mobile Kinderosteopathie Leipzig",
+      "description": "Mobile osteopathische Behandlung für Säuglinge, Kinder und Familien in Leipzig. Sanfte, kindgerechte Osteopathie bei Ihnen zuhause.",
+      "url": siteUrl,
+      "telephone": "",
+      "email": "",
+      "image": ogImageUrl,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Leipzig",
+        "addressRegion": "Sachsen",
+        "addressCountry": "DE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "51.3397",
+        "longitude": "12.3731"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Leipzig"
+      },
+      "priceRange": "€€",
+      "serviceType": ["Kinderosteopathie", "Säuglingsosteopathie", "Mobile Osteopathie", "Hausbesuche"],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Osteopathie für Säuglinge",
+            "description": "Sanfte osteopathische Behandlung für Babys von 0-12 Monaten"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Osteopathie für Kleinkinder",
+            "description": "Osteopathische Behandlung für Kinder von 1-6 Jahren"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Osteopathie für Schulkinder",
+            "description": "Osteopathische Behandlung für Kinder von 6-14 Jahren"
+          }
+        }
+      ]
+    })} />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
