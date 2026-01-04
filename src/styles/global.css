@@ -260,6 +260,11 @@ a:hover {
   transform: rotate(-2deg);
 }
 
+.brush-long::before {
+  background-image: url('/brush_long.svg') !important;
+  transform: rotate(-1deg);
+}
+
 .brush-long-2::before {
   background-image: url('/brush_long2.svg') !important;
   transform: rotate(1deg);
