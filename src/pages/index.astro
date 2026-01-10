@@ -11,8 +11,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <span class="tag-handwritten">Osteopathie für Neugeborene & Mütter</span>
           <h1><span class="accent">Geborgen Ankommen</span></h1>
           <p class="hero-text">
-            Osteopathische Behandlung für Säuglinge und Mütter in Leipzig.<br />
-            Ich komme zu Ihnen nach Hause, damit Sie und Ihr Baby<br />
+            Begleitende osteopathische Behandlung für Säuglinge und Mütter in Leipzig.<br />
+            Ich komme zu Ihnen nach Hause, damit Sie und Ihr Baby
             in Ruhe ankommen können.
           </p>
           <div class="hero-buttons">
@@ -22,7 +22,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
-            <a href="/leistungen" class="btn btn-secondary">Mehr erfahren</a>
+           
           </div>
         </div>
         <div class="photo-pile">
@@ -54,20 +54,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <div class="about-grid">
         <div class="about-image">
-          <div class="image-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" />
-            </svg>
-            <span>Foto folgt</span>
-          </div>
+          <img
+            src="/susanne_inkubator.jpg"
+            alt="Susanne Hoppe bei der osteopathischen Behandlung eines Säuglings im Inkubator"
+            class="about-photo"
+          />
         </div>
         <div class="about-content">
           <h2><span class="heading-brush brush-2">Über mich</span></h2>
           <p>
-            Ich bin Susanne Hoppe – Physiotherapeutin seit über 20 Jahren und
-            zertifizierte Kinderosteopathin. Seit 2016 arbeite ich in der Kinderklinik
-            des Universitätsklinikums Leipzig, mit Schwerpunkt auf Neonatologie und
-            Neuropädiatrie.
+            Ich bin Susanne Hoppe, Physiotherapeutin mit über 20 Jahren Berufserfahrung
+            und einer zertifizierten Weiterbildung in Kinderosteopathie. Seit 2016 arbeite
+            ich in der Kinderklinik des Universitätsklinikums Leipzig, mit Schwerpunkt auf
+            der Neonatologie und Neuropädiatrie.
           </p>
           <p>
             Diese Erfahrung bringe ich zu Ihnen nach Hause: Sanfte, fundierte
@@ -88,45 +87,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <span class="tag-handwritten brush-long-2">Ganzheitliche osteopathische Behandlung für Kinder und Mütter</span>
+        <span class="tag-handwritten brush-long-2">Ganzheitliche osteopathische Behandlung für Säuglinge und Mütter</span>
         <h2>Meine <span class="accent">Leistungen</span></h2>
       </div>
-      <div class="services-grid">
-        <div class="card">
-          <div class="feature-icon">
-            <!-- Baby/Neugeborenes Icon -->
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="6" r="3" />
-              <path d="M12 9c-4 0-6 3-6 6v1c0 1 1 2 2 2h8c1 0 2-1 2-2v-1c0-3-2-6-6-6z" />
-              <path d="M9 13c0 0-1 2 0 3s3 1 3 1" />
-            </svg>
+      <div class="services-grid services-grid-2">
+        <div class="card card-split">
+          <div class="card-image">
+            <picture>
+              <source srcset="/baby1_new.webp" type="image/webp" />
+              <img src="/baby1_new.png" alt="Säugling bei osteopathischer Behandlung" />
+            </picture>
           </div>
-          <h3>Neugeborene</h3>
-          <p>Sanfte Behandlung bei Schreibabys, Stillproblemen, Asymmetrien und Verdauungsbeschwerden.</p>
+          <div class="card-content">
+            <h3>Neugeborene & Säuglinge</h3>
+            <p>Sanfte Behandlung nach schweren Geburten, Schreibabys, Stillproblemen, Asymmetrien, Nachbehandlung bei chirurgischen Eingriffen.</p>
+          </div>
         </div>
-        <div class="card">
-          <div class="feature-icon">
-            <!-- Mutter mit Baby Icon -->
-            <svg viewBox="0 0 24 24">
-              <circle cx="9" cy="5" r="3" />
-              <path d="M9 8c-3 0-5 2.5-5 5v3c0 .5.5 1 1 1h8c.5 0 1-.5 1-1v-3c0-2.5-2-5-5-5z" />
-              <circle cx="17" cy="10" r="2" />
-              <path d="M17 12c-1.5 0-3 1.5-3 3v2h6v-2c0-1.5-1.5-3-3-3z" />
-            </svg>
+        <div class="card card-split">
+          <div class="card-image">
+            <picture>
+              <source srcset="/mother_baby.webp" type="image/webp" />
+              <img src="/mother_baby.png" alt="Mutter mit Baby" />
+            </picture>
           </div>
-          <h3>Mütter</h3>
-          <p>Behandlung im Wochenbett und darüber hinaus – für Ihre Erholung nach der Geburt.</p>
-        </div>
-        <div class="card">
-          <div class="feature-icon">
-            <!-- Kleinkind Icon -->
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="5" r="3" />
-              <path d="M12 8c-3 0-5 2-5 5v1h2l1 6h4l1-6h2v-1c0-3-2-5-5-5z" />
-            </svg>
+          <div class="card-content">
+            <h3>Mütter</h3>
+            <p>Behandlung im Wochenbett und darüber hinaus – für Ihre Erholung nach der Geburt. Auch Unterstützung beim Handling für mehr Sicherheit und Vertrauen in Ihrer neuen Rolle als Mutter.</p>
           </div>
-          <h3>Kleinkinder</h3>
-          <p>Unterstützung bei motorischen Entwicklungsverzögerungen und Haltungsproblemen.</p>
         </div>
       </div>
       <div class="section-cta">
@@ -153,22 +140,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <svg viewBox="0 0 24 24" fill="currentColor" class="quote-icon">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
               </svg>
-              <p>Frau Hoppe hat unserem Sohn so sehr geholfen. Nach nur zwei Behandlungen war er wie ausgewechselt – entspannt und zufrieden. Wir sind unendlich dankbar!</p>
+              <p>Wir wollten einfach nur Danke sagen – für alles, was Sie in den letzten Monaten für unsere kleinen Power-Mädels getan haben. Sie haben B. und J. von Anfang an mit so viel Herz, Geduld und Fachwissen begleitet. Dank Ihrer Unterstützung haben die beiden große Fortschritte gemacht – und auch wir haben durch Sie gelernt, wie wir sie im Alltag bestmöglich unterstützen können.</p>
             </div>
             <div class="testimonial-author">
-              <span class="author-name">Familie M.</span>
-              <span class="author-detail">Leipzig-Gohlis</span>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-quote">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="quote-icon">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-              </svg>
-              <p>Die Hausbesuche sind Gold wert! Kein Stress mit Anfahrt, unser Baby konnte in seiner gewohnten Umgebung bleiben. Sehr einfühlsam und professionell.</p>
-            </div>
-            <div class="testimonial-author">
-              <span class="author-name">Julia K.</span>
+              <span class="author-name">B. & J. und ihre Eltern</span>
               <span class="author-detail">Leipzig-Südvorstadt</span>
             </div>
           </div>
@@ -177,11 +152,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <svg viewBox="0 0 24 24" fill="currentColor" class="quote-icon">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
               </svg>
-              <p>Endlich jemand, der sich Zeit nimmt! Frau Hoppe hat nicht nur meinem Baby geholfen, sondern auch mir als frischgebackener Mama wertvolle Tipps gegeben.</p>
+              <p>Liebe Susi, danke für alles! Ohne dich würde ich jetzt nicht nach Hause gehen!</p>
             </div>
             <div class="testimonial-author">
-              <span class="author-name">Sarah L.</span>
-              <span class="author-detail">Leipzig-Connewitz</span>
+              <span class="author-name">W.</span>
+              <span class="author-detail">Leipzig-Lindenau · Frühchen, nach 21 Wochen in der Klinik</span>
             </div>
           </div>
           <div class="testimonial-card">
@@ -189,23 +164,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <svg viewBox="0 0 24 24" fill="currentColor" class="quote-icon">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
               </svg>
-              <p>Nach der Geburt hatte ich starke Rückenschmerzen. Frau Hoppe hat mir sehr geholfen – sanft, kompetent und immer mit einem offenen Ohr. Absolute Empfehlung!</p>
+              <p>Sie ist eine ganz liebe Seele und hat nicht nur physiotherapeutisch geholfen, sondern war auch seelisch eine Unterstützung und hatte immer ein offenes Ohr. Vielen Dank nochmals dafür!</p>
             </div>
             <div class="testimonial-author">
-              <span class="author-name">Anna B.</span>
-              <span class="author-detail">Leipzig-Plagwitz</span>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-quote">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="quote-icon">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-              </svg>
-              <p>Unsere Tochter hatte eine Lieblingsseite und wollte nur auf einer Seite trinken. Nach den Behandlungen bei Frau Hoppe hat sich das komplett normalisiert.</p>
-            </div>
-            <div class="testimonial-author">
-              <span class="author-name">Familie W.</span>
-              <span class="author-detail">Leipzig-Reudnitz</span>
+              <span class="author-name">Y. & C.</span>
+              <span class="author-detail">Leipzig-Zentrum</span>
             </div>
           </div>
         </div>
@@ -219,79 +182,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <div class="split-section">
         <div class="split-content">
-          <span class="tag-handwritten brush-2">Ihr Kind im Mittelpunkt</span>
+          <span class="tag-handwritten brush-2">Die Familie im Mittelpunkt</span>
           <h2>Warum <span class="accent">Hausbesuche</span>?</h2>
           <p>
-            Kinder fühlen sich in ihrer gewohnten Umgebung am wohlsten.
-            Durch meinen mobilen Service entfällt der Stress der Anfahrt,
-            und Ihr Kind kann sich vollkommen entspannen.
+            Kinder fühlen sich zu Hause am wohlsten. Gerade bei den ganz Kleinen
+            ist eine geborgene Umgebung wichtig – und wo ist es vertrauter als
+            im eigenen Zuhause?
           </p>
-          <ul class="check-list">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Behandlung in vertrauter Umgebung</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Kein Anfahrtsstress für die Familie</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Flexible Termingestaltung</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Individuelle Betreuung</span>
-            </li>
-          </ul>
+          <p>
+            Für Sie als Eltern entfällt der Stress mit Packen, Anfahrt und
+            Parkplatzsuche. Ergänzend zu meiner osteopathischen Behandlung nutze
+            ich die bei Ihnen zu Hause vorhandenen Materialien und zeige Ihnen
+            eine individuell auf die Therapie abgestimmte Umfeldgestaltung –
+            z.B. für Stillen, Schlafen oder Spielen.
+          </p>
         </div>
         <div class="split-image">
-          <div class="image-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-              <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-            </svg>
-            <span>Bild folgt</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Approach -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="tag-handwritten brush-long">Ganzheitlich, sanft und auf die Bedürfnisse Ihres Kindes abgestimmt</span>
-        <h2>Mein <span class="accent">Ansatz</span></h2>
-      </div>
-      <div class="approach-grid">
-        <div class="approach-item">
-          <div class="approach-number">01</div>
-          <h3>Ausführliche Anamnese</h3>
-          <p>Im ersten Gespräch nehme ich mir Zeit, die Geschichte Ihres Kindes zu verstehen.</p>
-        </div>
-        <div class="approach-item">
-          <div class="approach-number">02</div>
-          <h3>Sanfte Untersuchung</h3>
-          <p>Mit feinfühligen Händen ertaste ich Spannungen und Bewegungseinschränkungen.</p>
-        </div>
-        <div class="approach-item">
-          <div class="approach-number">03</div>
-          <h3>Individuelle Behandlung</h3>
-          <p>Die Therapie wird auf die Bedürfnisse Ihres Kindes abgestimmt.</p>
-        </div>
-        <div class="approach-item">
-          <div class="approach-number">04</div>
-          <h3>Nachsorge & Beratung</h3>
-          <p>Sie erhalten Tipps und Übungen für den Alltag mit Ihrem Kind.</p>
+          <img
+            src="/bild_hausbesuch.png"
+            alt="Osteopathische Behandlung eines Säuglings im häuslichen Umfeld"
+            class="split-photo"
+          />
         </div>
       </div>
     </div>
@@ -463,6 +374,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border-radius: 50%;
   }
 
+  .about-photo {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: left top;
+    border-radius: 16px;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 8px 24px rgba(61, 46, 36, 0.12);
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .about-photo:hover {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: 0 12px 32px rgba(61, 46, 36, 0.18);
+  }
+
   .about-content h2 {
     margin-bottom: 20px;
   }
@@ -485,11 +415,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   @media (min-width: 768px) {
     .about-grid {
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 320px 1fr;
       gap: 56px;
     }
 
     .about-image .image-placeholder {
+      margin: 0;
+    }
+
+    .about-photo {
       margin: 0;
     }
   }
@@ -539,6 +473,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .services-grid-2 {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .card-split {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    gap: 0;
+    align-items: stretch;
+    text-align: left;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .card-split .card-image {
+    min-height: 160px;
+    overflow: hidden;
+  }
+
+  .card-split .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.5) contrast(0.95) brightness(1.05);
+  }
+
+  .card-split .card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card-split .card-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+  }
+
+  .card-split .card-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
   }
 
   .services-grid .card {
@@ -782,6 +762,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 0.875rem;
   }
 
+  .split-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(61, 46, 36, 0.12);
+    transform: rotate(2deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .split-photo:hover {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: 0 12px 32px rgba(61, 46, 36, 0.18);
+  }
+
   /* ============================================
      APPROACH
      ============================================ */
@@ -866,6 +861,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       grid-template-columns: repeat(2, 1fr);
     }
 
+    .services-grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     .approach-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -912,6 +911,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     .services-grid {
       grid-template-columns: repeat(3, 1fr);
+    }
+
+    .services-grid-2 {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .approach-grid {
