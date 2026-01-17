@@ -369,3 +369,40 @@ label {
     display: none;
   }
 }
+
+/* ============================================
+   SCROLL ANIMATION INITIAL STATES
+   ============================================ */
+
+/* Elements start invisible, animated by Motion One */
+.photo-pile-item,
+.about-photo,
+.card-split,
+.split-photo,
+.qualification-card,
+.qualification-tags li,
+.age-card,
+.process-step,
+.info-card,
+.networking-content,
+.cta-content {
+  opacity: 0;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .photo-pile-item,
+  .about-photo,
+  .card-split,
+  .split-photo,
+  .qualification-card,
+  .qualification-tags li,
+  .age-card,
+  .process-step,
+  .info-card,
+  .networking-content,
+  .cta-content {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
