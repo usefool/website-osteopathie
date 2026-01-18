@@ -19,7 +19,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <div class="hero-content">
-          <span class="tag-handwritten brush-2">Mit Herz & Erfahrung</span>
           <h1>Über <span class="accent">mich</span></h1>
           <p>
             Seit 2002 arbeite ich mit großer Leidenschaft als Physiotherapeutin in Leipzig –
@@ -37,10 +36,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             Bobath-Ansatz auf wertvolle Weise.
           </p>
           <p>
-            Nach vielen Jahren klinischer Arbeit wuchs in mir der Wunsch, Familien nicht
-            nur während eines Klinikaufenthalts zu begleiten, sondern auch darüber hinaus.
-            2026 habe ich daher den Schritt in die nebenberufliche Selbstständigkeit gewagt –
-            für die Kinder, ihre Familien und für mich selbst.
+            Immer wieder fragten mich Familien, ob ich ihre Kinder auch nach dem Klinikaufenthalt
+            weiter begleiten könnte. 2025 habe ich mich daher nebenberuflich selbstständig gemacht.
           </p>
         </div>
       </div>
@@ -54,29 +51,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="split-content">
           <h2>Mein <span class="accent">Schwerpunkt</span></h2>
           <p>
-            Meine Arbeit konzentriert sich auf osteopathische Behandlungen bei
-            Frühgeborenen, Neugeborenen und Säuglingen. In ihrer vertrauten Umgebung
-            können die Kleinen am besten entspannen, und ich kann behutsam auf ihre
-            Signale eingehen. Auch die Behandlung der Mütter liegt mir sehr am Herzen.
+            Mein Schwerpunkt liegt auf der osteopathischen Behandlung von Frühgeborenen,
+            Neugeborenen und Säuglingen – gerne auch bei Ihnen zuhause, wo die Kleinen
+            sich am wohlsten fühlen und am besten entspannen können. Auch die Behandlung
+            der Mütter gehört für mich selbstverständlich dazu.
           </p>
           <p>
-            Im Mittelpunkt steht immer die ganze Familie mit ihren individuellen
-            Bedürfnissen. Jede Behandlung beginnt mit aufmerksamem Zuhören und einer
-            sorgfältigen Anamnese – so entsteht Vertrauen und Sicherheit.
+            Im Mittelpunkt meiner Arbeit steht nicht nur das Kind, sondern die ganze Familie.
+            Jede Behandlung beginnt mit aufmerksamem Zuhören und einer sorgfältigen Anamnese, um Vertrauen und Sicherheit zu schaffen.
           </p>
           <p>
-            Als Mutter von zwei Kindern kenne ich die kleinen und großen Herausforderungen
-            der ersten Lebensmonate aus eigener Erfahrung. Mit Ruhe, Geduld und
-            Einfühlungsvermögen begleite ich jede Familie – stets mit dem Ziel,
-            die natürlichen Selbstheilungskräfte bestmöglich zu unterstützen.
+            Als Mutter von zwei Kindern weiß ich aus eigener Erfahrung, welche Herausforderungen
+            und Unsicherheiten die ersten Lebensmonate mit sich bringen können. Das hilft mir,
+            Familien mit Verständnis zu begleiten.
           </p>
         </div>
         <div class="split-image">
-          <img
-            src="/susanne_inkubator.jpg"
-            alt="Susanne Hoppe bei der Arbeit mit einem Baby im Inkubator"
-            class="split-photo"
-          />
+          <div class="photo-slideshow">
+            <img
+              src="/susanne_inkubator.webp"
+              alt="Susanne Hoppe bei der Arbeit mit einem Baby im Inkubator"
+              class="split-photo slideshow-img"
+            />
+            <img
+              src="/susanne_haende.webp"
+              alt="Sanfte Hände bei der osteopathischen Behandlung"
+              class="split-photo slideshow-img"
+            />
+            <img
+              src="/inkubator_hinten.webp"
+              alt="Susanne Hoppe bei der Arbeit am Inkubator"
+              class="split-photo slideshow-img"
+            />
+            <img
+              src="/susanne_lachen.webp"
+              alt="Susanne Hoppe lächelnd"
+              class="split-photo slideshow-img"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -119,7 +131,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <ul class="qualification-list">
             <li>
               <span class="year">2017</span>
-              <span>Osteopathieausbildung (Eumetis)</span>
+              <span>Abschluss der Osteopathieausbildung (Eumetis)</span>
             </li>
             <li>
               <span class="year">2025</span>
@@ -156,19 +168,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="section section-alt">
     <div class="container">
       <div class="networking-content">
-        <span class="tag-handwritten brush-2">Die Medizin entwickelt sich – und ich mich mit ihr</span>
-        <h2>Immer <span class="accent">weiter lernen</span></h2>
+        <h2>Wissen wächst durch <span class="accent">Austausch</span></h2>
         <p>
-          Jedes Jahr nehme ich an Kongressen für Kinderheilkunde teil, besuche
-          Fortbildungen und tausche mich mit Kolleginnen und Kollegen aus. Nicht
-          weil ich muss, sondern weil ich überzeugt bin: Wer die besten Ergebnisse
-          für seine kleinen Patienten erreichen will, hört nie auf zu lernen.
+          Regelmäßige Kongresse und Fortbildungen sowie der interdisziplinäre Austausch
+          mit Kolleginnen und Kollegen sind mir wichtig, um meinen kleinen Patienten
+          stets die bestmögliche Behandlung bieten zu können.
         </p>
         <p>
-          In interdisziplinären Arbeitskreisen bringe ich meine Erfahrung ein und
-          nehme neue Perspektiven mit. Dieser Austausch – mit Ärztinnen, Pflegekräften,
-          Therapeuten und natürlich mit Ihnen als Eltern – macht meine Arbeit besser.
-          Jeden Tag.
+          Der enge Austausch mit Ärztinnen und Ärzten, Pflegekräften und anderen Therapeuten –
+          und nicht zuletzt mit Ihnen als Eltern – bereichert meine Arbeit und macht sie
+          jeden Tag ein Stück besser.
         </p>
       </div>
     </div>
@@ -305,6 +314,66 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .split-photo:hover {
     transform: rotate(0deg) scale(1.02);
     box-shadow: 0 12px 32px rgba(61, 46, 36, 0.18);
+  }
+
+  /* Photo Slideshow */
+  .photo-slideshow {
+    position: relative;
+    width: 85%;
+    margin: 0 auto;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  .photo-slideshow .slideshow-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fadeSlide 28s ease-in-out infinite;
+  }
+
+  /* Individuelle Positionierung & Rotation pro Bild (Photostack) */
+  .photo-slideshow .slideshow-img:nth-child(1) {
+    animation-delay: 0s;
+    object-position: 30% center;
+    transform: rotate(-3.5deg) scale(1.1);
+  }
+  .photo-slideshow .slideshow-img:nth-child(2) {
+    animation-delay: 7s;
+    object-position: center 40%;
+    transform: rotate(2.5deg) scale(1.1);
+  }
+  .photo-slideshow .slideshow-img:nth-child(3) {
+    animation-delay: 14s;
+    object-position: 70% center;
+    transform: rotate(4deg) scale(1.1);
+  }
+  .photo-slideshow .slideshow-img:nth-child(4) {
+    animation-delay: 21s;
+    object-position: center 30%;
+    transform: rotate(-2deg) scale(1.1);
+  }
+
+  @keyframes fadeSlide {
+    0% { opacity: 0; }
+    4% { opacity: 1; }
+    21% { opacity: 1; }
+    25% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .photo-slideshow .slideshow-img {
+      animation: none;
+    }
+    .photo-slideshow .slideshow-img:first-child {
+      opacity: 1;
+    }
   }
 
   /* ============================================
