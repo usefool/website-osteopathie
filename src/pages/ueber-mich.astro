@@ -601,6 +601,53 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       font-size: 3.5rem;
     }
   }
+
+  /* Very small screens (<400px) */
+  @media (max-width: 399px) {
+    .hero {
+      padding: 32px 0 48px;
+    }
+
+    .hero-image {
+      max-width: 260px;
+    }
+
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .hero-content p {
+      font-size: 1rem;
+    }
+
+    /* Slideshow: full width on small screens */
+    .photo-slideshow {
+      width: 100%;
+    }
+
+    .split-content > p {
+      font-size: 1rem;
+    }
+
+    /* Qualifications */
+    .qualification-card {
+      padding: 20px;
+    }
+
+    .qualification-header h3 {
+      font-size: 1.1rem;
+    }
+
+    .qualification-tags li {
+      padding: 6px 12px;
+      font-size: 0.85rem;
+    }
+
+    /* Networking */
+    .networking-content > p {
+      font-size: 1rem;
+    }
+  }
 </style>
 
 <script>

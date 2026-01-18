@@ -677,8 +677,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .carousel-dot {
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background: var(--color-border);
     border: none;
@@ -948,6 +948,90 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     .approach-grid {
       grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Very small screens (<400px) */
+  @media (max-width: 399px) {
+    .hero {
+      padding: 32px 0 48px;
+    }
+
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .hero-text {
+      font-size: 1rem;
+    }
+
+    /* Photo pile: reduce size and rotation */
+    .photo-pile-item {
+      width: 100px;
+      height: 125px;
+    }
+
+    .photo-pile-item:nth-child(1) {
+      transform: rotate(-4deg) translateY(10px);
+      margin-right: -20px;
+    }
+
+    .photo-pile-item:nth-child(2) {
+      transform: rotate(0deg);
+    }
+
+    .photo-pile-item:nth-child(3) {
+      transform: rotate(4deg) translateY(12px);
+      margin-left: -20px;
+    }
+
+    /* Card-split: stack vertically on very small screens */
+    .card-split {
+      grid-template-columns: 1fr;
+    }
+
+    .card-split .card-image {
+      height: 160px;
+    }
+
+    .card-split .card-content {
+      padding: 20px;
+    }
+
+    .card-split .card-content h3 {
+      font-size: 1rem;
+    }
+
+    .card-split .card-content p {
+      font-size: 0.9rem;
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+      padding: 20px;
+    }
+
+    .testimonial-quote p {
+      font-size: 0.9rem;
+    }
+
+    /* CTA section */
+    .cta-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .cta-content > p {
+      font-size: 1rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cta-buttons .btn {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>

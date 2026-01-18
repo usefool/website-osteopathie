@@ -404,3 +404,51 @@ label {
     transform: none !important;
   }
 }
+
+/* ============================================
+   MOBILE: BRUSH BACKGROUND IMAGE
+   Replaces pseudo-element with background PNG
+   ============================================ */
+
+@media (max-width: 639px) {
+  .tag-handwritten::before {
+    display: none; /* Hide brush stroke pseudo-element */
+  }
+
+  .tag-handwritten {
+    background-image: url('/brush-mobile.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 16px 24px 18px 20px;
+  }
+}
+
+/* ============================================
+   VERY SMALL SCREENS (<400px)
+   iPhone SE, Galaxy A, etc.
+   ============================================ */
+
+@media (max-width: 399px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .tag-handwritten {
+    font-size: 1.5rem;
+    padding: 10px 16px 12px 14px;
+  }
+}

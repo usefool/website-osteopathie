@@ -35,3 +35,40 @@ src/
   styles/
     global.css            # CSS initial states (opacity: 0) + prefers-reduced-motion
 ```
+
+## Mobile-Optimierung
+
+### Breakpoints
+
+- `<400px` - Sehr kleine Screens (iPhone SE, Galaxy A)
+- `<640px` - Mobile allgemein
+- `768px+` - Tablet/Desktop
+
+### Handwritten Tags: Brush-Hintergrund auf Mobile
+
+**Problem:** Die `.tag-handwritten` Elemente verwenden ein `::before` Pseudo-Element mit Brush-SVG als Hintergrund. Bei mehrzeiligem Text (auf kleinen Screens) passt der horizontale Brush nicht mehr.
+
+**Lösung:** Auf Mobile (<640px) wird das `::before` ausgeblendet und stattdessen das Original-Brush-PNG als `background-image` direkt auf dem Element verwendet:
+
+```css
+@media (max-width: 639px) {
+  .tag-handwritten::before {
+    display: none;
+  }
+  .tag-handwritten {
+    background-image: url('/brush-mobile.png');
+    background-size: 100% 100%;
+  }
+}
+```
+
+**Dateien:**
+- `public/brush-mobile.png` - Extrahiert aus brush1.svg (127KB)
+- `src/styles/global.css` - Mobile breakpoints und brush-background
+
+### Weitere Mobile-Anpassungen
+
+- **Carousel-Dots:** 14px statt 10px für bessere Touch-Bedienung
+- **Photo-Pile:** Reduzierte Größe und Rotation auf <400px
+- **Card-Split:** Vertikal gestapelt auf <400px (Bild über Text)
+- **Slideshow (Über Mich):** 100% Breite statt 85% auf <400px
