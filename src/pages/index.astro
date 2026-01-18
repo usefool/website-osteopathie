@@ -7,9 +7,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
-        <div class="hero-content">
+        <div class="hero-headlines">
           <span class="tag-handwritten">Osteopathie für Neugeborene & Mütter</span>
           <h1><span class="accent">Geborgen Ankommen</span></h1>
+        </div>
+        <div class="hero-content">
           <p class="hero-text">
             Begleitende osteopathische Behandlung für Säuglinge und Mütter in Leipzig.<br />
             Ich komme zu Ihnen nach Hause, damit Sie und Ihr Baby
@@ -22,7 +24,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
-           
           </div>
         </div>
         <div class="photo-pile">
@@ -201,6 +202,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             ist eine geborgene Umgebung wichtig – und wo ist es vertrauter als
             im eigenen Zuhause?
           </p>
+          <!-- Mobile only: Bild zwischen Absätzen -->
+          <div class="homevisit-image-mobile">
+            <img
+              src="/bild_hausbesuch.png"
+              alt="Osteopathische Behandlung eines Säuglings im häuslichen Umfeld"
+            />
+          </div>
           <p>
             Für Sie als Eltern entfällt der Stress mit Packen, Anfahrt und
             Parkplatzsuche. Ergänzend zu meiner osteopathischen Behandlung nutze
@@ -209,6 +217,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             z.B. für Stillen, Schlafen oder Spielen.
           </p>
         </div>
+        <!-- Desktop only: Bild rechts -->
         <div class="split-image">
           <img
             src="/bild_hausbesuch.png"
@@ -271,12 +280,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 24px;
     align-items: center;
+  }
+
+  /* Mobile: Bilder zuerst, dann Headlines, dann Content */
+  .photo-pile {
+    order: -2;
+  }
+
+  .hero-headlines {
+    order: -1;
   }
 
   .hero-content {
     max-width: 640px;
+  }
+
+  .hero-headlines .tag-handwritten {
+    margin-bottom: 16px;
+  }
+
+  .hero-headlines h1 {
+    margin-bottom: 0;
   }
 
   /* Photo Pile */
@@ -340,10 +366,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     filter: saturate(0.5) contrast(0.95) brightness(1.05);
   }
 
-  .hero .tag-handwritten {
-    margin-bottom: 20px;
-  }
-
   .hero h1 {
     font-size: 2.25rem;
     line-height: 1.15;
@@ -388,7 +410,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .about-photo {
     width: 100%;
-    max-width: 320px;
+    max-width: 240px;
     aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: left top;
@@ -427,8 +449,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   @media (min-width: 768px) {
     .about-grid {
-      grid-template-columns: 320px 1fr;
-      gap: 56px;
+      grid-template-columns: 240px 1fr;
+      gap: 48px;
     }
 
     .about-image .image-placeholder {
@@ -799,6 +821,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   /* ============================================
+     HOMEVISIT IMAGE (mobile only, between paragraphs)
+     ============================================ */
+
+  /* Desktop: hide mobile image, show split image */
+  .homevisit-image-mobile {
+    display: none;
+  }
+
+  /* Mobile: show embedded image, hide split image */
+  @media (max-width: 767px) {
+    .homevisit-image-mobile {
+      display: block;
+      margin: 24px auto;
+      width: 85%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(61, 46, 36, 0.15);
+      transform: rotate(-2deg);
+    }
+
+    .homevisit-image-mobile img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .split-section .split-image {
+      display: none;
+    }
+  }
+
+  /* ============================================
      APPROACH
      ============================================ */
 
@@ -895,18 +951,124 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   }
 
-  @media (min-width: 768px) {
+  /* Tablet (768px - 1023px) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero {
+      padding: 48px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 160px;
+      grid-template-rows: auto 1fr;
+      gap: 20px 24px;
+      align-items: start;
+      padding-right: 56px;
+    }
+
+    /* Headlines in left column */
+    .hero-headlines {
+      grid-column: 1;
+      grid-row: 1;
+      order: 0;
+    }
+
+    .hero-headlines h1 {
+      margin-bottom: 8px;
+    }
+
+    .hero-content {
+      grid-column: 1;
+      grid-row: 2;
+      order: 0;
+    }
+
+    /* Photo pile: vertical stack in narrow right column */
+    .photo-pile {
+      grid-column: 2;
+      grid-row: 1 / 3;
+      order: 0;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0;
+      gap: 0;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-text {
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+    }
+
+    /* Vertikale Bilder-Stapel */
+    .photo-pile-item {
+      width: 127px;
+      height: 127px;
+      border-radius: 12px;
+    }
+
+    .photo-pile-item:nth-child(1) {
+      transform: rotate(-5deg) translateX(-8px);
+      margin-right: 0;
+      margin-bottom: -5px;
+    }
+
+    .photo-pile-item:nth-child(2) {
+      transform: rotate(2deg) translateX(5px);
+      z-index: 3;
+    }
+
+    .photo-pile-item:nth-child(3) {
+      transform: rotate(-3deg) translateX(-5px);
+      margin-left: 0;
+      margin-top: -5px;
+    }
+
+    .split-section {
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+  }
+
+  /* Desktop (1024px+) */
+  @media (min-width: 1024px) {
     .hero {
       padding: 80px 0 100px;
     }
 
     .hero-grid {
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      grid-template-rows: auto auto;
+      gap: 16px 48px;
+      align-items: center;
+    }
+
+    /* Headlines in left column */
+    .hero-headlines {
+      grid-column: 1;
+      grid-row: 1;
+      order: 0;
+    }
+
+    .hero-content {
+      grid-column: 1;
+      grid-row: 2;
+      order: 0;
+    }
+
+    .photo-pile {
+      grid-column: 2;
+      grid-row: 1 / 3;
+      order: 0;
+      align-self: center;
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
     }
 
     .hero-text {
@@ -914,8 +1076,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
 
     .photo-pile-item {
-      width: 180px;
-      height: 225px;
+      width: 200px;
+      height: 250px;
     }
 
     .split-section {
@@ -925,14 +1087,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   @media (min-width: 1024px) {
-    .hero h1 {
-      font-size: 3.5rem;
-    }
-
-    .photo-pile-item {
-      width: 200px;
-      height: 250px;
-    }
 
     .services-grid {
       grid-template-columns: repeat(3, 1fr);
@@ -951,6 +1105,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   }
 
+  /* Mobile screens (400px - 767px) */
+  @media (min-width: 400px) and (max-width: 767px) {
+    .hero .tag-handwritten {
+      font-size: 1.35rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero-text {
+      font-size: 1rem;
+    }
+
+    .photo-pile-item {
+      width: 120px;
+      height: 100px;
+      border-radius: 12px;
+    }
+
+    /* Weniger vertikaler Versatz für flachere Bilder */
+    .photo-pile-item:nth-child(1) {
+      transform: rotate(-5deg) translateY(8px);
+      margin-right: -25px;
+    }
+
+    .photo-pile-item:nth-child(2) {
+      transform: rotate(-1deg);
+    }
+
+    .photo-pile-item:nth-child(3) {
+      transform: rotate(4deg) translateY(10px);
+      margin-left: -25px;
+    }
+  }
+
   /* Very small screens (<400px) */
   @media (max-width: 399px) {
     .hero {
@@ -965,15 +1155,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       font-size: 1rem;
     }
 
-    /* Photo pile: reduce size and rotation */
+    /* Photo pile: kompakter und flacher */
     .photo-pile-item {
-      width: 100px;
-      height: 125px;
+      width: 95px;
+      height: 80px;
+      border-radius: 10px;
     }
 
     .photo-pile-item:nth-child(1) {
-      transform: rotate(-4deg) translateY(10px);
-      margin-right: -20px;
+      transform: rotate(-4deg) translateY(6px);
+      margin-right: -18px;
     }
 
     .photo-pile-item:nth-child(2) {
@@ -981,8 +1172,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
 
     .photo-pile-item:nth-child(3) {
-      transform: rotate(4deg) translateY(12px);
-      margin-left: -20px;
+      transform: rotate(4deg) translateY(8px);
+      margin-left: -18px;
     }
 
     /* Card-split: stack vertically on very small screens */
