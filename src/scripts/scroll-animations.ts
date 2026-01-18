@@ -23,8 +23,7 @@ function showAllElements(): void {
     '.split-photo',
     '.qualification-card',
     '.qualification-tags li',
-    '.age-card',
-    '.process-step',
+    '.service-card',
     '.info-card',
     '.networking-content',
     '.cta-content',
@@ -210,40 +209,16 @@ function initAboutAnimations(): void {
  * Initialize animations for the Services page
  */
 function initServicesAnimations(): void {
-  // Age cards
-  const ageGroups = document.querySelector('.age-groups');
-  if (ageGroups) {
-    inView(ageGroups, () => {
-      const cards = Array.from(document.querySelectorAll('.age-card')) as HTMLElement[];
+  // Service cards
+  const servicesList = document.querySelector('.services-list');
+  if (servicesList) {
+    inView(servicesList, () => {
+      const cards = Array.from(document.querySelectorAll('.service-card')) as HTMLElement[];
       cards.forEach((card, i) => {
-        animateElement(card, 'translateY(30px)', 'translateY(0px)', 0.7, easeOut, i * 150);
+        animateElement(card, 'translateY(25px)', 'translateY(0px)', 0.6, easeOut, i * 150);
       });
-    }, { margin: '-10% 0px' });
-  }
-
-  // Process steps
-  const processSteps = Array.from(document.querySelectorAll('.process-step')) as HTMLElement[];
-  processSteps.forEach((step) => {
-    inView(step, () => {
-      animateElement(step, 'translateY(25px)', 'translateY(0px)', 0.6);
-
-      // Number pop
-      const number = step.querySelector('.process-number') as HTMLElement;
-      if (number) {
-        number.style.transform = 'scale(0.7)';
-
-        setTimeout(() => {
-          animate(
-            number,
-            { transform: ['scale(0.7)', 'scale(1)'] },
-            { duration: 0.5, easing: easeOutBack }
-          ).finished.then(() => {
-            number.style.removeProperty('transform');
-          });
-        }, 150);
-      }
     }, { margin: '-15% 0px' });
-  });
+  }
 
   // Info card
   const infoCard = document.querySelector('.info-card') as HTMLElement;

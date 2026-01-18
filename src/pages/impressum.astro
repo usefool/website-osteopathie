@@ -14,14 +14,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <h2>Angaben gemäß § 5 DDG</h2>
         <p>
           <strong>Susanne Hoppe</strong><br />
-          Hähnelstraße 28<br />
-          04177 Leipzig
+          <span data-contact="address" data-format="multiline">...</span>
         </p>
 
         <h2>Kontakt</h2>
         <p>
-          Telefon: +49 152 051 99153<br />
-          E-Mail: kontakt@susanne-hoppe.de
+          Telefon: <span data-contact="phone">...</span><br />
+          E-Mail: <span data-contact="email">...</span>
         </p>
 
         <h2>Berufsbezeichnung</h2>
@@ -187,3 +186,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   }
 </style>
+
+<script>
+  import { initContactProtection } from '../scripts/contact-protection';
+  initContactProtection();
+</script>

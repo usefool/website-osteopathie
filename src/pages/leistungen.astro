@@ -6,115 +6,91 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Leistungen"
   description="Begleitende osteopathische Behandlung für Säuglinge, Kinder und ihre Familien - sanft, kindgerecht und bei Ihnen zuhause in Leipzig."
 >
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <span class="tag-handwritten brush-3">Begleitende Behandlung</span>
-        <h1>Leistungen für Kinder & <span class="accent">Familien</span></h1>
-        <p>
-          Sanfte, kindgerechte osteopathische Behandlung für Säuglinge, Kinder und ihre Familien –
-          individuell, einfühlsam und bei Ihnen zuhause in Leipzig.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Age Groups -->
-  <section class="section section-alt">
+  <!-- Leistungen -->
+  <section class="section section-alt first-section">
     <div class="container">
       <div class="section-header">
         <span class="tag-handwritten brush-2">Individuell betreut</span>
         <h2>Für jedes Alter die richtige <span class="accent">Begleitung</span></h2>
       </div>
 
-      <div class="age-groups">
+      <div class="services-list">
+        <!-- Früh- & Neugeborene -->
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <div class="service-title">
+              <h3>Früh- & Neugeborene</h3>
+              <p class="service-subtitle">Behutsame Begleitung der Allerkleinsten</p>
+            </div>
+          </div>
+          <div class="service-body">
+            <h4>Häufige Behandlungsanlässe</h4>
+            <ul class="treatment-list">
+              <li>Nach Frühgeburt</li>
+              <li>Anpassungs- und Regulationsstörungen</li>
+              <li>Atemauffälligkeiten</li>
+              <li>Nach chirurgischen Eingriffen</li>
+              <li>Trink- und Verdauungsprobleme</li>
+              <li>Schädel- und Haltungsasymmetrien</li>
+              <li>Schwierige Geburt (Saugglocke, Kaiserschnitt, lange Geburt)</li>
+            </ul>
+          </div>
+        </div>
+
         <!-- Säuglinge -->
-        <div class="age-card">
-          <div class="age-header">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
+                <circle cx="12" cy="12" r="4" />
               </svg>
             </div>
-            <div class="age-title">
-              <h3>Säuglinge (0-12 Monate)</h3>
-              <span class="age-subtitle">Sanfte Impulse für die Kleinsten</span>
+            <div class="service-title">
+              <h3>Säuglinge</h3>
+              <p class="service-subtitle">Sanfte Behandlung im ersten Lebensjahr</p>
             </div>
           </div>
-          <p>
-            In den ersten Lebensmonaten kann Osteopathie besonders wirksam sein. Der kleine Körper
-            reagiert oft sehr schnell auf sanfte Impulse, weil die Strukturen noch flexibel sind.
-          </p>
-          <div class="age-topics">
+          <div class="service-body">
             <h4>Häufige Behandlungsanlässe</h4>
-            <ul>
+            <ul class="treatment-list">
+              <li>Schlafstörungen, Unruhe</li>
               <li>Koliken, Blähungen, Verdauungsprobleme</li>
-              <li>Schiefhals, Kopfasymmetrie</li>
-              <li>Stillprobleme, Saugprobleme</li>
-              <li>Unruhe, Schlafprobleme</li>
-              <li>Begleitung nach schwieriger Geburt</li>
-              <li>Kiss-Syndrom</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Kleinkinder -->
-        <div class="age-card">
-          <div class="age-header">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m9 5.197v1" />
-              </svg>
-            </div>
-            <div class="age-title">
-              <h3>Kleinkinder (1-6 Jahre)</h3>
-              <span class="age-subtitle">Unterstützung in der Entwicklung</span>
-            </div>
-          </div>
-          <p>
-            Die ersten Lebensjahre sind geprägt von rasanter Entwicklung. Osteopathische
-            Behandlung kann helfen, wenn sich Blockaden zeigen, die die natürliche Entwicklung beeinträchtigen.
-          </p>
-          <div class="age-topics">
-            <h4>Häufige Behandlungsanlässe</h4>
-            <ul>
+              <li>Schwierigkeiten mit Stillen und Saugen</li>
+              <li>Schiefhals, Kiss-Syndrom</li>
+              <li>Haltungsasymmetrien</li>
               <li>Entwicklungsverzögerungen</li>
-              <li>Wiederkehrende Infekte</li>
-              <li>Haltungsauffälligkeiten</li>
-              <li>Verdauungsprobleme</li>
-              <li>Motorische Unsicherheiten</li>
-              <li>Gleichgewichtsprobleme</li>
+              <li>Nach chirurgischen Eingriffen</li>
             </ul>
           </div>
         </div>
 
-        <!-- Schulkinder -->
-        <div class="age-card">
-          <div class="age-header">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 14l9-5-9-5-9 5 9 5zm0 7l-9-5 9 5 9-5-9 5z" />
+        <!-- Mütter -->
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
               </svg>
             </div>
-            <div class="age-title">
-              <h3>Schulkinder (6-14 Jahre)</h3>
-              <span class="age-subtitle">Begleitung durch Schulzeit & Wachstum</span>
+            <div class="service-title">
+              <h3>Mütter</h3>
+              <p class="service-subtitle">Behandlung im Wochenbett und darüber hinaus</p>
             </div>
           </div>
-          <p>
-            Schulalltag und Wachstum stellen neue Anforderungen. Osteopathie kann bei
-            Beschwerden helfen, die durch langes Sitzen, Schulstress oder Wachstumsschübe entstehen.
-          </p>
-          <div class="age-topics">
+          <div class="service-body">
             <h4>Häufige Behandlungsanlässe</h4>
-            <ul>
-              <li>Kopfschmerzen, Migräne</li>
-              <li>Rückenschmerzen, Haltungsprobleme</li>
-              <li>Konzentrationsschwierigkeiten</li>
-              <li>Wachstumsschmerzen</li>
-              <li>Sportverletzungen</li>
-              <li>Kieferprobleme, Zahnspange</li>
+            <ul class="treatment-list">
+              <li>Rückbildung und Beckenbodenbeschwerden</li>
+              <li>Rückenschmerzen, Verspannungen</li>
+              <li>Narbenbehandlung (Kaiserschnitt, Dammriss)</li>
+              <li>Stillprobleme</li>
+              <li>Erschöpfung und Erholung</li>
             </ul>
           </div>
         </div>
@@ -122,51 +98,62 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Process -->
+  <!-- Kosten -->
   <section class="section">
     <div class="container">
-      <div class="section-header">
-        <h2>Ablauf einer <span class="accent">Behandlung</span></h2>
-      </div>
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Behandlungskosten</h3>
+        </div>
 
-      <div class="process-grid">
-        <div class="process-step">
-          <div class="process-number">1</div>
-          <h3>Anamnese</h3>
-          <p>Ausführliches Gespräch über die Beschwerden, Vorgeschichte und Entwicklung Ihres Kindes.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-number">2</div>
-          <h3>Untersuchung</h3>
-          <p>Sanfte manuelle Untersuchung, um Blockaden und Spannungen zu erspüren.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-number">3</div>
-          <h3>Behandlung</h3>
-          <p>Sanfte osteopathische Techniken. Ihr Kind kann dabei spielen oder auf Ihrem Schoß sitzen.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-number">4</div>
-          <h3>Beratung</h3>
-          <p>Empfehlungen für zuhause, Übungen wenn sinnvoll, und Planung weiterer Termine bei Bedarf.</p>
-        </div>
-      </div>
+        <div class="pricing-body">
+          <div class="pricing-items">
+            <div class="pricing-item">
+              <div class="pricing-label">
+                <span class="pricing-name">Erstbehandlung</span>
+                <span class="pricing-duration">ca. 60 Min</span>
+              </div>
+              <span class="pricing-amount">95 €</span>
+            </div>
 
-      <!-- Info Card -->
-      <div class="info-card">
-        <h3>Kosten & Erstattung</h3>
-        <p>
-          Osteopathische Behandlungen sind <strong>prinzipiell erstattungsfähig</strong>.
-          Viele gesetzliche und private Krankenkassen übernehmen die Kosten anteilig oder vollständig.
-        </p>
-        <p>
-          Ich erstelle Ihnen nach jeder Behandlung eine detaillierte Rechnung, die Sie bei Ihrer
-          Krankenkasse einreichen können.
-        </p>
-        <p class="info-note">
-          Bitte informieren Sie sich vor der ersten Behandlung bei Ihrer Krankenkasse über die
-          Erstattungsmöglichkeiten.
-        </p>
+            <div class="pricing-item">
+              <div class="pricing-label">
+                <span class="pricing-name">Folgebehandlung</span>
+                <span class="pricing-duration">ca. 45–60 Min</span>
+              </div>
+              <span class="pricing-amount">90 €</span>
+            </div>
+
+            <div class="pricing-item">
+              <div class="pricing-label">
+                <span class="pricing-name">Anfahrt Plagwitz, Lindenau, Schleußig</span>
+              </div>
+              <span class="pricing-included">inklusive</span>
+            </div>
+
+            <div class="pricing-item">
+              <div class="pricing-label">
+                <span class="pricing-name">Anfahrt andere Stadtteile</span>
+              </div>
+              <span class="pricing-included">nach Absprache</span>
+            </div>
+          </div>
+
+          <div class="pricing-info">
+            <h4>Erstattung durch Krankenkassen</h4>
+            <p>
+              Osteopathische Behandlungen sind <strong>prinzipiell erstattungsfähig</strong>.
+              Viele gesetzliche und private Krankenkassen übernehmen die Kosten anteilig oder vollständig.
+            </p>
+            <p>
+              Sie erhalten nach jeder Behandlung eine Rechnung zur Einreichung bei Ihrer Krankenkasse.
+            </p>
+            <p class="pricing-note">
+              Bitte informieren Sie sich vor der ersten Behandlung bei Ihrer Krankenkasse über die Erstattungsmöglichkeiten.
+              <a href="https://www.osteopathie-krankenkasse.de/kostenuebernahme/" target="_blank" rel="noopener" class="pricing-link">Übersicht: Welche Kasse erstattet was?</a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -193,38 +180,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <style>
   /* ============================================
-     HERO
-     ============================================ */
-
-  .hero {
-    padding: 48px 0 64px;
-    text-align: center;
-  }
-
-  .hero-content {
-    max-width: 720px;
-    margin: 0 auto;
-  }
-
-  .hero-content .tag-handwritten {
-    margin-bottom: 16px;
-  }
-
-  .hero h1 {
-    font-size: 2.25rem;
-    line-height: 1.15;
-    margin-bottom: 20px;
-  }
-
-  .hero p {
-    font-size: 1.125rem;
-    color: var(--color-text-muted);
-    line-height: 1.7;
-  }
-
-  /* ============================================
      SECTIONS
      ============================================ */
+
+  .first-section {
+    padding-top: 48px;
+  }
 
   .section-header {
     text-align: center;
@@ -240,63 +201,76 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   /* ============================================
-     AGE GROUPS
+     SERVICES LIST
      ============================================ */
 
-  .age-groups {
+  .services-list {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    max-width: 800px;
+    margin: 0 auto;
   }
 
-  .age-card {
+  .service-card {
     background: var(--color-bg);
     border: 1px solid var(--color-border-light);
     border-radius: 16px;
-    padding: 32px 24px;
-    transition: all 0.3s;
+    padding: 28px 24px;
+    transition: all 0.3s ease;
   }
 
-  .age-card:hover {
+  .service-card:hover {
     border-color: var(--color-accent);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
   }
 
-  .age-header {
+  .service-header {
     display: flex;
     align-items: flex-start;
     gap: 16px;
     margin-bottom: 20px;
   }
 
-  .age-title h3 {
-    font-size: 1.375rem;
-    margin-bottom: 4px;
+  .service-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, rgba(198, 125, 90, 0.15), rgba(198, 125, 90, 0.05));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
-  .age-subtitle {
+  .service-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--color-accent);
+  }
+
+  .service-title h3 {
+    font-size: 1.375rem;
+    margin: 0 0 4px 0;
+  }
+
+  .service-subtitle {
     color: var(--color-accent);
     font-size: 0.9rem;
     font-weight: 500;
+    margin: 0;
   }
 
-  .age-card > p {
-    color: var(--color-text-muted);
-    line-height: 1.7;
-    margin-bottom: 24px;
-  }
-
-  .age-topics h4 {
+  .service-body h4 {
     font-size: 0.8rem;
     font-weight: 700;
-    color: var(--color-accent);
+    color: var(--color-text);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 12px;
   }
 
-  .age-topics ul {
+  .treatment-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -305,19 +279,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     gap: 8px;
   }
 
-  .age-topics li {
+  .treatment-list li {
     color: var(--color-text-muted);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     padding-left: 20px;
     position: relative;
     line-height: 1.5;
   }
 
-  .age-topics li::before {
+  .treatment-list li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 8px;
+    top: 9px;
     width: 6px;
     height: 6px;
     background: var(--color-accent);
@@ -325,103 +299,133 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   /* ============================================
-     PROCESS
+     PRICING CARD
      ============================================ */
 
-  .process-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-bottom: 48px;
-  }
-
-  .process-step {
-    background: var(--color-bg-alt);
+  .pricing-card {
+    background: var(--color-bg);
     border: 1px solid var(--color-border-light);
     border-radius: 16px;
-    padding: 28px 24px;
-    transition: all 0.3s;
+    overflow: hidden;
+    max-width: 540px;
+    margin: 0 auto;
   }
 
-  .process-step:hover {
-    border-color: var(--color-accent);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+  .pricing-header {
+    background: linear-gradient(135deg, rgba(198, 125, 90, 0.12), rgba(198, 125, 90, 0.06));
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--color-border-light);
   }
 
-  .process-number {
-    width: 48px;
-    height: 48px;
-    background: var(--color-accent);
-    color: white;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.25rem;
-    margin-bottom: 16px;
-  }
-
-  .process-step h3 {
-    font-size: 1.125rem;
-    margin-bottom: 8px;
-  }
-
-  .process-step p {
-    color: var(--color-text-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
+  .pricing-header h3 {
+    font-size: 1.375rem;
     margin: 0;
   }
 
-  /* ============================================
-     INFO CARD
-     ============================================ */
-
-  .info-card {
-    background: linear-gradient(135deg, rgba(198, 125, 90, 0.08), rgba(198, 125, 90, 0.03));
-    border: 1px solid var(--color-border);
-    border-radius: 16px;
-    padding: 32px 24px;
+  .pricing-body {
+    padding: 28px;
   }
 
-  .info-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 16px;
+  .pricing-items {
     display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .pricing-item {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 12px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border-light);
   }
 
-  .info-card h3::before {
-    content: "";
-    width: 40px;
-    height: 3px;
-    background: var(--color-accent);
-    border-radius: 2px;
+  .pricing-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
-  .info-card p {
+  .pricing-label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .pricing-name {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .pricing-duration {
+    font-size: 0.85rem;
     color: var(--color-text-muted);
-    line-height: 1.8;
-    margin-bottom: 16px;
   }
 
-  .info-card p:last-child {
-    margin-bottom: 0;
-  }
-
-  .info-card strong {
+  .pricing-amount {
+    font-size: 1.25rem;
+    font-weight: 700;
     color: var(--color-accent);
   }
 
-  .info-note {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--color-border);
-    font-size: 0.9rem;
+  .pricing-included {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-accent);
+  }
+
+  .pricing-info {
+    background: var(--color-bg-alt);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .pricing-info h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+
+  .pricing-info p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .pricing-info p:last-child {
+    margin-bottom: 0;
+  }
+
+  .pricing-info strong {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .pricing-note {
+    font-size: 0.875rem;
     font-style: italic;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border-light);
+  }
+
+  .pricing-link {
+    display: block;
+    margin-top: 8px;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .pricing-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
   }
 
   /* ============================================
@@ -462,44 +466,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
      ============================================ */
 
   @media (min-width: 640px) {
-    .age-topics ul {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .process-grid {
+    .treatment-list {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (min-width: 768px) {
-    .hero {
-      padding: 80px 0 100px;
+    .first-section {
+      padding-top: 80px;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-    }
-
-    .age-card {
-      padding: 40px 32px;
+    .service-card {
+      padding: 36px 40px;
     }
 
     .info-card {
       padding: 40px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .hero h1 {
-      font-size: 3.5rem;
-    }
-
-    .process-grid {
-      grid-template-columns: repeat(4, 1fr);
     }
   }
 </style>

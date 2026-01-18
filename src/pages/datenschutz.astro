@@ -27,8 +27,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
         <p>
           Susanne Hoppe<br />
-          [Adresse]<br />
-          E-Mail: [E-Mail]
+          <span data-contact="address" data-format="multiline">...</span><br />
+          E-Mail: <span data-contact="email">...</span>
         </p>
 
         <h2>2. Hosting</h2>
@@ -52,9 +52,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
         <p>
           Susanne Hoppe<br />
-          [Vollständige Adresse]<br />
-          Telefon: [Telefon]<br />
-          E-Mail: [E-Mail]
+          <span data-contact="address" data-format="multiline">...</span><br />
+          Telefon: <span data-contact="phone">...</span><br />
+          E-Mail: <span data-contact="email">...</span>
         </p>
 
         <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
@@ -208,3 +208,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   }
 </style>
+
+<script>
+  import { initContactProtection } from '../scripts/contact-protection';
+  initContactProtection();
+</script>

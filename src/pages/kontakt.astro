@@ -25,7 +25,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <div class="contact-content">
         <div class="contact-cards">
-          <a href="mailto:kontakt@susanne-hoppe.de" class="card contact-card contact-card-primary">
+          <a href="#" data-contact="email" class="card contact-card contact-card-primary">
             <div class="contact-card-header">
               <div class="feature-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -34,11 +34,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </div>
               <h3>E-Mail</h3>
             </div>
-            <p class="contact-value">kontakt@susanne-hoppe.de</p>
+            <p class="contact-value" data-contact="email">...</p>
             <p class="contact-note">Ich antworte in der Regel innerhalb von 24 Stunden</p>
           </a>
 
-          <a href="tel:TODO" class="card contact-card contact-card-secondary">
+          <a href="#" data-contact="phone" class="card contact-card contact-card-secondary">
             <div class="contact-card-header">
               <div class="feature-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -47,7 +47,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </div>
               <h3>Telefon</h3>
             </div>
-            <p class="contact-value">Nummer folgt</p>
+            <p class="contact-value" data-contact="phone">...</p>
             <p class="contact-note">Für schnelle Terminabsprachen</p>
           </a>
         </div>
@@ -248,3 +248,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   }
 </style>
+
+<script>
+  import { initContactProtection } from '../scripts/contact-protection';
+  initContactProtection();
+</script>
