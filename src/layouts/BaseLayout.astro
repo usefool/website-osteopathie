@@ -349,8 +349,12 @@ const currentPath = Astro.url.pathname;
 
       .footer-grid {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 32px;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 16px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
       }
 
       .footer h3 {
@@ -425,6 +429,11 @@ const currentPath = Astro.url.pathname;
 
         .footer-grid {
           grid-template-columns: 2fr 1fr 1fr;
+          gap: 32px;
+        }
+
+        .footer-brand {
+          grid-column: auto;
         }
       }
     </style>
