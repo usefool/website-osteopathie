@@ -243,11 +243,14 @@ function initServicesAnimations(): void {
 function detectPageAndInit(): void {
   const path = window.location.pathname;
 
-  if (path === '/' || path === '/index.html') {
+  // Home page (DE: /, EN: /en)
+  if (path === '/' || path === '/index.html' || path === '/en' || path === '/en/') {
     initHomeAnimations();
-  } else if (path.includes('ueber-mich')) {
+  // About page (DE: /ueber-mich, EN: /en/about)
+  } else if (path.includes('ueber-mich') || path.includes('/en/about')) {
     initAboutAnimations();
-  } else if (path.includes('leistungen')) {
+  // Services page (DE: /leistungen, EN: /en/services)
+  } else if (path.includes('leistungen') || path.includes('/en/services')) {
     initServicesAnimations();
   }
 }

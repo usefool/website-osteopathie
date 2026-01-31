@@ -1,0 +1,216 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description="Privacy Policy according to GDPR"
+  lang="en"
+>
+  <section class="legal-page">
+    <div class="container">
+      <div class="legal-content">
+        <h1>Privacy Policy</h1>
+
+        <h2>1. Privacy at a Glance</h2>
+
+        <h3>General Information</h3>
+        <p>
+          The following information provides a simple overview of what happens to your personal
+          data when you visit this website. Personal data is any data with which you can be
+          personally identified.
+        </p>
+
+        <h3>Data Collection on This Website</h3>
+        <p>
+          <strong>Who is responsible for data collection on this website?</strong><br />
+          Data processing on this website is carried out by the website operator:
+        </p>
+        <p>
+          Susanne Hoppe<br />
+          <span data-contact="address" data-format="multiline">...</span><br />
+          Email: <span data-contact="email">...</span>
+        </p>
+
+        <h2>2. Hosting</h2>
+        <p>
+          This website is hosted by Cloudflare. Cloudflare also processes data in the USA.
+          Cloudflare is a participant in the EU-US Data Privacy Framework.
+        </p>
+
+        <h2>3. General Information and Mandatory Information</h2>
+
+        <h3>Data Protection</h3>
+        <p>
+          The operators of these pages take the protection of your personal data very seriously.
+          We treat your personal data confidentially and in accordance with the statutory data
+          protection regulations and this privacy policy.
+        </p>
+
+        <h3>Information on the Responsible Party</h3>
+        <p>
+          The responsible party for data processing on this website is:
+        </p>
+        <p>
+          Susanne Hoppe<br />
+          <span data-contact="address" data-format="multiline">...</span><br />
+          Phone: <span data-contact="phone">...</span><br />
+          Email: <span data-contact="email">...</span>
+        </p>
+
+        <h3>Revocation of Your Consent to Data Processing</h3>
+        <p>
+          Many data processing operations are only possible with your express consent. You can
+          revoke consent that you have already given at any time. The legality of the data
+          processing carried out until the revocation remains unaffected by the revocation.
+        </p>
+
+        <h3>Right to Lodge a Complaint with the Competent Supervisory Authority</h3>
+        <p>
+          In the event of violations of the GDPR, data subjects have a right to lodge a complaint
+          with a supervisory authority. The competent supervisory authority for data protection
+          issues is the State Data Protection Officer of the federal state of Saxony.
+        </p>
+
+        <h2>4. Data Collection on This Website</h2>
+
+        <h3>Server Log Files</h3>
+        <p>
+          The provider of the pages automatically collects and stores information in so-called
+          server log files, which your browser automatically transmits to us. These are:
+        </p>
+        <ul>
+          <li>Browser type and browser version</li>
+          <li>Operating system used</li>
+          <li>Referrer URL</li>
+          <li>Hostname of the accessing computer</li>
+          <li>Time of the server request</li>
+          <li>IP address</li>
+        </ul>
+        <p>
+          This data is not merged with other data sources.
+        </p>
+
+        <h3>Contact Form</h3>
+        <p>
+          If you send us inquiries via the contact form, your details from the inquiry form,
+          including the contact details you provided there, will be stored by us for the purpose
+          of processing the inquiry and in case of follow-up questions. We do not share this
+          data without your consent.
+        </p>
+        <p>
+          The processing of this data is based on Art. 6 (1) lit. b GDPR if your request is
+          related to the performance of a contract or is necessary for the implementation of
+          pre-contractual measures. In all other cases, the processing is based on our legitimate
+          interest in the effective processing of inquiries addressed to us (Art. 6 (1) lit. f
+          GDPR).
+        </p>
+
+        <h2>5. Analytics Tools and Advertising</h2>
+
+        <h3>Cloudflare Web Analytics</h3>
+        <p>
+          This website uses Cloudflare Web Analytics. This analytics tool does not use cookies
+          and does not store any personal data. Only aggregated, anonymized data about the use
+          of the website is collected.
+        </p>
+
+        <h2>6. Your Rights</h2>
+        <p>You have the following rights:</p>
+        <ul>
+          <li>Right to information (Art. 15 GDPR)</li>
+          <li>Right to rectification (Art. 16 GDPR)</li>
+          <li>Right to erasure (Art. 17 GDPR)</li>
+          <li>Right to restriction of processing (Art. 18 GDPR)</li>
+          <li>Right to data portability (Art. 20 GDPR)</li>
+          <li>Right to object (Art. 21 GDPR)</li>
+        </ul>
+
+        <p class="legal-date">
+          Last updated: February 2026
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding: 48px 0 80px;
+  }
+
+  .legal-content {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .legal-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+
+  .legal-content h2 {
+    font-size: 1.375rem;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    color: var(--color-text);
+  }
+
+  .legal-content h3 {
+    font-size: 1.125rem;
+    margin-top: 28px;
+    margin-bottom: 12px;
+    color: var(--color-text);
+  }
+
+  .legal-content p {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .legal-content ul {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    padding-left: 24px;
+  }
+
+  .legal-content li {
+    margin-bottom: 8px;
+  }
+
+  .legal-content a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .legal-content a:hover {
+    text-decoration: underline;
+  }
+
+  .legal-content strong {
+    color: var(--color-text);
+  }
+
+  .legal-date {
+    margin-top: 48px;
+    font-size: 0.875rem;
+    font-style: italic;
+  }
+
+  @media (min-width: 768px) {
+    .legal-page {
+      padding: 80px 0 120px;
+    }
+
+    .legal-content h1 {
+      font-size: 3rem;
+    }
+  }
+</style>
+
+<script>
+  import { initContactProtection } from '../../scripts/contact-protection';
+  initContactProtection();
+</script>

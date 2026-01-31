@@ -1,0 +1,94 @@
+---
+/**
+ * Language Switcher Component
+ * Allows switching between German and English versions of the page
+ * Uses subtle flag icons
+ */
+
+interface Props {
+  lang: 'de' | 'en';
+  currentPath: string;
+}
+
+const { lang, currentPath } = Astro.props;
+
+// URL mappings between German and English
+const urlMappings: Record<string, string> = {
+  '/': '/en',
+  '/ueber-mich': '/en/about',
+  '/leistungen': '/en/services',
+  '/kontakt': '/en/contact',
+  '/impressum': '/en/imprint',
+  '/datenschutz': '/en/privacy',
+  // Reverse mappings
+  '/en': '/',
+  '/en/about': '/ueber-mich',
+  '/en/services': '/leistungen',
+  '/en/contact': '/kontakt',
+  '/en/imprint': '/impressum',
+  '/en/privacy': '/datenschutz',
+};
+
+// Normalize path (remove trailing slash except for root)
+function normalizePath(path: string): string {
+  if (path === '/') return path;
+  return path.replace(/\/$/, '');
+}
+
+const normalizedPath = normalizePath(currentPath);
+const otherLangPath = urlMappings[normalizedPath] || (lang === 'de' ? '/en' : '/');
+---
+
+<a
+  href={otherLangPath}
+  class="lang-switcher"
+  aria-label={lang === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln'}
+  hreflang={lang === 'de' ? 'en' : 'de'}
+  title={lang === 'de' ? 'English' : 'Deutsch'}
+>
+  {lang === 'de' ? (
+    <!-- UK Flag (switch to English) -->
+    <svg viewBox="0 0 60 40" class="flag-icon" aria-hidden="true">
+      <rect width="60" height="40" fill="#012169"/>
+      <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="6"/>
+      <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4" clip-path="polygon(30 0, 30 20, 60 20, 60 0, 30 0, 0 20, 0 40, 30 40, 30 20, 0 20)"/>
+      <path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="10"/>
+      <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="6"/>
+    </svg>
+  ) : (
+    <!-- German Flag (switch to German) -->
+    <svg viewBox="0 0 60 40" class="flag-icon" aria-hidden="true">
+      <rect width="60" height="13.33" y="0" fill="#000"/>
+      <rect width="60" height="13.34" y="13.33" fill="#DD0000"/>
+      <rect width="60" height="13.33" y="26.67" fill="#FFCC00"/>
+    </svg>
+  )}
+</a>
+
+<style>
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+
+  .lang-switcher:hover {
+    background-color: var(--color-bg-alt);
+    transform: scale(1.05);
+  }
+
+  .flag-icon {
+    width: 24px;
+    height: 16px;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+
+  .lang-switcher:hover .flag-icon {
+    opacity: 1;
+  }
+</style>

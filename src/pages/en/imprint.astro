@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Imprint"
+  description="Imprint - Information according to § 5 DDG"
+  lang="en"
+>
+  <section class="legal-page">
+    <div class="container">
+      <div class="legal-content">
+        <h1>Imprint</h1>
+
+        <h2>Information according to § 5 DDG</h2>
+        <p>
+          <strong>Susanne Hoppe</strong><br />
+          <span data-contact="address" data-format="multiline">...</span>
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Phone: <span data-contact="phone">...</span><br />
+          Email: <span data-contact="email">...</span>
+        </p>
+
+        <h2>Professional Title</h2>
+        <p>
+          Professional title: State-certified Physiotherapist<br />
+          Awarded in: Germany
+        </p>
+
+        <h2>Professional Regulations</h2>
+        <ul>
+          <li>Law on the Professions in Physiotherapy (Masseur- und Physiotherapeutengesetz – MPhG)</li>
+        </ul>
+        <p>
+          The professional regulations can be viewed on the website of the
+          <a href="https://www.gesetze-im-internet.de/" target="_blank" rel="noopener">
+            Federal Ministry of Justice (German)
+          </a>.
+        </p>
+
+        <h2>Supervisory Authority</h2>
+        <p>
+          Health Department Leipzig<br />
+          Friedrich-Ebert-Straße 19a<br />
+          04109 Leipzig, Germany
+        </p>
+
+        <h2>Healing Practice</h2>
+        <p>
+          The offered osteopathic treatments are provided on the basis of a medical
+          prescription within the framework of physiotherapeutic practice.
+        </p>
+
+        <h2>Professional Liability Insurance</h2>
+        <p>
+          <strong>Insurance company:</strong> Die Continentale<br />
+          <strong>Address:</strong> Rathenaustraße 9, 30159 Hannover, Germany<br />
+          <strong>Territorial scope:</strong> Germany
+        </p>
+
+        <h2>Dispute Resolution</h2>
+        <p>
+          The European Commission provides a platform for online dispute resolution (ODR):
+          <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">
+            https://ec.europa.eu/consumers/odr/
+          </a>
+        </p>
+        <p>
+          I am not willing or obliged to participate in dispute resolution proceedings before a
+          consumer arbitration board.
+        </p>
+
+        <h2>Liability for Content</h2>
+        <p>
+          As a service provider, I am responsible for my own content on these pages in accordance
+          with general laws pursuant to § 7 (1) DDG. However, according to §§ 8 to 10 DDG, I am
+          not obligated as a service provider to monitor transmitted or stored third-party
+          information or to investigate circumstances that indicate illegal activity.
+        </p>
+        <p>
+          Obligations to remove or block the use of information under general law remain
+          unaffected. However, liability in this regard is only possible from the time of
+          knowledge of a specific legal violation. Upon becoming aware of corresponding
+          violations, I will remove this content immediately.
+        </p>
+
+        <h2>Liability for Links</h2>
+        <p>
+          My offer contains links to external third-party websites over whose content I have no
+          influence. Therefore, I cannot assume any liability for this third-party content. The
+          respective provider or operator of the pages is always responsible for the content of
+          the linked pages.
+        </p>
+
+        <h2>Copyright</h2>
+        <p>
+          The content and works created by the site operators on these pages are subject to
+          German copyright law. Duplication, processing, distribution, and any kind of
+          exploitation outside the limits of copyright require the written consent of the
+          respective author or creator.
+        </p>
+
+        <h2>Note on Osteopathy</h2>
+        <p>
+          Osteopathy is a holistic manual therapy form based on activating the body's
+          self-healing powers. The information provided does not replace medical advice or
+          treatment by a physician.
+        </p>
+        <p>
+          The osteopathic treatments are provided on the basis of a medical prescription and do
+          not constitute healing promises. Treatment success cannot be guaranteed.
+        </p>
+        <p>
+          For acute complaints, unclear symptoms, or emergencies, please consult a physician.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding: 48px 0 80px;
+  }
+
+  .legal-content {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .legal-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+
+  .legal-content h2 {
+    font-size: 1.375rem;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    color: var(--color-text);
+  }
+
+  .legal-content p {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .legal-content ul {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    padding-left: 24px;
+  }
+
+  .legal-content li {
+    margin-bottom: 8px;
+  }
+
+  .legal-content a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .legal-content a:hover {
+    text-decoration: underline;
+  }
+
+  .legal-content strong {
+    color: var(--color-text);
+  }
+
+  @media (min-width: 768px) {
+    .legal-page {
+      padding: 80px 0 120px;
+    }
+
+    .legal-content h1 {
+      font-size: 3rem;
+    }
+  }
+</style>
+
+<script>
+  import { initContactProtection } from '../../scripts/contact-protection';
+  initContactProtection();
+</script>

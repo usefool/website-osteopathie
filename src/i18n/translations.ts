@@ -90,6 +90,17 @@ export const translations = {
 
     // Meta
     'meta.description': 'Mobile Kinderosteopathie in Leipzig - Susanne Hoppe. Osteopathische Behandlung für Ihr Kind bei Ihnen zuhause.',
+
+    // 404 Page
+    '404.title': 'Seite nicht gefunden',
+    '404.description': 'Die von Ihnen gesuchte Seite existiert leider nicht oder wurde verschoben.',
+    '404.suggestion': 'Vielleicht finden Sie auf einer der folgenden Seiten, was Sie suchen:',
+    '404.backHome': 'Zur Startseite',
+    '404.contact': 'Kontakt aufnehmen',
+    '404.orVisit': 'Oder besuchen Sie:',
+    '404.aboutDesc': 'Erfahren Sie mehr über meine Arbeit',
+    '404.servicesDesc': 'Osteopathie für Kinder aller Altersgruppen',
+    '404.contactDesc': 'Termin anfragen',
   },
 
   en: {
@@ -170,6 +181,17 @@ export const translations = {
 
     // Meta
     'meta.description': 'Mobile pediatric osteopathy in Leipzig - Susanne Hoppe. Osteopathic treatment for your child at your home.',
+
+    // 404 Page
+    '404.title': 'Page not found',
+    '404.description': 'The page you are looking for does not exist or has been moved.',
+    '404.suggestion': 'Perhaps you can find what you are looking for on one of the following pages:',
+    '404.backHome': 'Back to Home',
+    '404.contact': 'Get in Touch',
+    '404.orVisit': 'Or visit:',
+    '404.aboutDesc': 'Learn more about my work',
+    '404.servicesDesc': 'Osteopathy for children of all ages',
+    '404.contactDesc': 'Book an appointment',
   },
 } as const;
 

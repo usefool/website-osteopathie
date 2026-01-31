@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="The page you are looking for could not be found."
+  lang="en"
+>
+  <section class="error-page">
+    <div class="container">
+      <div class="error-content">
+        <span class="error-code">404</span>
+        <h1>Page Not <span class="accent">Found</span></h1>
+        <p>
+          The page you are looking for does not exist or has been moved.
+          Perhaps you can find what you are looking for on one of the following pages:
+        </p>
+
+        <div class="error-links">
+          <a href="/en" class="btn btn-primary">
+            Back to Home
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+          </a>
+          <a href="/en/contact" class="btn btn-secondary">
+            Get in Touch
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="error-nav">
+          <h2>Or visit:</h2>
+          <ul>
+            <li><a href="/en/about">About</a> – Learn more about my work</li>
+            <li><a href="/en/services">Services</a> – Osteopathy for children of all ages</li>
+            <li><a href="/en/contact">Contact</a> – Book an appointment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .error-page {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+  }
+
+  .error-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .error-code {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 8rem;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-border);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .error-content > p {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .error-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 48px;
+  }
+
+  .error-links svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .error-nav {
+    text-align: left;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border-light);
+    border-radius: 16px;
+    padding: 24px 28px;
+  }
+
+  .error-nav h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--color-text);
+  }
+
+  .error-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .error-nav li {
+    margin-bottom: 12px;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .error-nav li:last-child {
+    margin-bottom: 0;
+  }
+
+  .error-nav a {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  @media (min-width: 768px) {
+    .error-code {
+      font-size: 10rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+</style>

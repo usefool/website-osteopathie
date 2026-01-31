@@ -4,38 +4,105 @@
  * Mobile Kinderosteopathie Leipzig - Susanne Hoppe
  */
 
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import { t, type Lang } from '../i18n/translations';
+
 interface Props {
   title: string;
   description?: string;
+  lang?: Lang;
 }
 
 const {
   title,
-  description = 'Mobile Kinderosteopathie in Leipzig - Susanne Hoppe. Osteopathische Behandlung für Ihr Kind bei Ihnen zuhause.',
+  description,
+  lang = 'de',
 } = Astro.props;
 
-const siteTitle = 'Susanne Hoppe - Mobile Kinderosteopathie Leipzig';
+// Default descriptions per language
+const defaultDescription = lang === 'de'
+  ? 'Mobile Kinderosteopathie in Leipzig - Susanne Hoppe. Osteopathische Behandlung für Ihr Kind bei Ihnen zuhause.'
+  : 'Mobile pediatric osteopathy in Leipzig - Susanne Hoppe. Osteopathic treatment for your child at your home.';
+
+const finalDescription = description || defaultDescription;
+
+const siteTitle = lang === 'de'
+  ? 'Susanne Hoppe - Mobile Kinderosteopathie Leipzig'
+  : 'Susanne Hoppe - Mobile Pediatric Osteopathy Leipzig';
 const fullTitle = title === 'Home' ? siteTitle : `${title} | ${siteTitle}`;
 const siteUrl = 'https://kinderosteopathie-leipzig.de';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = `${siteUrl}/og-image.jpg`;
 
-const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/ueber-mich', label: 'Über mich' },
-  { href: '/leistungen', label: 'Leistungen' },
-  { href: '/kontakt', label: 'Kontakt' },
-];
+// Navigation items per language
+const navItems = lang === 'de'
+  ? [
+      { href: '/', label: 'Home' },
+      { href: '/ueber-mich', label: 'Über mich' },
+      { href: '/leistungen', label: 'Leistungen' },
+      { href: '/kontakt', label: 'Kontakt' },
+    ]
+  : [
+      { href: '/en', label: 'Home' },
+      { href: '/en/about', label: 'About' },
+      { href: '/en/services', label: 'Services' },
+      { href: '/en/contact', label: 'Contact' },
+    ];
+
+// Legal links per language
+const legalLinks = lang === 'de'
+  ? [
+      { href: '/impressum', label: 'Impressum' },
+      { href: '/datenschutz', label: 'Datenschutz' },
+    ]
+  : [
+      { href: '/en/imprint', label: 'Imprint' },
+      { href: '/en/privacy', label: 'Privacy Policy' },
+    ];
+
+// hreflang URL mappings
+const hreflangUrls: Record<string, { de: string; en: string }> = {
+  '/': { de: '/', en: '/en' },
+  '/en': { de: '/', en: '/en' },
+  '/ueber-mich': { de: '/ueber-mich', en: '/en/about' },
+  '/en/about': { de: '/ueber-mich', en: '/en/about' },
+  '/leistungen': { de: '/leistungen', en: '/en/services' },
+  '/en/services': { de: '/leistungen', en: '/en/services' },
+  '/kontakt': { de: '/kontakt', en: '/en/contact' },
+  '/en/contact': { de: '/kontakt', en: '/en/contact' },
+  '/impressum': { de: '/impressum', en: '/en/imprint' },
+  '/en/imprint': { de: '/impressum', en: '/en/imprint' },
+  '/datenschutz': { de: '/datenschutz', en: '/en/privacy' },
+  '/en/privacy': { de: '/datenschutz', en: '/en/privacy' },
+};
 
 const currentPath = Astro.url.pathname;
+const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
+const hreflang = hreflangUrls[normalizedPath] || { de: '/', en: '/en' };
+
+// Accessibility labels per language
+const a11y = {
+  skipToContent: lang === 'de' ? 'Zum Inhalt springen' : 'Skip to content',
+  openMenu: lang === 'de' ? 'Menü öffnen' : 'Open menu',
+};
+
+// Footer text
+const footerText = {
+  tagline: lang === 'de'
+    ? 'Kinderphysiotherapeutin | Kinderosteopathie'
+    : 'Pediatric Physiotherapist | Pediatric Osteopathy',
+  navigation: lang === 'de' ? 'Navigation' : 'Navigation',
+  legal: lang === 'de' ? 'Rechtliches' : 'Legal',
+  copyright: lang === 'de' ? 'Alle Rechte vorbehalten.' : 'All rights reserved.',
+};
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
+    <meta name="description" content={finalDescription} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{fullTitle}</title>
 
@@ -50,22 +117,27 @@ const currentPath = Astro.url.pathname;
     <link rel="canonical" href={canonicalUrl} />
     <meta name="robots" content="index, follow" />
 
+    <!-- hreflang tags for language variants -->
+    <link rel="alternate" hreflang="de" href={`${siteUrl}${hreflang.de}`} />
+    <link rel="alternate" hreflang="en" href={`${siteUrl}${hreflang.en}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${hreflang.de}`} />
+
     <!-- Open Graph -->
     <meta property="og:title" content={fullTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={finalDescription} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="de_DE" />
+    <meta property="og:locale" content={lang === 'de' ? 'de_DE' : 'en_US'} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content={siteTitle} />
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Susanne Hoppe - Mobile Kinderosteopathie Leipzig" />
+    <meta property="og:image:alt" content={lang === 'de' ? 'Susanne Hoppe - Mobile Kinderosteopathie Leipzig' : 'Susanne Hoppe - Mobile Pediatric Osteopathy Leipzig'} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={finalDescription} />
     <meta name="twitter:image" content={ogImageUrl} />
 
     <!-- Structured Data (Schema.org) -->
@@ -125,38 +197,42 @@ const currentPath = Astro.url.pathname;
     })} />
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+    <a href="#main-content" class="skip-link">{a11y.skipToContent}</a>
 
     <header class="header">
       <div class="container header-inner">
-        <a href="/" class="logo">Susanne Hoppe</a>
+        <a href={lang === 'de' ? '/' : '/en'} class="logo">Susanne Hoppe</a>
 
         <nav class="nav-desktop">
           {navItems.map((item) => (
             <a
               href={item.href}
-              class={`nav-link ${currentPath === item.href ? 'active' : ''}`}
+              class={`nav-link ${normalizedPath === item.href ? 'active' : ''}`}
             >
               {item.label}
             </a>
           ))}
+          <LanguageSwitcher lang={lang} currentPath={currentPath} />
         </nav>
 
-        <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
-          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+        <div class="mobile-header-right">
+          <LanguageSwitcher lang={lang} currentPath={currentPath} />
+          <button class="menu-toggle" aria-label={a11y.openMenu} aria-expanded="false">
+            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
       </div>
 
       <nav class="nav-mobile">
         {navItems.map((item) => (
           <a
             href={item.href}
-            class={`nav-mobile-link ${currentPath === item.href ? 'active' : ''}`}
+            class={`nav-mobile-link ${normalizedPath === item.href ? 'active' : ''}`}
           >
             {item.label}
           </a>
@@ -173,11 +249,11 @@ const currentPath = Astro.url.pathname;
         <div class="footer-grid">
           <div class="footer-brand">
             <h3>Susanne Hoppe</h3>
-            <p>Kinderphysiotherapeutin | Kinderosteopathie</p>
+            <p>{footerText.tagline}</p>
           </div>
 
           <div class="footer-nav">
-            <h3>Navigation</h3>
+            <h3>{footerText.navigation}</h3>
             <ul>
               {navItems.map((item) => (
                 <li><a href={item.href}>{item.label}</a></li>
@@ -186,16 +262,17 @@ const currentPath = Astro.url.pathname;
           </div>
 
           <div class="footer-legal">
-            <h3>Rechtliches</h3>
+            <h3>{footerText.legal}</h3>
             <ul>
-              <li><a href="/impressum">Impressum</a></li>
-              <li><a href="/datenschutz">Datenschutz</a></li>
+              {legalLinks.map((item) => (
+                <li><a href={item.href}>{item.label}</a></li>
+              ))}
             </ul>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Susanne Hoppe. Alle Rechte vorbehalten.</p>
+          <p>&copy; {new Date().getFullYear()} Susanne Hoppe. {footerText.copyright}</p>
         </div>
       </div>
     </footer>
@@ -270,6 +347,13 @@ const currentPath = Astro.url.pathname;
       .nav-link:hover,
       .nav-link.active {
         color: var(--color-accent);
+      }
+
+      /* Mobile Header Right (lang switcher + menu toggle) */
+      .mobile-header-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
       }
 
       /* Mobile Menu Toggle */
@@ -417,6 +501,10 @@ const currentPath = Astro.url.pathname;
       @media (min-width: 768px) {
         .nav-desktop {
           display: flex;
+        }
+
+        .mobile-header-right {
+          display: none;
         }
 
         .menu-toggle {
