@@ -1,5 +1,11 @@
 # Projekt-Wissen
 
+## Domain & Hosting
+
+- **Domain:** `susanne-hoppe.de`
+- **Hosting:** Cloudflare Pages (Projekt: `susanne-osteopathie`)
+- **Repository:** https://github.com/SuHo175/website
+
 ## Mehrsprachigkeit
 
 **Deutsch ist die Referenz.** Bei allen Änderungen an Inhalten immer auch die englische Version aktualisieren.

@@ -2,7 +2,7 @@
 
 Website für **Susanne Hoppe** – Mobile Kinderosteopathie in Leipzig.
 
-**Live:** https://kinderosteopathie-leipzig.de
+**Live:** https://susanne-hoppe.de
 
 ## Tech Stack
 
@@ -113,7 +113,7 @@ npm run build
 npx wrangler pages deploy dist --project-name=susanne-osteopathie
 ```
 
-Die Domain `kinderosteopathie-leipzig.de` ist mit dem Cloudflare-Projekt verbunden.
+Die Domain `susanne-hoppe.de` ist mit dem Cloudflare-Projekt verbunden.
 
 ## Entwicklungshinweise
 

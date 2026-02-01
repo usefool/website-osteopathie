@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://kinderosteopathie-leipzig.de',
+  site: 'https://susanne-hoppe.de',
   i18n: {
     defaultLocale: 'de',
     locales: ['de', 'en'],
