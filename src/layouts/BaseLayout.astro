@@ -94,6 +94,9 @@ const footerText = {
   navigation: lang === 'de' ? 'Navigation' : 'Navigation',
   legal: lang === 'de' ? 'Rechtliches' : 'Legal',
   copyright: lang === 'de' ? 'Alle Rechte vorbehalten.' : 'All rights reserved.',
+  disclaimer: lang === 'de'
+    ? 'Die osteopathischen Behandlungen erfolgen auf Grundlage einer ärztlichen Verordnung und stellen keine Heilversprechen dar. Ein Behandlungserfolg kann nicht garantiert werden.'
+    : 'Osteopathic treatments are provided on the basis of a medical prescription and do not constitute a promise of cure. Treatment success cannot be guaranteed.',
 };
 ---
 
@@ -273,6 +276,7 @@ const footerText = {
 
         <div class="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Susanne Hoppe. {footerText.copyright}</p>
+          <p class="footer-disclaimer">{footerText.disclaimer}</p>
         </div>
       </div>
     </footer>
@@ -492,6 +496,15 @@ const footerText = {
         font-size: 0.875rem;
         color: var(--color-text-muted);
         margin: 0;
+      }
+
+      .footer-disclaimer {
+        font-size: 0.75rem;
+        color: var(--color-text-muted);
+        opacity: 0.7;
+        margin-top: 12px !important;
+        line-height: 1.5;
+        padding: 0 20%;
       }
 
       /* ============================================

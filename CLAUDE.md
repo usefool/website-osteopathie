@@ -1,5 +1,18 @@
 # Projekt-Wissen
 
+## Mehrsprachigkeit
+
+**Deutsch ist die Referenz.** Bei allen Änderungen an Inhalten immer auch die englische Version aktualisieren.
+
+| Deutsch | Englisch |
+|---------|----------|
+| `/` | `/en` |
+| `/ueber-mich` | `/en/about` |
+| `/leistungen` | `/en/services` |
+| `/kontakt` | `/en/contact` |
+| `/impressum` | `/en/imprint` |
+| `/datenschutz` | `/en/privacy` |
+
 ## Fallstricke
 
 ### Motion One + CSS Hover
